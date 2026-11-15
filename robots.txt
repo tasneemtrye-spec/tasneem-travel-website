@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://radiant-croissant-35a840.netlify.app/sitemap.xml
