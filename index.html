@@ -147,10 +147,45 @@ section{padding:clamp(58px,6.2vw,82px) 0}
 .location-icon{background:#e7d5ae;color:#603f20}
 @media(max-width:700px){.contact-social a{min-height:34px}.contact-icon{width:30px;height:30px;flex-basis:30px}}
 
+
+/* Hero and footer refinement: prevent the previous boxed-aircraft look */
+.topline-contact{gap:18px}
+.topline-contact>a{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.top-contact-icon{font-size:18px;line-height:1}
+.top-contact-icon.mail{color:#e8f3ef}.top-contact-icon.phone{color:#fff}
+.top-socials{display:inline-flex;align-items:center;gap:10px;padding-inline-start:16px;border-inline-start:1px solid #ffffff55}
+.top-socials a{width:29px;height:29px;display:grid;place-items:center;border-radius:8px;color:#fff;font-weight:900;font-size:17px;line-height:1}
+.top-socials .wa{background:#20c96b}.top-socials .ig{background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045)}.top-socials .fb{background:#1877f2}.top-socials .yt{background:#ff0033;font-size:13px}
+.hero{min-height:660px;background-image:linear-gradient(90deg,rgba(3,38,39,.05) 0%,rgba(3,45,43,.12) 36%,rgba(3,43,42,.91) 60%,#032d2b 100%),url('https://www.portofaden.net/uploads/media/2022/02/14/11.jpg');background-size:cover;background-position:center 48%}
+.hero:before{opacity:.08;mix-blend-mode:soft-light}
+.hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:30px;padding:64px 0 78px}
+.hero-grid>div:first-child{position:relative;z-index:2;text-align:right;padding:34px 24px 34px 0}
+.hero h1{font-size:clamp(42px,5vw,68px);text-shadow:0 3px 24px #001d1dcc}
+.hero p{margin-inline-start:auto;text-shadow:0 2px 14px #001d1d}
+.plane-frame{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;transform:none;position:relative;isolation:isolate}
+.plane-frame:before{content:"";position:absolute;inset:12% -12% 4% 2%;border:2px solid #d7aa4e;border-radius:48% 8% 42% 10%;transform:rotate(-7deg);z-index:-1;opacity:.8}
+.plane-frame img{height:clamp(300px,36vw,470px);object-fit:contain;object-position:center;mix-blend-mode:screen;filter:drop-shadow(0 24px 28px #001c1c99) saturate(1.12);border-radius:0}
+.plane-caption{right:7%;bottom:4%;background:#032f2de8;border:1px solid #d9b56c;padding:10px 15px}
+.trustbar{margin-top:-32px}
+.trust-grid{border:2px solid #d7aa4e;border-radius:28px;box-shadow:0 18px 48px #001d1d33;padding:18px 22px}
+.trust-item{min-height:66px;padding-inline:12px}
+.trust-item:not(:last-child){border-left:1px solid #c6c9c1}
+.trust-icon{border-radius:50%;width:48px;height:48px;background:#dceee8}
+.foot-grid{grid-template-columns:1.15fr .85fr 1.25fr;gap:54px;align-items:start}
+.foot-links{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.contact-social{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px!important;align-items:center}
+.contact-social a{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;min-width:0;white-space:normal;line-height:1.5;padding:4px 0}
+.contact-social a > .contact-icon{width:32px;height:32px;flex:0 0 32px;display:inline-grid;place-items:center;border-radius:9px;font-size:17px;font-weight:800;line-height:1}
+.contact-social a > span:not(.contact-icon){display:inline!important;width:auto!important;height:auto!important;flex:1 1 auto;min-width:0;background:transparent!important;color:#d4e2df!important;place-items:initial!important;white-space:normal}
+.contact-social a:hover > span:not(.contact-icon){color:#f0c779!important}
+.social-note{line-height:1.8;max-width:38ch}
+@media(max-width:900px){.hero{background-position:42% center}.hero-grid{grid-template-columns:1fr;gap:12px;padding:34px 0 58px}.hero-grid>div:first-child{order:1;padding:10px 0 0}.plane-frame{order:2;max-width:620px;width:100%;margin:0 auto}.plane-frame img{height:310px}.hero h1{font-size:clamp(36px,8vw,54px)}.trust-grid{grid-template-columns:repeat(2,1fr);gap:8px}.trust-item:nth-child(2){border-left:0}.foot-grid{grid-template-columns:1fr 1fr;gap:28px}.foot-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:600px){.topline .wrap{align-items:flex-start}.topline-contact{gap:9px 12px}.top-socials{padding-inline-start:8px;gap:6px}.top-socials a{width:25px;height:25px}.hero{min-height:0;background-position:35% center}.hero-grid{padding:26px 0 55px}.plane-frame img{height:240px}.plane-caption{font-size:10px;right:3%;bottom:0}.hero-note{gap:10px;font-size:11px}.trust-grid{padding:12px;gap:5px}.trust-item{justify-content:flex-start;padding:8px 4px;gap:8px}.trust-item b{font-size:12px}.trust-item small{font-size:10px}.trust-icon{width:36px;height:36px;flex-basis:36px}.foot-grid{grid-template-columns:1fr;gap:24px}.foot-grid>div:first-child{grid-column:auto}.contact-social{grid-template-columns:1fr!important}.copyright{font-size:11px}}
+
 </style>
 </head>
 <body>
-<div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
+<div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="mailto:tasneemtrye@gmail.com"><span class="top-contact-icon mail">✉</span>tasneemtrye@gmail.com</a><a href="tel:+966537017117" dir="ltr"><span class="top-contact-icon phone">☎</span>+966 53 701 7117</a><span class="top-socials" aria-label="حسابات تسنيم الرسمية"><a href="https://wa.me/966537017117" target="_blank" rel="noopener noreferrer" aria-label="واتساب" class="wa">◉</a><a href="https://whatsapp.com/channel/0029Vb8xbJOGk1G0KTssqZ2d" target="_blank" rel="noopener noreferrer" aria-label="قناة واتساب" class="wa">◉</a><a href="https://instagram.com/tasneemtrye" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" class="ig">◎</a><a href="https://facebook.com/tasneemtrye" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" class="fb">f</a><a href="https://www.youtube.com/@tasneemtrye" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب" class="yt">▶</a></span></div></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
