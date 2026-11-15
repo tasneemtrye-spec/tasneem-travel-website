@@ -214,3 +214,47 @@
 
 ### الحالة
 تظل إشعارات الحجوزات غير مهيأة. يلزم استكمال OAuth مع مالك الحساب قبل أي إرسال تجريبي أو إنتاجي.
+
+
+## المرحلة الحادية عشرة — تجهيز مسار Gmail OAuth في فرع المراجعة فقط
+
+استجابة لطلب المالك إعداد عنوان إعادة التوجيه وآلية استقبال OAuth، أُضيفت ملفات مصدرية إلى الفرع `review/unification-2026-11-15` فقط:
+
+1. `supabase/functions/gmail-oauth-start/index.ts`
+   - نقطة بدء محمية بطلب POST مع JWT.
+   - تقبل فقط جلسة مسؤول البريد `tasneemtrye@gmail.com`، وأصل الموقع الحالي على Cloudflare Preview.
+   - تنشئ state موقّعاً بـ HMAC وصالحاً لعشر دقائق.
+   - تطلب الصلاحيات المحدودة `openid email` و`gmail.send` فقط، وتطلب offline access.
+2. `supabase/functions/gmail-oauth-callback/index.ts`
+   - نقطة استقبال Google OAuth، مصممة للعمل دون Supabase JWT لأن Google لا يرسل JWT الخاص بالمشروع.
+   - تتحقق من توقيع state ومدة صلاحيته، ثم تستبدل authorization code لمرة واحدة برموز Google.
+   - تتحقق من هوية حساب Google عبر OpenID Connect، ولا تعرض refresh token إلا إذا كان البريد الموثق `tasneemtrye@gmail.com`.
+   - لا تسجل الرموز في السجلات ولا تخزنها في قاعدة البيانات؛ تعرض refresh token في استجابة مؤقتة لا تُخزن في المتصفح، ليُحفظ لاحقاً يدوياً كـ Supabase secret.
+3. `docs/GMAIL-OAUTH-SETUP.md`
+   - يوثق عنوان إعادة التوجيه الدقيق، وضع التحقق المطلوب لكل دالة، أسماء الأسرار اللازمة، وحدود وضع Testing.
+
+### عنوان إعادة التوجيه الدقيق
+
+```
+https://kbllhakivjduwanefvtf.supabase.co/functions/v1/gmail-oauth-callback
+```
+
+هذا هو العنوان الذي يمكن تسجيله في Google OAuth Client تحت Authorized redirect URIs بعد مراجعة الكود والموافقة على نشر الدالة. لا حاجة لإضافة Authorized JavaScript origin لهذا التدفق الخادمي.
+
+### تحذير حاسم بشأن Google Testing
+
+أكدت مراجعة وثائق Google الرسمية الحالية أن OAuth app من نوع External وفي وضع Testing يصدر refresh token ينتهي بعد 7 أيام عند طلب نطاقات Gmail، والاستثناء يقتصر على نطاقات الهوية الأساسية فقط. كما تصنف Google النطاق `gmail.send` بأنه Sensitive ويتطلب تحقق OAuth إضافياً بحسب حالة التطبيق، مع وجود استثناءات لحالات الاستخدام الشخصي/الاختبار وفق شروط Google. لذلك لا نعتبر هذا الإعداد جاهزاً لإشعارات الإنتاج الدائمة بمجرد نجاح التفويض.
+
+### حالة التنفيذ والتحقق
+
+- أُنشئت ملفات المصدر في GitHub review branch فقط.
+- لم يتم نشر أي Edge Function على Supabase.
+- لم يتم تعديل أسرار Supabase أو قاعدة البيانات أو إعدادات Cloudflare.
+- لم يتم إنشاء OAuth Client ID/Secret أو تفويض حساب Gmail أو الحصول على refresh token.
+- لم يُضف بعد زر إلى لوحة الإدارة لاستدعاء `gmail-oauth-start`.
+- لم يُنفذ Deno type-check أو اختبار حي؛ المراجعة الحالية مراجعة مصدرية أولية فقط.
+- لم يتم إرسال أي بريد أو حجز تجريبي.
+
+### قرار المرحلة التالية
+
+العنوان الدقيق جاهز للتسجيل في Google OAuth Client من حيث التصميم، لكن يجب عدم الضغط على Create أو تفويض Gmail قبل اعتماد المالك لمسار النشر والاختبار. يلزم أولاً مراجعة الكود واختباره محلياً/ساكناً، ثم موافقة منفصلة على نشر الدالتين وإضافة أسرارها. ولا نوصي بتشغيل إنتاجي دائم في وضع Testing بسبب انتهاء refresh token بعد 7 أيام.
