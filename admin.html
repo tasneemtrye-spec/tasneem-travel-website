@@ -30,7 +30,7 @@ a{color:var(--teal)}@media(max-width:650px){.wrap{margin:16px auto}.card{padding
 </section>
 <section id="recovery-card" class="card hidden"><h1>إنشاء كلمة مرور جديدة</h1><p class="muted">أدخل كلمة مرور جديدة لحساب إدارة تسنيم.</p><form id="recovery-form"><label for="new-password">كلمة المرور الجديدة</label><input id="new-password" type="password" autocomplete="new-password" minlength="8" required><label for="confirm-password">تأكيد كلمة المرور</label><input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required><div class="row" style="margin-top:16px"><button id="save-password" type="submit">حفظ كلمة المرور</button></div><p id="recovery-feedback" class="feedback" role="status"></p></form></section>
 <section id="dashboard" class="hidden">
-<div class="card"><div class="row" style="justify-content:space-between"><div><h1>طلبات السفر والحجوزات</h1><p class="muted">عرض الطلبات الواردة وتحديث حالتها وإضافة ملاحظات داخلية.</p></div><div class="row"><button id="refresh" class="secondary">تحديث الطلبات</button><button id="logout" class="secondary">تسجيل الخروج</button></div></div>
+<div class="card"><div class="row" style="justify-content:space-between"><div><h1>طلبات السفر والحجوزات</h1><p class="muted">عرض الطلبات الواردة وتحديث حالتها وإضافة ملاحظات داخلية.</p></div><div class="row"><button id="refresh" class="secondary">تحديث الطلبات</button><button id="gmail-connect">ربط Gmail</button><button id="logout" class="secondary">تسجيل الخروج</button></div></div>
 <div class="stats"><div class="stat"><span class="muted">إجمالي الطلبات</span><b id="total">0</b></div><div class="stat"><span class="muted">طلبات جديدة</span><b id="new-count">0</b></div><div class="stat"><span class="muted">طلبات مؤكدة</span><b id="confirmed-count">0</b></div></div><p id="dash-feedback" class="feedback" role="status"></p></div>
 <div class="card"><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>العميل</th><th>التواصل</th><th>الخدمة والوجهة</th><th>تفاصيل الرحلة</th><th>الحالة والملاحظات</th></tr></thead><tbody id="bookings"><tr><td colspan="6">جارٍ تحميل الطلبات…</td></tr></tbody></table></div></div>
 </section>
@@ -67,6 +67,20 @@ async function loadBookings(){
   }));
   msg($("dash-feedback"),"تم تحميل الطلبات.","success");
 }
+$("gmail-connect").addEventListener("click",async()=>{
+  const button=$("gmail-connect");button.disabled=true;msg($("dash-feedback"),"جارٍ تجهيز ربط Gmail…");
+  try{
+    const {data,error}=await supabase.functions.invoke("gmail-oauth-start",{method:"POST"});
+    if(error) throw error;
+    const target=data?.authorization_url;
+    if(typeof target!=="string"||!target.startsWith("https://accounts.google.com/")) throw new Error("invalid_authorization_url");
+    window.location.assign(target);
+  }catch(error){
+    console.error("Gmail OAuth start failed",error?.message||"unknown");
+    msg($("dash-feedback"),"تعذر بدء ربط Gmail. تحقق من إعداد الأسرار الثلاثة ثم أعد المحاولة.","error");
+    button.disabled=false;
+  }
+});
 async function showSession(){
  const {data:{session}}=await supabase.auth.getSession();
  if(session){const email=session.user.email?.toLowerCase();if(email!=="tasneemtrye@gmail.com"){await supabase.auth.signOut();msg($("login-feedback"),"هذا الحساب غير مخوّل لإدارة الموقع.","error");return}loginCard.classList.add("hidden");dashboard.classList.remove("hidden");await loadBookings()}
