@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Sitemap: https://radiant-croissant-35a840.netlify.app/sitemap.xml
+Sitemap: https://tasneem-travel-preview.pages.dev/sitemap.xml

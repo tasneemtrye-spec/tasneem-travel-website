@@ -26,8 +26,9 @@ a{color:var(--teal)}@media(max-width:650px){.wrap{margin:16px auto}.card{padding
 <header class="head"><a class="brand" href="/"><img src="assets/tasneem-official.webp" alt=""> <span>تسنيم للسفريات والسياحة<br><small class="muted">لوحة إدارة الطلبات</small></span></a><a href="/" class="muted">العودة للموقع ←</a></header>
 <section id="login-card" class="card">
 <h1>دخول الإدارة</h1><p class="muted">هذه الصفحة مخصصة لإدارة طلبات العملاء. الدخول محصور بحساب الإدارة المعتمد.</p>
-<form id="login-form"><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" required value="tasneemtrye@gmail.com"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required minlength="8"><div class="row" style="margin-top:16px"><button id="login-button" type="submit">تسجيل الدخول</button></div><p id="login-feedback" class="feedback" role="status"></p></form>
+<form id="login-form"><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" required value="tasneemtrye@gmail.com"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required minlength="8"><div class="row" style="margin-top:16px"><button id="login-button" type="submit">تسجيل الدخول</button><button id="forgot-button" class="secondary" type="button">نسيت كلمة المرور؟</button></div><p id="login-feedback" class="feedback" role="status"></p></form>
 </section>
+<section id="recovery-card" class="card hidden"><h1>إنشاء كلمة مرور جديدة</h1><p class="muted">أدخل كلمة مرور جديدة لحساب إدارة تسنيم.</p><form id="recovery-form"><label for="new-password">كلمة المرور الجديدة</label><input id="new-password" type="password" autocomplete="new-password" minlength="8" required><label for="confirm-password">تأكيد كلمة المرور</label><input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required><div class="row" style="margin-top:16px"><button id="save-password" type="submit">حفظ كلمة المرور</button></div><p id="recovery-feedback" class="feedback" role="status"></p></form></section>
 <section id="dashboard" class="hidden">
 <div class="card"><div class="row" style="justify-content:space-between"><div><h1>طلبات السفر والحجوزات</h1><p class="muted">عرض الطلبات الواردة وتحديث حالتها وإضافة ملاحظات داخلية.</p></div><div class="row"><button id="refresh" class="secondary">تحديث الطلبات</button><button id="logout" class="secondary">تسجيل الخروج</button></div></div>
 <div class="stats"><div class="stat"><span class="muted">إجمالي الطلبات</span><b id="total">0</b></div><div class="stat"><span class="muted">طلبات جديدة</span><b id="new-count">0</b></div><div class="stat"><span class="muted">طلبات مؤكدة</span><b id="confirmed-count">0</b></div></div><p id="dash-feedback" class="feedback" role="status"></p></div>
@@ -40,7 +41,7 @@ const URL="https://kbllhakivjduwanefvtf.supabase.co";
 const KEY="sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS";
 const supabase=createClient(URL,KEY);
 const $=id=>document.getElementById(id);
-const loginCard=$("login-card"),dashboard=$("dashboard");
+const loginCard=$("login-card"),dashboard=$("dashboard"),recoveryCard=$("recovery-card");
 const statusLabels={new:"جديد",contacted:"تم التواصل",in_progress:"قيد المتابعة",confirmed:"مؤكد",cancelled:"ملغي",closed:"مغلق"};
 function msg(el,text,type=""){el.textContent=text;el.className="feedback "+type}
 function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
@@ -70,10 +71,12 @@ async function showSession(){
  const {data:{session}}=await supabase.auth.getSession();
  if(session){const email=session.user.email?.toLowerCase();if(email!=="tasneemtrye@gmail.com"){await supabase.auth.signOut();msg($("login-feedback"),"هذا الحساب غير مخوّل لإدارة الموقع.","error");return}loginCard.classList.add("hidden");dashboard.classList.remove("hidden");await loadBookings()}
 }
+$("forgot-button").addEventListener("click",async()=>{const email=$("email").value.trim();if(!email){msg($("login-feedback"),"أدخل بريدك الإلكتروني أولاً.","error");return} $("forgot-button").disabled=true;const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/admin.html"});$("forgot-button").disabled=false;msg($("login-feedback"),error?"تعذر إرسال رابط الاستعادة. حاول لاحقاً.":"تم إرسال رابط الاستعادة إلى بريدك. افتحه لإعداد كلمة مرور جديدة هنا.","success")});
+$("recovery-form").addEventListener("submit",async e=>{e.preventDefault();const p=$("new-password").value,confirm=$("confirm-password").value;if(p.length<8){msg($("recovery-feedback"),"كلمة المرور يجب أن تكون 8 أحرف على الأقل.","error");return}if(p!==confirm){msg($("recovery-feedback"),"كلمتا المرور غير متطابقتين.","error");return}$("save-password").disabled=true;const {error}=await supabase.auth.updateUser({password:p});$("save-password").disabled=false;if(error){msg($("recovery-feedback"),"تعذر حفظ كلمة المرور. اطلب رابط استعادة جديداً.","error");return}await supabase.auth.signOut();recoveryCard.classList.add("hidden");loginCard.classList.remove("hidden");msg($("login-feedback"),"تم تعيين كلمة المرور. يمكنك تسجيل الدخول الآن.","success")});
+supabase.auth.onAuthStateChange((event)=>{if(event==="PASSWORD_RECOVERY"){loginCard.classList.add("hidden");dashboard.classList.add("hidden");recoveryCard.classList.remove("hidden")}else if(event==="SIGNED_IN"){showSession()}});
 $("login-form").addEventListener("submit",async e=>{e.preventDefault();$("login-button").disabled=true;msg($("login-feedback"),"جارٍ تسجيل الدخول…");const {error}=await supabase.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});$("login-button").disabled=false;if(error){msg($("login-feedback"),"تعذر تسجيل الدخول. تحقق من بيانات الحساب أو أنشئ مستخدم الإدارة في Supabase Auth.","error");return}await showSession()});
 $("refresh").addEventListener("click",loadBookings);
 $("logout").addEventListener("click",async()=>{await supabase.auth.signOut();dashboard.classList.add("hidden");loginCard.classList.remove("hidden")});
-supabase.auth.onAuthStateChange(()=>{showSession()});
 showSession();
 </script>
 </body></html>
