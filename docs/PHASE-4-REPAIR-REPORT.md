@@ -80,3 +80,31 @@
 4. عدم النشر أو الدمج أو إرسال طلبات حجز في هذه المرحلة.
 
 هذه المرحلة مراجعة قراءة فقط؛ لا تغييرات تشغيلية تمت على Supabase أو Cloudflare.
+
+
+## المرحلة السادسة — مراجعة صلاحيات لوحة الإدارة وحماية بيانات الحجوزات (قراءة فقط)
+
+تم فحص إعدادات PostgreSQL مباشرة دون تعديل أي بيانات أو سياسات:
+
+### نتائج RLS والسياسات
+- RLS مفعّل على الجدولين `public.booking_requests` و`public.booking_rate_limits`.
+- `booking_requests`: سياسة SELECT للمستخدمين `authenticated` فقط بشرط `is_tasneem_admin()`.
+- `booking_requests`: سياسة UPDATE للمستخدمين `authenticated` فقط، مع شرط `is_tasneem_admin()` لكل من USING وWITH CHECK.
+- لا توجد سياسة INSERT أو DELETE لعملاء `anon` أو `authenticated` على `booking_requests`؛ الإدخال يتم من مسار الخادم/الدالة باستخدام صلاحياتها.
+- `booking_rate_limits`: سياسة تمنع كل عمليات الوصول المباشر من `anon` و`authenticated` بشرط false.
+- صلاحية SELECT على `booking_requests` ممنوحة لدور authenticated وتظل مقيدة بسياسة RLS.
+
+### وظائف قاعدة البيانات
+- `is_tasneem_admin()` تتحقق من أن بريد JWT يساوي `tasneemtrye@gmail.com`، وتستخدم `search_path` فارغاً.
+- `consume_booking_rate_limit(text)` تعمل بصلاحية SECURITY DEFINER وتستخدم `search_path` فارغاً، وتحد الطلبات إلى خمسة ضمن نافذة 15 دقيقة لكل قيمة hash مرسلة.
+- لا توجد تغييرات على تعريفات الوظائف أو صلاحياتها.
+
+### المستشارون
+- Security Advisor ما زال يعرض تحذيراً واحداً: `auth_leaked_password_protection` معطّل.
+- Health Advisor لا يعرض ملاحظات.
+- لم يتم تنفيذ اختبار حي لتسجيل الدخول أو إرسال حجز، ولم يتم إجراء اختبار وصول غير مصرح به على بيانات العملاء.
+
+### التقييم والحدود
+- ضوابط RLS الحالية تقصر قراءة وتحديث الحجوزات على جلسة مصادق عليها تحمل بريد مسؤول تسنيم المحدد، وفق السياسات المقروءة.
+- هذا فحص إعدادات ساكن/قراءة فقط، وليس اختبار اختراق أو إثباتاً عملياً لرفض كل طلب غير مصرح به.
+- لم يتم تعديل إعدادات Supabase أو Cloudflare، ولم يتم نشر أو دمج أي شيء.
