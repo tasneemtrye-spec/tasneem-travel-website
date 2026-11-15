@@ -46,10 +46,10 @@ Official references:
 - https://developers.google.com/workspace/gmail/api/auth/scopes
 - https://developers.google.com/identity/protocols/oauth2/production-readiness/overview
 
-## Not yet implemented
+## Deployment status (2026-11-15)\n\n- Both functions have now been deployed to Supabase project `kbllhakivjduwanefvtf`. `gmail-oauth-start` is ACTIVE with `verify_jwt=true`; `gmail-oauth-callback` is ACTIVE with `verify_jwt=false`.\n- Their deployed source was read back and matched the reviewed source. No live HTTP end-to-end test was performed.\n- Google client secrets and the HMAC state secret have not yet been added to Supabase. Add them manually in Edge Function Secrets; never send them in chat.\n- No Google authorization has been completed and no email has been sent.\n\n## Not yet implemented
 
 - No admin-panel button invokes `gmail-oauth-start` yet.
 - No sender function uses `GOOGLE_OAUTH_REFRESH_TOKEN` yet.
 - No Google OAuth client has been created or its secret saved.
-- No live Edge Function has been deployed or tested.
+- No live HTTP end-to-end OAuth test has been performed.
 - No email has been sent.
