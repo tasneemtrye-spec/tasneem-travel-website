@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#173b35">
+<title>لوحة إدارة تسنيم | Tasneem Admin</title>
+<link rel="icon" href="assets/tasneem-official.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#173b35;--teal:#397b67;--gold:#c99a4b;--cream:#fbf8f1;--ink:#20352f;--muted:#68766d;--line:#e8e0d2}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.8}
+.wrap{width:min(1180px,calc(100% - 32px));margin:35px auto}.head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:800;font-size:20px}.brand img{width:58px;height:58px;object-fit:contain}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 12px 35px #23392e0d;margin-bottom:20px}
+h1,h2{color:var(--navy);margin:0 0 10px}.muted{color:var(--muted);font-size:14px}
+label{display:block;font-weight:700;font-size:13px;margin:12px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;font:inherit;background:#fff}
+button{border:0;border-radius:12px;padding:11px 18px;background:var(--navy);color:white;font:inherit;font-weight:800;cursor:pointer}button.secondary{background:#edf3ef;color:var(--navy)}button:disabled{opacity:.55;cursor:wait}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.hidden{display:none!important}.feedback{font-size:13px;margin-top:10px}.error{color:#a13f32}.success{color:#237451}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:#f4f7f3;border-radius:14px;padding:15px}.stat b{display:block;font-size:24px;color:var(--navy)}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:850px}th,td{text-align:right;padding:12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}th{color:var(--navy);background:#f7f6f0}
+.actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.actions select{width:auto;min-width:130px;padding:7px}
+a{color:var(--teal)}@media(max-width:650px){.wrap{margin:16px auto}.card{padding:17px}.stats{grid-template-columns:1fr}.head{align-items:flex-start}.brand{font-size:16px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="head"><a class="brand" href="/"><img src="assets/tasneem-official.webp" alt=""> <span>تسنيم للسفريات والسياحة<br><small class="muted">لوحة إدارة الطلبات</small></span></a><a href="/" class="muted">العودة للموقع ←</a></header>
+<section id="login-card" class="card">
+<h1>دخول الإدارة</h1><p class="muted">هذه الصفحة مخصصة لإدارة طلبات العملاء. الدخول محصور بحساب الإدارة المعتمد.</p>
+<form id="login-form"><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" required value="tasneemtrye@gmail.com"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required minlength="8"><div class="row" style="margin-top:16px"><button id="login-button" type="submit">تسجيل الدخول</button></div><p id="login-feedback" class="feedback" role="status"></p></form>
+</section>
+<section id="dashboard" class="hidden">
+<div class="card"><div class="row" style="justify-content:space-between"><div><h1>طلبات السفر والحجوزات</h1><p class="muted">عرض الطلبات الواردة وتحديث حالتها وإضافة ملاحظات داخلية.</p></div><div class="row"><button id="refresh" class="secondary">تحديث الطلبات</button><button id="logout" class="secondary">تسجيل الخروج</button></div></div>
+<div class="stats"><div class="stat"><span class="muted">إجمالي الطلبات</span><b id="total">0</b></div><div class="stat"><span class="muted">طلبات جديدة</span><b id="new-count">0</b></div><div class="stat"><span class="muted">طلبات مؤكدة</span><b id="confirmed-count">0</b></div></div><p id="dash-feedback" class="feedback" role="status"></p></div>
+<div class="card"><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>العميل</th><th>التواصل</th><th>الخدمة والوجهة</th><th>تفاصيل الرحلة</th><th>الحالة والملاحظات</th></tr></thead><tbody id="bookings"><tr><td colspan="6">جارٍ تحميل الطلبات…</td></tr></tbody></table></div></div>
+</section>
+</main>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+const URL="https://kbllhakivjduwanefvtf.supabase.co";
+const KEY="sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS";
+const supabase=createClient(URL,KEY);
+const $=id=>document.getElementById(id);
+const loginCard=$("login-card"),dashboard=$("dashboard");
+const statusLabels={new:"جديد",contacted:"تم التواصل",in_progress:"قيد المتابعة",confirmed:"مؤكد",cancelled:"ملغي",closed:"مغلق"};
+function msg(el,text,type=""){el.textContent=text;el.className="feedback "+type}
+function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+async function loadBookings(){
+  msg($("dash-feedback"),"جارٍ تحميل الطلبات…");
+  const {data,error}=await supabase.from("booking_requests").select("id,full_name,phone,email,service,destination,travel_date,travellers,contact_method,message,status,admin_notes,created_at").order("created_at",{ascending:false}).limit(200);
+  if(error){msg($("dash-feedback"),"تعذر تحميل الطلبات. تأكد من إعداد حساب الإدارة وصلاحياته.", "error");return}
+  $("total").textContent=data.length;$("new-count").textContent=data.filter(x=>x.status==="new").length;$("confirmed-count").textContent=data.filter(x=>x.status==="confirmed").length;
+  $("bookings").innerHTML=data.length?data.map(x=>`<tr>
+    <td>${safe(new Date(x.created_at).toLocaleString("ar"))}</td>
+    <td><b>${safe(x.full_name)}</b><br><small>${safe(x.email||"")}</small></td>
+    <td><a href="https://wa.me/${safe(x.phone.replace(/[^0-9]/g,''))}" target="_blank" rel="noopener">${safe(x.phone)}</a><br><small>${safe(x.contact_method)}</small></td>
+    <td>${safe(x.service)}<br><small>${safe(x.destination||"—")}</small></td>
+    <td>${safe(x.travel_date||"—")}<br><small>المسافرون: ${safe(x.travellers)}</small><br><small>${safe(x.message||"")}</small></td>
+    <td><div class="actions"><select data-status="${x.id}">${Object.entries(statusLabels).map(([k,v])=>`<option value="${k}" ${x.status===k?"selected":""}>${v}</option>`).join("")}</select><button class="secondary" data-save="${x.id}">حفظ</button></div><textarea data-notes="${x.id}" rows="2" placeholder="ملاحظات داخلية">${safe(x.admin_notes||"")}</textarea></td>
+  </tr>`).join(""):'<tr><td colspan="6">لا توجد طلبات حتى الآن.</td></tr>';
+  $("bookings").querySelectorAll("[data-save]").forEach(btn=>btn.addEventListener("click",async()=>{
+    const id=btn.dataset.save;btn.disabled=true;
+    const status=$("bookings").querySelector(`[data-status="${id}"]`).value;
+    const admin_notes=$("bookings").querySelector(`[data-notes="${id}"]`).value;
+    const {error}=await supabase.from("booking_requests").update({status,admin_notes,updated_at:new Date().toISOString()}).eq("id",id);
+    btn.disabled=false;if(error){msg($("dash-feedback"),"تعذر حفظ التعديل. تحقق من صلاحيات الإدارة.","error")}else{msg($("dash-feedback"),"تم حفظ تحديث الطلب.","success");loadBookings()}
+  }));
+  msg($("dash-feedback"),"تم تحميل الطلبات.","success");
+}
+async function showSession(){
+ const {data:{session}}=await supabase.auth.getSession();
+ if(session){const email=session.user.email?.toLowerCase();if(email!=="tasneemtrye@gmail.com"){await supabase.auth.signOut();msg($("login-feedback"),"هذا الحساب غير مخوّل لإدارة الموقع.","error");return}loginCard.classList.add("hidden");dashboard.classList.remove("hidden");await loadBookings()}
+}
+$("login-form").addEventListener("submit",async e=>{e.preventDefault();$("login-button").disabled=true;msg($("login-feedback"),"جارٍ تسجيل الدخول…");const {error}=await supabase.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});$("login-button").disabled=false;if(error){msg($("login-feedback"),"تعذر تسجيل الدخول. تحقق من بيانات الحساب أو أنشئ مستخدم الإدارة في Supabase Auth.","error");return}await showSession()});
+$("refresh").addEventListener("click",loadBookings);
+$("logout").addEventListener("click",async()=>{await supabase.auth.signOut();dashboard.classList.add("hidden");loginCard.classList.remove("hidden")});
+supabase.auth.onAuthStateChange(()=>{showSession()});
+showSession();
+</script>
+</body></html>
