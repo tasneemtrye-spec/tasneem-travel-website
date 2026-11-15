@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<title id="title">طائرة اليمنية</title><desc id="desc">رسم توضيحي لطائرة ركاب تحمل هوية الخطوط الجوية اليمنية</desc>
+<defs>
+ <linearGradient id="body" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".48" stop-color="#f8fbfc"/><stop offset=".78" stop-color="#d9e2e7"/><stop offset="1" stop-color="#aebdc7"/></linearGradient>
+ <linearGradient id="wing" x2="0" y2="1"><stop stop-color="#f8fcff"/><stop offset="1" stop-color="#91a5b2"/></linearGradient>
+ <linearGradient id="engine" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".65" stop-color="#c8d4db"/><stop offset="1" stop-color="#687e8b"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feGaussianBlur stdDeviation="13"/></filter>
+</defs>
+<ellipse cx="610" cy="430" rx="470" ry="35" fill="#062b3b" opacity=".18" filter="url(#shadow)"/>
+<!-- tail and far wing -->
+<path d="M185 280 L95 70 Q91 52 112 54 L174 68 L315 275 Z" fill="#c8192e" stroke="#e8edf0" stroke-width="5"/>
+<path d="M95 70 L112 54 L174 68 L205 116 L139 105 Z" fill="#123c77"/>
+<path d="M245 286 L405 216 L560 219 L385 303 Z" fill="url(#wing)" stroke="#a8b8c1" stroke-width="3"/>
+<!-- far engine -->
+<path d="M430 238 Q458 225 488 240 L526 286 L465 302 Z" fill="url(#engine)" stroke="#9babb4" stroke-width="4"/>
+<!-- fuselage -->
+<path d="M70 323 Q122 286 245 280 L1002 277 Q1084 278 1148 315 Q1168 327 1148 344 Q1112 372 1020 382 L251 399 Q141 399 83 367 Q50 350 70 323Z" fill="url(#body)" stroke="#b7c5cc" stroke-width="4"/>
+<!-- nose highlight -->
+<path d="M1010 286 Q1090 286 1148 315 Q1162 324 1157 337 Q1115 359 1035 363" fill="none" stroke="#fff" stroke-width="8" opacity=".85"/>
+<!-- near wing -->
+<path d="M415 356 L710 370 L1005 463 Q1024 473 1000 480 L884 470 L480 398 L360 383 Z" fill="url(#wing)" stroke="#9aabb5" stroke-width="4"/>
+<path d="M480 397 L884 470" stroke="#dce5e9" stroke-width="5"/>
+<!-- engine -->
+<path d="M568 385 Q595 369 634 382 Q672 398 689 452 Q693 481 666 495 L601 504 Q568 496 552 463 Q540 423 568 385Z" fill="url(#engine)" stroke="#8296a2" stroke-width="5"/>
+<ellipse cx="650" cy="452" rx="33" ry="48" fill="#253d4b" transform="rotate(-13 650 452)"/>
+<ellipse cx="650" cy="452" rx="23" ry="36" fill="#101f29" transform="rotate(-13 650 452)"/>
+<circle cx="650" cy="452" r="8" fill="#aebdc6"/>
+<!-- windows -->
+<g fill="#18394c"><path d="M275 307h12v7h-12z"/><path d="M300 305h12v7h-12z"/><path d="M325 303h12v7h-12z"/><path d="M350 302h12v7h-12z"/><path d="M375 301h12v7h-12z"/><path d="M400 300h12v7h-12z"/><path d="M425 299h12v7h-12z"/><path d="M450 298h12v7h-12z"/><path d="M475 297h12v7h-12z"/><path d="M500 296h12v7h-12z"/><path d="M525 295h12v7h-12z"/><path d="M550 294h12v7h-12z"/><path d="M575 293h12v7h-12z"/><path d="M600 292h12v7h-12z"/><path d="M625 291h12v7h-12z"/><path d="M650 290h12v7h-12z"/><path d="M675 289h12v7h-12z"/><path d="M700 288h12v7h-12z"/><path d="M725 287h12v7h-12z"/><path d="M750 286h12v7h-12z"/><path d="M775 286h12v7h-12z"/><path d="M800 285h12v7h-12z"/><path d="M825 284h12v7h-12z"/><path d="M850 284h12v7h-12z"/><path d="M875 283h12v7h-12z"/><path d="M900 283h12v7h-12z"/><path d="M925 283h12v7h-12z"/></g>
+<!-- doors -->
+<g fill="none" stroke="#9eafb8" stroke-width="3"><rect x="240" y="292" width="27" height="83" rx="7"/><rect x="930" y="282" width="28" height="83" rx="7"/></g>
+<!-- cockpit -->
+<path d="M1084 296 Q1120 300 1144 318 L1127 334 L1080 332Z" fill="#102c3c" stroke="#78909d" stroke-width="3"/>
+<!-- airline wordmark -->
+<text x="725" y="346" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#173b75" text-anchor="middle">Yemenia</text>
+<text x="850" y="346" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#173b75" text-anchor="middle">اليمنية</text>
+<!-- tail roundel -->
+<circle cx="144" cy="111" r="25" fill="#fff" stroke="#d7e0e5" stroke-width="3"/><path d="M133 95 Q155 110 133 127 Q158 125 160 109 Q157 94 133 95Z" fill="#123c77"/><path d="M137 96 Q124 111 141 126" fill="none" stroke="#c8192e" stroke-width="7" stroke-linecap="round"/>
+<!-- winglet -->
+<path d="M1000 465 L1048 480 L1062 462 L1035 450Z" fill="#c8192e" stroke="#fff" stroke-width="3"/>
+</svg>
