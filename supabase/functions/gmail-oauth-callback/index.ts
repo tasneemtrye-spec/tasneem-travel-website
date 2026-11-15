@@ -119,8 +119,8 @@ Deno.serve(async (req: Request) => {
   }
 
   const tokens = await tokenResponse.json();
-  if (typeof tokens.access_token !== "string" || typeof tokens.refresh_token !== "string") {
-    return htmlPage("Refresh token not returned", "<p>Google did not return an offline refresh token. Revoke the previous grant if needed, then restart with consent.</p>", 502);
+  if (typeof tokens.access_token !== "string" || typeof tokens.refresh_token !== "string" || typeof tokens.scope !== "string" || !tokens.scope.split(" ").includes("https://www.googleapis.com/auth/gmail.send")) {
+    return htmlPage("Refresh token not returned", "<p>Google did not return an offline refresh token or the required Gmail send permission. Revoke the previous grant if needed, then restart with consent.</p>", 502);
   }
 
   const userInfoResponse = await fetch("https://openidconnect.googleapis.com/v1/userinfo", {
