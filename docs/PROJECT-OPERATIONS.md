@@ -51,7 +51,7 @@ https://tasneem-travel-preview.pages.dev
 
 ## الإعدادات التشغيلية الحالية التي لم تتغير
 - Supabase Auth Site URL وRedirect URLs لم تُعدّل في هذه المرحلة.
-- Cloudflare Pages production branch لم يُحوّل إلى `main` بعد.
+- Cloudflare Pages production branch معتمد على `main`؛ تحقق النشر الإنتاجي بعد دمج تغيير الإعداد.
 - إعدادات الأسرار في Supabase لم تُقرأ أو تُعدّل.
 - وظائف Gmail OAuth المنشورة لم تُحذف ولم يُجر عليها اختبار حي.
 - لم يتم تنفيذ نشر إنتاجي أو إرسال طلب حجز اختباري.
