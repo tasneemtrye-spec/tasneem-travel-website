@@ -258,3 +258,40 @@ https://kbllhakivjduwanefvtf.supabase.co/functions/v1/gmail-oauth-callback
 ### قرار المرحلة التالية
 
 العنوان الدقيق جاهز للتسجيل في Google OAuth Client من حيث التصميم، لكن يجب عدم الضغط على Create أو تفويض Gmail قبل اعتماد المالك لمسار النشر والاختبار. يلزم أولاً مراجعة الكود واختباره محلياً/ساكناً، ثم موافقة منفصلة على نشر الدالتين وإضافة أسرارها. ولا نوصي بتشغيل إنتاجي دائم في وضع Testing بسبب انتهاء refresh token بعد 7 أيام.
+
+
+## المرحلة الثانية عشرة — مراجعة أمنية ونشر وظائف Gmail OAuth في Supabase
+
+بموافقة المالك الصريحة، تم تحسين الكود ثم نشر وظيفتي OAuth فقط في مشروع Supabase الإنتاجي `kbllhakivjduwanefvtf`.
+
+### التحسينات قبل النشر
+
+- `gmail-oauth-start`: أزيل الاعتماد على قراءة claims من JWT غير موثّق داخل الكود. يعتمد الآن على تحقق بوابة Supabase (verify_jwt=true) ثم يستعلم عن المستخدم من Supabase Auth endpoint `/auth/v1/user`، ويتحقق من أن البريد المؤكد هو `tasneemtrye@gmail.com`.
+- `gmail-oauth-callback`: يشترط الآن وجود Gmail send scope ضمن الصلاحيات المعادة من Google، إضافة إلى التحقق من هوية الحساب الموثق.
+- لم تُضف أي صلاحيات إرسال بريد إلى المستخدمين أو قاعدة البيانات، ولم يُرسل بريد.
+
+### حالة النشر المؤكدة
+
+- `gmail-oauth-start`: ACTIVE، version 1، `verify_jwt=true`.
+- `gmail-oauth-callback`: ACTIVE، version 1، `verify_jwt=false` (مطلوب لأن Google redirect لا يحمل Supabase user JWT؛ الحماية داخل الدالة تعتمد على state HMAC قصير العمر).
+- تم التحقق من ظهور الوظيفتين في قائمة Edge Functions ومن قراءة مصدر كل وظيفة بعد النشر.
+- وظيفة `submit-booking` الأصلية بقيت ACTIVE version 5 دون تعديل.
+
+### ما لم يتم اختباره أو إعداده بعد
+
+- لم يُنفذ اختبار HTTP حي للدالتين بعد النشر؛ أداة تنفيذ الطلبات المتاحة لم توفر اختباراً مباشراً صالحاً في هذه الجلسة. قبول النشر وحالة ACTIVE يؤكدان إنشاء النسختين، ولا يثبتان نجاح OAuth end-to-end.
+- لم تُضف أسرار Google إلى Supabase؛ لا توجد أداة متاحة في الجلسة لإدارة Edge Function Secrets، وسيضيفها المالك يدوياً من Dashboard.
+- لم يتم إصدار رابط موافقة بعد، لأن الأسرار المطلوبة غير موجودة، ولم يتم تفويض Google.
+- لم يتم إرسال بريد أو إجراء حجز اختباري.
+
+### الأسرار المطلوبة يدوياً قبل بدء OAuth
+
+- `GOOGLE_OAUTH_CLIENT_ID`
+- `GOOGLE_OAUTH_CLIENT_SECRET`
+- `GOOGLE_OAUTH_STATE_SECRET` (قيمة عشوائية قوية بطول 32 حرفاً على الأقل)
+
+بعد التفويض، سيعرض callback رمز التجديد مرة واحدة ليضيفه المالك بنفسه كسرّ `GOOGLE_OAUTH_REFRESH_TOKEN`. لا يرسل المالك هذه القيم في المحادثة.
+
+### قيد Google Testing
+
+ما زال التطبيق External / Testing. توضح وثائق Google أن refresh tokens للتطبيقات الخارجية في وضع Testing تنتهي بعد 7 أيام عند طلب Gmail scopes. لذلك لا يُعتمد هذا الربط كحل دائم للإنتاج قبل معالجة وضع النشر والتحقق لدى Google.
