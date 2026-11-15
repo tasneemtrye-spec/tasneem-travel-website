@@ -182,6 +182,16 @@ section{padding:clamp(58px,6.2vw,82px) 0}
 @media(max-width:900px){.hero{background-position:42% center}.hero-grid{grid-template-columns:1fr;gap:12px;padding:34px 0 58px}.hero-grid>div:first-child{order:1;padding:10px 0 0}.plane-frame{order:2;max-width:620px;width:100%;margin:0 auto}.plane-frame img{height:310px}.hero h1{font-size:clamp(36px,8vw,54px)}.trust-grid{grid-template-columns:repeat(2,1fr);gap:8px}.trust-item:nth-child(2){border-left:0}.foot-grid{grid-template-columns:1fr 1fr;gap:28px}.foot-grid>div:first-child{grid-column:1/-1}}
 @media(max-width:600px){.topline .wrap{align-items:flex-start}.topline-contact{gap:9px 12px}.top-socials{padding-inline-start:8px;gap:6px}.top-socials a{width:25px;height:25px}.hero{min-height:0;background-position:35% center}.hero-grid{padding:26px 0 55px}.plane-frame img{height:240px}.plane-caption{font-size:10px;right:3%;bottom:0}.hero-note{gap:10px;font-size:11px}.trust-grid{padding:12px;gap:5px}.trust-item{justify-content:flex-start;padding:8px 4px;gap:8px}.trust-item b{font-size:12px}.trust-item small{font-size:10px}.trust-icon{width:36px;height:36px;flex-basis:36px}.foot-grid{grid-template-columns:1fr;gap:24px}.foot-grid>div:first-child{grid-column:auto}.contact-social{grid-template-columns:1fr!important}.copyright{font-size:11px}}
 
+
+/* Hero without aircraft image/card: let the Yemen coast background breathe */
+.hero-grid{grid-template-columns:minmax(0,1fr);max-width:1040px;margin-inline:auto}
+.hero-grid>div:first-child{max-width:900px;margin-inline:auto;padding:52px 20px 62px;text-align:center}
+.hero .eyebrow,.hero .hero-actions,.hero .hero-note{justify-content:center}
+.hero p{margin-inline:auto}
+.hero h1{margin-inline:auto}
+.hero .plane-frame{display:none!important}
+@media(max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero-grid>div:first-child{padding:36px 14px 52px}}
+
 </style>
 </head>
 <body>
@@ -197,7 +207,6 @@ section{padding:clamp(58px,6.2vw,82px) 0}
 <div><span class="eyebrow">من أرض البن واللبان… إلى كل وجهة تحلم بها</span><h1>من <span>روح اليمن</span>…<br>نفتح لك أبواب العالم</h1><p>هوية تستلهم دفء العمارة اليمنية ونقوش القمرية وألوان الأرض، وخدمات سفر عصرية تساعدك على ترتيب رحلتك بثقة واهتمام بالتفاصيل.</p>
 <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">ابدأ التخطيط لرحلتك <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
 <div class="hero-note"><span>✦ جذور يمنية أصيلة</span><span>✦ خيارات سفر واضحة</span><span>✦ عناية بكل التفاصيل</span></div></div>
-<div class="plane-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Yemenia_Boeing_737-800_KvW.jpg" alt="طائرة الخطوط الجوية اليمنية بألوانها الرسمية تحلّق في السماء" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer"><div class="plane-caption">الخطوط الجوية اليمنية · رحلة بروح اليمن</div></div>
 </div></section>
 <div class="trustbar"><div class="wrap trust-grid">
 <div class="trust-item"><span class="trust-icon">✈</span><span><b>حجوزات الطيران</b><small>خيارات سفر متعددة</small></span></div>
