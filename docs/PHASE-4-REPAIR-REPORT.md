@@ -192,3 +192,25 @@
 
 ### قرار المرحلة التالية
 قبل إضافة الأسرار أو النشر، نحتاج التحقق من أن حساب Google `tasneemtrye@gmail.com` لديه التحقق بخطوتين وأن خيار App Password متاح. بعد ذلك نراجع الكود وننفذ اختبار إرسال إلى صندوق الإدارة فقط بموافقة صريحة منفصلة.
+
+
+## تحديث المرحلة العاشرة — تعذر Gmail App Password والتحول إلى OAuth
+
+أفاد مالك المشروع بأن صفحة Google App Passwords تعرض أن الميزة غير متاحة لحسابه `tasneemtrye@gmail.com`.
+
+### القرار
+- إيقاف مسار Gmail SMTP بكلمة مرور تطبيق؛ لا نطلب كلمة مرور الحساب العادية ولا نخفف إعدادات أمان Google.
+- كود SMTP المحفوظ سابقاً في فرع المراجعة فقط لا يُنشر ولا يُستخدم؛ يعتبر مسودة بديلة غير معتمدة.
+- البديل التقني المحتمل هو Gmail API باستخدام OAuth 2.0 بتفويض `offline` وحفظ refresh token كسر في Supabase، أو SMTP XOAUTH2. يتطلب ذلك إنشاء مشروع Google Cloud، تفعيل Gmail API، إعداد OAuth consent screen وعميل OAuth، ثم موافقة مالك الحساب وحفظ Client ID/Secret وRefresh Token في Supabase Secrets.
+- وثائق Google توضح أن التفويض الخادمي يتطلب تبادل authorization code وتخزين refresh token، وأن صلاحية refresh token قد تنتهي لأسباب عدة. كما أن تطبيق OAuth خارجي في وضع Testing قد يحصل على refresh token ينتهي بعد 7 أيام؛ لذا لا نعتمد وضع Testing لتشغيل إشعارات إنتاج دائمة.
+- Gmail API send scope قد يخضع لمتطلبات التحقق/المراجعة بحسب نوع التطبيق والنطاق. لا يمكن ضمان أن الإعداد سيكون فورياً أو بلا مراجعة أو مناسباً للإنتاج قبل إكمال شاشة OAuth وتحديد وضع النشر.
+- لم يتم إنشاء Google Cloud project أو OAuth client، ولم يتم منح أي صلاحيات Gmail، ولم تُضف أسرار، ولم يتم تعديل/نشر وظيفة Supabase الحية.
+
+المراجع الرسمية:
+- Gmail API server-side OAuth: https://developers.google.com/workspace/gmail/api/auth/web-server
+- OAuth refresh token expiration and testing mode: https://developers.google.com/identity/protocols/oauth2
+- Gmail API scopes and authorization: https://developers.google.com/workspace/gmail/api/auth/scopes
+- Gmail SMTP XOAUTH2: https://developers.google.com/workspace/gmail/imap/xoauth2-protocol
+
+### الحالة
+تظل إشعارات الحجوزات غير مهيأة. يلزم استكمال OAuth مع مالك الحساب قبل أي إرسال تجريبي أو إنتاجي.
