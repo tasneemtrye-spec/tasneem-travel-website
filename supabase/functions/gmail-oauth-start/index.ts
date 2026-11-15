@@ -1,6 +1,6 @@
 // Gmail OAuth authorization URL generator.
-// Deploy with verify_jwt=true. This function only issues a short-lived signed state
-// and never returns or stores Google tokens.
+// Deploy with verify_jwt=true. The platform validates the Supabase JWT,
+// and the Auth /user endpoint independently confirms the signed-in admin.
 
 const ADMIN_EMAIL = "tasneemtrye@gmail.com";
 const REDIRECT_URI =
@@ -39,17 +39,6 @@ async function signState(payload: string, secret: string): Promise<string> {
   return base64UrlEncode(String.fromCharCode(...new Uint8Array(signature)));
 }
 
-function decodeJwtPayload(token: string): Record<string, unknown> | null {
-  try {
-    const part = token.split(".")[1];
-    if (!part) return null;
-    const normalized = part.replace(/-/g, "+").replace(/_/g, "/");
-    return JSON.parse(atob(normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=")));
-  } catch {
-    return null;
-  }
-}
-
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -65,16 +54,25 @@ Deno.serve(async (req: Request) => {
 
   const authorization = req.headers.get("authorization") ?? "";
   const jwt = authorization.startsWith("Bearer ") ? authorization.slice(7) : "";
-  const claims = decodeJwtPayload(jwt);
-  const now = Math.floor(Date.now() / 1000);
-  if (
-    !claims ||
-    claims.email !== ADMIN_EMAIL ||
-    claims.role !== "authenticated" ||
-    typeof claims.exp !== "number" ||
-    claims.exp <= now
-  ) {
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!jwt || !supabaseUrl || !anonKey) {
     return Response.json({ error: "admin_authentication_required" }, { status: 401, headers: corsHeaders });
+  }
+
+  // Verify the token with Supabase Auth itself; never authorize from decoded JWT claims alone.
+  const userResponse = await fetch(new URL("/auth/v1/user", supabaseUrl), {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+      apikey: anonKey,
+    },
+  });
+  if (!userResponse.ok) {
+    return Response.json({ error: "admin_authentication_required" }, { status: 401, headers: corsHeaders });
+  }
+  const user = await userResponse.json();
+  if (user.email !== ADMIN_EMAIL || user.email_confirmed_at == null) {
+    return Response.json({ error: "admin_only" }, { status: 403, headers: corsHeaders });
   }
 
   const clientId = Deno.env.get("GOOGLE_OAUTH_CLIENT_ID");
@@ -83,6 +81,7 @@ Deno.serve(async (req: Request) => {
     return Response.json({ error: "oauth_configuration_incomplete" }, { status: 503, headers: corsHeaders });
   }
 
+  const now = Math.floor(Date.now() / 1000);
   const statePayload = base64UrlEncode(JSON.stringify({
     aud: "tasneem-gmail-oauth",
     iat: now,
