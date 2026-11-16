@@ -1734,6 +1734,34 @@ img{height:auto}
 }
 @media(prefers-reduced-motion:reduce){.hero-visual *{animation:none!important;transition:none!important}}
 
+
+/* On-demand quick booking drawer */
+.quick-search-launcher-wrap{position:relative;z-index:5;display:flex;justify-content:center;margin:8px auto 0}
+.quick-search-launcher{
+ display:inline-flex;align-items:center;justify-content:center;gap:12px;
+ min-width:220px;padding:12px 24px;border:1px solid rgba(232,185,87,.72);
+ border-radius:999px;background:linear-gradient(135deg,#f7d991,#dfa83f);
+ color:#173b35;font:inherit;font-size:15px;font-weight:900;cursor:pointer;
+ box-shadow:0 10px 26px rgba(3,35,43,.14);transition:transform .2s ease,box-shadow .2s ease
+}
+.quick-search-launcher:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(3,35,43,.19)}
+.quick-search-launcher .launcher-icon{font-size:22px;line-height:1}
+.quick-search-launcher .launcher-chevron{font-size:18px;transition:transform .2s ease}
+.quick-search-launcher.is-open .launcher-chevron{transform:rotate(180deg)}
+.hero-quick-search[hidden]{display:none!important}
+.hero-quick-search:not([hidden]){
+ display:block!important;position:relative!important;z-index:6!important;
+ width:min(1100px,calc(100% - 48px))!important;margin:14px auto 0!important;
+ animation:quickPanelIn .24s ease-out both
+}
+@keyframes quickPanelIn{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+ .quick-search-launcher-wrap{margin:12px auto 0}
+ .quick-search-launcher{min-width:0;width:min(100% - 28px,340px);padding:11px 18px;font-size:14px}
+ .hero-quick-search:not([hidden]){width:calc(100% - 28px)!important;margin:12px auto 0!important}
+}
+@media(prefers-reduced-motion:reduce){.hero-quick-search:not([hidden]){animation:none}}
+
 </style>
 </head>
 <body>
@@ -1761,7 +1789,14 @@ img{height:auto}
 <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">خطّط لرحلتك الآن <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
 <div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div></div>
 
-<div class="hero-quick-search" aria-label="ابدأ البحث عن رحلتك">
+<div class="quick-search-launcher-wrap">
+  <button class="quick-search-launcher" id="quick-search-toggle" type="button" aria-expanded="false" aria-controls="quick-search-panel">
+    <span class="launcher-icon" aria-hidden="true">⌕</span>
+    <span>ابحث عن رحلتك</span>
+    <span class="launcher-chevron" aria-hidden="true">⌄</span>
+  </button>
+</div>
+<div class="hero-quick-search" id="quick-search-panel" aria-label="ابدأ البحث عن رحلتك" hidden>
   <div class="quick-search-tabs" aria-label="أنواع الخدمات">
     <a href="#contact" data-service="حجز طيران"><span>✈</span> حجز طيران</a>
     <a href="#contact" data-service="حجز فندق"><span>▰</span> فنادق</a>
@@ -1897,6 +1932,27 @@ img{height:auto}
     links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 700) closeMenu(); });
+  }
+
+  const quickPanel = document.getElementById("quick-search-panel");
+  const quickToggle = document.getElementById("quick-search-toggle");
+  if (quickPanel && quickToggle) {
+    const setQuickPanel = open => {
+      quickPanel.hidden = !open;
+      quickToggle.setAttribute("aria-expanded", String(open));
+      quickToggle.classList.toggle("is-open", open);
+      quickToggle.querySelector(".launcher-chevron").textContent = open ? "⌃" : "⌄";
+      if (open) {
+        window.setTimeout(() => quickPanel.scrollIntoView({behavior:"smooth",block:"nearest"}), 40);
+      }
+    };
+    quickToggle.addEventListener("click", () => setQuickPanel(quickPanel.hidden));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !quickPanel.hidden) {
+        setQuickPanel(false);
+        quickToggle.focus();
+      }
+    });
   }
 
   const quickForm = document.getElementById("quick-search-form");
