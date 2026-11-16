@@ -154,6 +154,14 @@ td,th{padding:13px}
   </div>
   <label for="knowledge-json">محتوى قاعدة المعرفة بصيغة JSON</label>
   <textarea id="knowledge-json" rows="22" spellcheck="false" dir="ltr" style="font-family:ui-monospace,monospace;text-align:left;white-space:pre;min-height:360px" placeholder="جارٍ تحميل قاعدة المعرفة…"></textarea>
+    <div id="knowledge-publish-confirm" class="card" role="alertdialog" aria-modal="true" aria-labelledby="knowledge-publish-title" aria-describedby="knowledge-publish-description" hidden style="border:2px solid var(--primary);margin-top:16px">
+    <h3 id="knowledge-publish-title">تأكيد نشر قاعدة المعرفة</h3>
+    <p id="knowledge-publish-description">سيصبح محتوى المسودة المحفوظة متاحاً للمساعد في ردوده العامة. تأكد من مراجعة المعلومات قبل المتابعة. لن يتم نشر بيانات الحجوزات.</p>
+    <div class="row" style="gap:10px;flex-wrap:wrap">
+      <button id="knowledge-publish-confirm-yes" type="button">نعم، اعتمد وانشر</button>
+      <button id="knowledge-publish-cancel" class="secondary" type="button">إلغاء</button>
+    </div>
+  </div>
   <p id="knowledge-feedback" class="feedback" role="status" aria-live="polite"></p>
 </div>
 
@@ -268,8 +276,8 @@ async function loadKnowledge(){
  finally{$("knowledge-load").disabled=false}
 }
 async function publishKnowledge(){
- const button=$("knowledge-publish");
- if(!window.confirm("سيتم نشر المسودة المحفوظة حالياً ليستخدمها مساعد تسنيم في ردوده العامة. هل راجعت المحتوى وتوافق على نشره؟"))return;
+ const button=$("knowledge-publish-confirm-yes");
+ $("knowledge-publish-confirm").hidden=true;
  button.disabled=true;
  try{
   const parsed=validateKnowledge(JSON.parse(knowledgeEditor.value));
@@ -307,7 +315,9 @@ async function saveKnowledge(){
 }
 $("knowledge-load").addEventListener("click",loadKnowledge);
 $("knowledge-save").addEventListener("click",saveKnowledge);
-$("knowledge-publish").addEventListener("click",publishKnowledge);
+$("knowledge-publish").addEventListener("click",()=>{$("knowledge-publish-confirm").hidden=false;$("knowledge-publish-confirm-yes").focus();});
+$("knowledge-publish-cancel").addEventListener("click",()=>{$("knowledge-publish-confirm").hidden=true;$("knowledge-publish").focus();});
+$("knowledge-publish-confirm-yes").addEventListener("click",publishKnowledge);
 
 async function showSession(){
  const {data:{session}}=await supabase.auth.getSession();
