@@ -1788,10 +1788,52 @@ img{height:auto}
  .header .nav-book{font-size:11px;padding:9px 11px;white-space:nowrap}
 }
 
+
+/* Free, CSS-only moving announcement ribbon */
+.tasneem-news-ticker{
+ height:38px;display:flex;align-items:center;gap:14px;overflow:hidden;
+ background:linear-gradient(90deg,#082d2b,#10483f 52%,#082d2b);
+ color:#fff3d6;border-bottom:1px solid rgba(218,174,91,.48);
+ position:relative;z-index:22;font-size:13px;font-weight:800
+}
+.ticker-label{
+ flex:0 0 auto;margin-inline-start:clamp(12px,3vw,42px);
+ padding:3px 11px;border:1px solid rgba(238,197,119,.42);
+ border-radius:999px;color:#f1c878;font-size:11px
+}
+.ticker-window{overflow:hidden;flex:1;min-width:0;direction:ltr}
+.ticker-track{
+ display:flex;align-items:center;gap:72px;width:max-content;white-space:nowrap;
+ direction:ltr;animation:tasneemTickerMove 34s linear infinite
+}
+.ticker-track span{direction:rtl;unicode-bidi:plaintext;display:block;white-space:nowrap}
+@keyframes tasneemTickerMove{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tasneem-news-ticker:hover .ticker-track{animation-play-state:paused}
+@media(max-width:700px){
+ .tasneem-news-ticker{height:34px;font-size:11px;gap:8px}
+ .ticker-label{font-size:10px;margin-inline-start:8px;padding:2px 8px}
+ .ticker-track{gap:48px;animation-duration:27s}
+}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;transform:none}.ticker-window{overflow-x:auto}}
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
+<div class="tasneem-news-ticker" role="region" aria-label="شريط العبارة الإيمانية">
+  <span class="ticker-label">كلمة طيبة</span>
+  <div class="ticker-window">
+    <div class="ticker-track">
+      <span>بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+      <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+      <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+      <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+      <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+      <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
+    </div>
+  </div>
+</div>
+
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
