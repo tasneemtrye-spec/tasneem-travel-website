@@ -2250,6 +2250,59 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .brand{grid-column:5!important;direction:rtl!important;justify-self:end!important}
 }
 
+
+/* FINAL HEADER REFINEMENT — balanced RTL flex layout */
+@media(min-width:1101px){
+ .header .wrap.nav{
+  direction:rtl!important;display:flex!important;flex-flow:row nowrap!important;
+  align-items:center!important;justify-content:space-between!important;
+  gap:clamp(10px,1.05vw,18px)!important;
+  width:min(1500px,calc(100% - 48px))!important;height:92px!important;
+  margin-inline:auto!important;padding-inline:0!important;
+ }
+ .header .brand{
+  order:1!important;display:flex!important;flex:0 0 248px!important;
+  width:248px!important;min-width:248px!important;max-width:248px!important;
+  align-items:center!important;justify-content:flex-start!important;
+  flex-direction:row!important;gap:12px!important;margin:0!important;
+  white-space:normal!important;direction:rtl!important;
+ }
+ .header .brand-logo{order:0!important;width:66px!important;height:66px!important;flex:0 0 66px!important}
+ .header .brand-copy{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:2px!important;min-width:0!important;line-height:1.25!important;white-space:nowrap!important}
+ .header .brand-copy strong{font-size:27px!important;font-weight:900!important;line-height:1.1!important;color:#103b37!important;letter-spacing:0!important}
+ .header .brand-copy small{font-size:12px!important;font-weight:650!important;line-height:1.45!important;color:#71847d!important;margin:0!important;white-space:nowrap!important}
+ .header .links{
+  order:2!important;display:flex!important;flex:1 1 auto!important;min-width:0!important;
+  flex-flow:row nowrap!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(9px,.92vw,16px)!important;white-space:nowrap!important;direction:rtl!important;
+  font-size:clamp(11px,.78vw,13px)!important;
+ }
+ .header .links a{font-size:inherit!important;font-weight:700!important;white-space:nowrap!important;line-height:1.4!important}
+ .header .menu{display:none!important}
+ .header .theme-toggle{
+  order:3!important;display:inline-grid!important;position:static!important;flex:0 0 42px!important;
+  width:42px!important;height:42px!important;margin:0!important;padding:0!important;
+  place-items:center!important;border:1px solid #d9b36d!important;border-radius:50%!important;
+  background:#fffaf0!important;color:#a9792d!important;
+ }
+ .header .quick-search-launcher{
+  order:4!important;display:inline-flex!important;position:static!important;flex:0 0 42px!important;
+  width:42px!important;height:42px!important;min-width:42px!important;margin:0!important;padding:0!important;
+  place-items:center!important;border:1px solid #d9b36d!important;border-radius:50%!important;
+  background:#fffaf0!important;color:#a9792d!important;
+ }
+ .header .nav-book{order:5!important;display:inline-flex!important;position:static!important;flex:0 0 auto!important;margin:0!important;padding:13px 17px!important;white-space:nowrap!important;font-size:13px!important}
+}
+@media(min-width:1101px) and (max-width:1320px){
+ .header .wrap.nav{width:calc(100% - 32px)!important;gap:9px!important}
+ .header .brand{flex-basis:220px!important;width:220px!important;min-width:220px!important;max-width:220px!important;gap:9px!important}
+ .header .brand-logo{width:58px!important;height:58px!important;flex-basis:58px!important}
+ .header .brand-copy strong{font-size:24px!important}
+ .header .brand-copy small{font-size:11px!important}
+ .header .links{gap:8px!important;font-size:11px!important}
+ .header .nav-book{padding:11px 12px!important;font-size:11px!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
