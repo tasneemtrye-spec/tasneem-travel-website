@@ -2353,6 +2353,60 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .brand-copy small{display:block!important;font-size:10px!important;color:#71847d!important;line-height:1.35!important;margin:0!important}
 }
 
+
+/* Final brand lockup: emblem on the right, Arabic name and services to its left */
+.header .brand{
+ direction:rtl!important;display:flex!important;flex-direction:row!important;
+ align-items:center!important;justify-content:flex-start!important;
+ gap:12px!important;text-align:right!important;white-space:nowrap!important;
+}
+.header .brand-logo{
+ order:0!important;flex:0 0 64px!important;width:64px!important;height:64px!important;
+ margin:0!important;object-fit:contain!important;
+}
+.header .brand-copy{
+ order:1!important;display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;justify-content:center!important;
+ gap:1px!important;min-width:0!important;white-space:nowrap!important;
+ line-height:1.25!important;text-align:right!important;
+}
+.header .brand-copy strong{
+ display:block!important;color:#103b37!important;font-size:25px!important;
+ font-weight:900!important;line-height:1.15!important;margin:0!important;
+}
+.header .brand-copy small{
+ display:block!important;color:#657d74!important;font-size:12px!important;
+ font-weight:750!important;line-height:1.45!important;margin:0!important;
+}
+.header .brand-copy em{display:none!important}
+@media(min-width:1101px){
+ .header .brand{
+  flex:0 0 248px!important;width:248px!important;min-width:248px!important;max-width:248px!important;
+  min-height:80px!important;padding:4px 0!important;
+ }
+ .header .brand-logo{flex-basis:68px!important;width:68px!important;height:68px!important}
+ .header .brand-copy strong{font-size:27px!important}
+ .header .brand-copy small{font-size:12px!important}
+}
+@media(min-width:1101px) and (max-width:1320px){
+ .header .brand{flex-basis:220px!important;width:220px!important;min-width:220px!important;max-width:220px!important;gap:9px!important}
+ .header .brand-logo{flex-basis:58px!important;width:58px!important;height:58px!important}
+ .header .brand-copy strong{font-size:23px!important}
+ .header .brand-copy small{font-size:11px!important}
+}
+@media(max-width:1100px){
+ .header .brand{flex-direction:row!important;gap:9px!important;min-width:0!important}
+ .header .brand-logo{flex-basis:54px!important;width:54px!important;height:54px!important}
+ .header .brand-copy strong{font-size:20px!important}
+ .header .brand-copy small{font-size:10px!important}
+}
+@media(max-width:520px){
+ .header .brand{gap:7px!important}
+ .header .brand-logo{flex-basis:46px!important;width:46px!important;height:46px!important}
+ .header .brand-copy strong{font-size:18px!important}
+ .header .brand-copy small{font-size:9px!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
@@ -2377,7 +2431,7 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
 
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
-<a class="brand" href="#home" aria-label="تسنيم للسفريات والسياحة وخدمات الحج والعمرة"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="شعار تسنيم" width="76" height="76"><span class="brand-copy"><strong>تسنيم</strong><em lang="en">TASNEEM</em><small>للسفريات والسياحة</small><small>وخدمات الحج والعمرة</small></span></a>
+<a class="brand" href="#home" aria-label="تسنيم للسفريات والسياحة وخدمات الحج والعمرة"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="شعار تسنيم" width="76" height="76"><span class="brand-copy"><strong>تسنيم</strong><small>للسفريات والسياحة</small><small>وخدمات الحج والعمرة</small></span></a>
 <button class="menu" id="menu" type="button" aria-label="فتح القائمة" aria-controls="links" aria-expanded="false">☰</button>
 <nav class="links" id="links" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="about.html">عن تسنيم</a><a href="#services">خدماتنا</a><a href="services.html">دليل الخدمات</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a></nav>
 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تفعيل الوضع الليلي" title="تبديل المظهر"><span aria-hidden="true">☾</span></button>
