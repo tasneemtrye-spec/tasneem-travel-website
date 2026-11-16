@@ -27,5 +27,51 @@ on public.assistant_knowledge_published for update to authenticated
 using ((select public.is_tasneem_admin()))
 with check ((select public.is_tasneem_admin()) and published_by = (select auth.uid()));
 
+-- Atomic, version-checked publish. The row lock prevents a concurrent draft update
+-- from slipping between the version check and publication.
+create or replace function public.publish_assistant_knowledge(expected_version integer)
+returns table(published_version integer, published_at timestamptz)
+language plpgsql
+security invoker
+set search_path = public
+as $$
+declare
+  draft_row public.assistant_knowledge%rowtype;
+begin
+  if not public.is_tasneem_admin() then
+    raise exception 'not_authorized' using errcode = '42501';
+  end if;
+
+  select * into draft_row
+  from public.assistant_knowledge
+  where id = 'tasneem' and version = expected_version
+  for update;
+
+  if not found then
+    raise exception 'draft_version_mismatch' using errcode = '40001';
+  end if;
+
+  insert into public.assistant_knowledge_published
+    (id, content, version, published_at, published_by)
+  values
+    ('tasneem', draft_row.content, draft_row.version, now(), auth.uid())
+  on conflict (id) do update set
+    content = excluded.content,
+    version = excluded.version,
+    published_at = excluded.published_at,
+    published_by = excluded.published_by;
+
+  return query
+    select p.version, p.published_at
+    from public.assistant_knowledge_published p
+    where p.id = 'tasneem';
+end;
+$$;
+
+revoke all on function public.publish_assistant_knowledge(integer) from public, anon;
+grant execute on function public.publish_assistant_knowledge(integer) to authenticated;
+
 comment on table public.assistant_knowledge_published is
   'Single active public knowledge snapshot. Public read-only; verified Tasneem admin can publish.';
+comment on function public.publish_assistant_knowledge(integer) is
+  'Atomically publishes the exact current private draft version for the verified Tasneem admin.';
