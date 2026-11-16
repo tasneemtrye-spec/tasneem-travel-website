@@ -95,24 +95,75 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
 }
 @media(max-width:390px){.hero-grid{padding-top:130px}.hero h1{font-size:34px}.hero-actions .btn{font-size:12px;padding-inline:11px}.hero-note{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.hero-aircraft{animation:none}}
+
+/* Official travel landing header and service navigation */
+.topline{background:#06284b;color:#eef5ff;padding:7px 0;font-size:12px}
+.topline .wrap{gap:12px}.topline-contact{gap:clamp(12px,2vw,28px)}.topline a{color:#fff}
+.header{background:linear-gradient(110deg,rgba(5,39,75,.97),rgba(8,57,102,.96));border-bottom:1px solid rgba(245,197,96,.4)}
+.header .nav{height:82px}.header .brand{color:#fff}.header .brand small{color:#e5edf7}
+.header .links{color:#f5f7fb;gap:clamp(10px,1.5vw,22px);font-weight:700}
+.header .links a:hover,.header .links a:focus-visible{color:#ffd16d}
+.header .menu{color:#fff;border-color:#ffffff55}
+.nav-book{white-space:nowrap;background:linear-gradient(135deg,#ffe19a,#d59a27);color:#172b40;border:1px solid #fff1bd}
+.hero{background:#07345a;min-height:650px}
+.hero-backdrop{object-position:center 42%}
+.hero:before{z-index:1;opacity:1;background:linear-gradient(270deg,rgba(3,31,69,.78) 0%,rgba(3,39,78,.4) 43%,rgba(3,39,78,.02) 78%)}
+.hero-grid{z-index:2;grid-template-columns:1fr;padding:clamp(70px,8vw,112px) 0 clamp(145px,17vw,220px)}
+.hero-grid>div:first-child{width:min(52%,680px);margin-inline-start:0;margin-inline-end:auto;text-align:right}
+.hero .eyebrow{background:linear-gradient(90deg,#ffe19a,#d49b2e);color:#1c2e42;border-radius:999px;padding:7px 18px}
+.hero .eyebrow:before{display:none}
+.hero h1{font-size:clamp(42px,5.5vw,72px);text-shadow:0 3px 22px #062b4c88}
+.hero h1 span{color:#ffc85c}
+.hero p{color:#f4f7fb;text-shadow:0 2px 14px #062b4c88}
+.hero .btn-primary{background:linear-gradient(135deg,#ffe19a,#d59a27);color:#172b40}
+.hero .btn-outline{border:1px solid #fff;background:#ffffff12}
+.hero-services{position:relative;z-index:5;margin-top:-105px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border:1px solid #ffffff80;border-radius:24px;padding:10px;background:linear-gradient(110deg,rgba(69,53,42,.84),rgba(8,65,89,.88));box-shadow:0 18px 50px #071f3c55;backdrop-filter:blur(14px);overflow:hidden}
+.hero-services a{min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#fff;text-align:center;border-left:1px solid #ffffff35;padding:8px 5px;transition:background .2s}
+.hero-services a:last-child{border-left:0}.hero-services a:hover{background:#ffffff16}
+.hero-services span{font-size:31px;line-height:1.35;color:#ffd16d}.hero-services b{font-size:12px;line-height:1.6}
+@media(max-width:1000px){.header .links{gap:10px;font-size:12px}.nav-book{padding:10px 13px;font-size:12px}.hero-grid>div:first-child{width:min(62%,650px)}.hero-services{grid-template-columns:repeat(4,1fr);margin-top:-75px}.hero-services a:nth-child(4){border-left:0}}
+@media(max-width:700px){
+ .topline .wrap{justify-content:center}.topline-contact{justify-content:center;gap:8px 15px;font-size:11px}
+ .header .nav{height:72px}.header .brand{font-size:16px}.header .brand-logo{width:56px;height:56px;flex-basis:56px}
+ .header .links{background:#082f55;border:1px solid #ffffff28}
+ .nav-book{font-size:11px;padding:8px 11px}
+ .hero-grid{padding:clamp(120px,38vw,170px) 0 125px}
+ .hero-grid>div:first-child{width:100%;max-width:none}
+ .hero h1{font-size:clamp(36px,9vw,48px)}
+ .hero-services{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:-90px;padding:7px;border-radius:18px}
+ .hero-services a{min-height:85px;border-bottom:1px solid #ffffff30}
+ .hero-services a:nth-child(2n){border-left:0}
+ .hero-services a span{font-size:25px}.hero-services b{font-size:11px}
+}
 </style>
 </head>
 <body>
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
+<div class="topline"><div class="wrap"><span>🌐 العربية</span><div class="topline-contact"><span>📍 الجمهورية اليمنية</span><a href="tel:+966537017117">☎ +966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">✉ tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات</a><a href="#steps">كيف نعمل</a><a href="#why">لماذا تسنيم؟</a><a href="#contact">اتصل بنا</a></nav>
-<a class="btn btn-dark" href="https://wa.me/966537017117" target="_blank" rel="noopener">تواصل معنا ↗</a>
+<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#about">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#offers">العروض والباقات</a><a href="#contact">تواصل معنا</a></nav>
+<a class="btn btn-primary nav-book" href="https://wa.me/966537017117?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D8%B1%D9%8A%D8%B9">▦ طلب حجز سريع</a>
 </div></header>
 <main>
 <section class="hero" id="home"><img class="hero-backdrop" src="assets/tasneem-ai-coastal-hero.svg?v=20261116-6" alt="" fetchpriority="high" decoding="async">
 <div class="hero-aircraft" aria-hidden="true"><span class="flight-trail"></span><svg viewBox="0 0 360 180" role="presentation"><path class="plane-shadow" d="M178 12c8 0 13 7 15 18l13 53 94 28c10 3 16 10 14 17-2 6-8 8-17 6l-90-19-10 40c-2 8-9 13-17 13h-17l2-53-88 18c-9 2-15 0-17-6-2-7 4-14 14-17l89-27 2-56c2-11 7-18 15-18z"/><path class="plane-highlight" d="M180 22v134M168 88 82 116m110-28 86 26"/></svg><span class="plane-label">TASNEEM AIRWAYS</span></div>
 <div class="wrap hero-grid">
-<div><span class="eyebrow">من أرض البن واللبان… إلى آفاق العالم</span><h1>رحلتك تبدأ من هنا…<br><span>والعالم أقرب مما تتخيل</span></h1><p>نرتّب لك تجربة سفر متكاملة تجمع بين حجوزات الطيران والفنادق، والبرامج السياحية، وخدمات الحج والعمرة والتأشيرات؛ باهتمام بالتفاصيل وتواصل واضح من أول خطوة.</p>
+<div><span class="eyebrow">تسنيم للسفريات والسياحة</span><h1>بوابتك إلى أجمل<br><span>وجهات السفر</span></h1><p>خدمات سفر متكاملة تشمل حجز تذاكر الطيران، الفنادق، السياحة الداخلية والخارجية، برامج العمرة والحج، والتأشيرات.</p>
 <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">خطّط لرحلتك الآن <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
 <div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div></div>
 </div></section>
+<nav class="hero-services wrap" aria-label="خدمات تسنيم السريعة">
+<a href="#services"><span>✈</span><b>حجز تذاكر الطيران</b></a>
+<a href="#services"><span>▦</span><b>حجوزات الفنادق</b></a>
+<a href="#services"><span>⌂</span><b>السياحة الداخلية</b></a>
+<a href="#services"><span>◎</span><b>السياحة الخارجية</b></a>
+<a href="#services"><span>♧</span><b>البرامج السياحية</b></a>
+<a href="#services"><span>☾</span><b>الحج والعمرة</b></a>
+<a href="#services"><span>♙</span><b>الزيارات العائلية</b></a>
+<a href="#services"><span>▤</span><b>التأشيرات والمعاملات</b></a>
+</nav>
 <div class="trustbar"><div class="wrap trust-grid">
 <div class="trust-item"><span class="trust-icon">✈</span><span><b>حجوزات الطيران</b><small>خيارات سفر متعددة</small></span></div>
 <div class="trust-item"><span class="trust-icon">⌂</span><span><b>الفنادق والإقامة</b><small>ترتيب يناسب رحلتك</small></span></div>
