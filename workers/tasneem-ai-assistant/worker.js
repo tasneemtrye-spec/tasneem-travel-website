@@ -123,8 +123,8 @@ ${JSON.stringify(KNOWLEDGE)}
 - إجابات موجزة وعملية، 2 إلى 5 جمل غالباً. `;
 function corsHeaders(origin){return {"Access-Control-Allow-Origin":origin,"Access-Control-Allow-Methods":"POST, OPTIONS","Access-Control-Allow-Headers":"Content-Type","Access-Control-Max-Age":"86400","Vary":"Origin"};}
 function json(status,body,origin){return new Response(JSON.stringify(body),{status,headers:{...corsHeaders(origin),"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}});}
-function allowedOrigin(value){try{const u=new URL(value);return u.protocol==="https:"&&(ALLOWED_HOSTS.has(u.hostname)||/^[a-f0-9]{8,}\\.tasneem-travel-preview\\.pages\\.dev$/.test(u.hostname));}catch{return false;}}
-function redact(text){return text.replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/gi,"[بريد محذوف للخصوصية]").replace(/(?:\\+?\\d[\\d\\s().-]{7,}\\d)/g,"[رقم محذوف للخصوصية]");}
+function allowedOrigin(value){try{const u=new URL(value);return u.protocol==="https:"&&(ALLOWED_HOSTS.has(u.hostname)||/^[a-f0-9]{8,}\.tasneem-travel-preview\.pages\.dev$/.test(u.hostname));}catch{return false;}}
+function redact(text){return text.replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,"[بريد محذوف للخصوصية]").replace(/(?:\+?\d[\d\s().-]{7,}\d)/g,"[رقم محذوف للخصوصية]");}
 export default {async fetch(request,env){
  const origin=request.headers.get("Origin")||"";
  if(!allowedOrigin(origin))return new Response("Forbidden",{status:403,headers:{"Cache-Control":"no-store"}});
@@ -139,7 +139,7 @@ export default {async fetch(request,env){
  for(const item of messages){if(!item||!["user","assistant"].includes(item.role)||typeof item.content!=="string")continue;const content=redact(item.content.trim()).slice(0,1200);if(content)clean.push({role:item.role,content});}
  if(!clean.length||clean[clean.length-1].role!=="user")return json(400,{error:"invalid_messages"},origin);
  const last=clean[clean.length-1].content;
- if(/هل\\s*(?:أرسل|ارسل|أشارك|اكتب)|(?:أرسل|ارسل|أشارك).*?(?:جواز|passport|بطاقة|وثيقة)/i.test(last)&&/(جواز|passport|بطاقة|وثيقة|بيانات)/i.test(last))
+ if(/هل\s*(?:أرسل|ارسل|أشارك|اكتب)|(?:أرسل|ارسل|أشارك).*?(?:جواز|passport|بطاقة|وثيقة)/i.test(last)&&/(جواز|passport|بطاقة|وثيقة|بيانات)/i.test(last))
   return json(200,{reply:"لا، لا ترسل رقم جواز السفر أو صور الوثائق أو بيانات الدفع هنا. لحماية خصوصيتك، اكتفِ بذكر الوجهة ونوع الخدمة، وسيوضح لك فريق تسنيم أي مستندات لازمة عبر قناة آمنة عند الحاجة."},origin);
  try{
   const result=await env.AI.run(MODEL,{messages:[{role:"system",content:SYSTEM_PROMPT},...clean],max_tokens:520,temperature:0.2},{gateway:{id:"tasneem-assistant"}});
