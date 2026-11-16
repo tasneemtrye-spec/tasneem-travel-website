@@ -53,7 +53,7 @@ async function loadBookings(){
   $("bookings").innerHTML=data.length?data.map(x=>`<tr>
     <td>${safe(new Date(x.created_at).toLocaleString("ar"))}</td>
     <td><b>${safe(x.full_name)}</b><br><small>${safe(x.email||"")}</small></td>
-    <td><a href="https://wa.me/${safe(x.phone.replace(/[^0-9]/g,''))}" target="_blank" rel="noopener">${safe(x.phone)}</a><br><small>${safe(x.contact_method)}</small></td>
+    <td><a href="https://wa.me/${safe(String(x.phone||"").replace(/[^0-9]/g,''))}" target="_blank" rel="noopener">${safe(x.phone)}</a><br><small>${safe(x.contact_method)}</small></td>
     <td>${safe(x.service)}<br><small>${safe(x.destination||"—")}</small></td>
     <td>${safe(x.travel_date||"—")}<br><small>المسافرون: ${safe(x.travellers)}</small><br><small>${safe(x.message||"")}</small></td>
     <td><div class="actions"><select data-status="${x.id}">${Object.entries(statusLabels).map(([k,v])=>`<option value="${k}" ${x.status===k?"selected":""}>${v}</option>`).join("")}</select><button class="secondary" data-save="${x.id}">حفظ</button></div><textarea data-notes="${x.id}" rows="2" placeholder="ملاحظات داخلية">${safe(x.admin_notes||"")}</textarea></td>
