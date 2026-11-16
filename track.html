@@ -13,6 +13,24 @@
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.9}.wrap{width:min(1080px,calc(100% - 36px));margin:auto}a{color:inherit;text-decoration:none}.top{background:#102d28;color:#e8eee9;font-size:12px;padding:9px 0}.top .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}header{background:#fff;border-bottom:1px solid var(--line)}.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--green)}.brand img{width:54px;height:54px;object-fit:contain}.brand small{display:block;font-size:11px;color:var(--muted);font-weight:500}.nav a:last-child{color:var(--green2);font-weight:700;font-size:13px}.hero{padding:64px 0 90px;background:radial-gradient(circle at 15% 20%,#c99a4b25,transparent 30%),linear-gradient(130deg,#173b35,#24594b);color:#fff}.hero .wrap{display:grid;grid-template-columns:1fr .9fr;gap:36px;align-items:center}.eyebrow{color:#f0d49c;font-size:13px;font-weight:700}.hero h1{font-size:clamp(32px,4.5vw,50px);line-height:1.35;margin:12px 0}.hero p{color:#e0e9e3;max-width:600px}.trust{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px;color:#e8eee9;font-size:12px}.trust span{border:1px solid #ffffff35;border-radius:99px;padding:7px 12px}.panel{background:#fff;color:var(--ink);border:1px solid #ffffff40;border-radius:26px;padding:clamp(22px,3vw,34px);box-shadow:0 25px 70px #061f2b44}.panel h2{margin:0 0 6px;color:var(--green);font-size:23px}.panel>p{margin:0 0 22px;color:var(--muted);font-size:13px}.field{display:grid;gap:7px;margin:15px 0;font-size:13px;font-weight:700}.field input{width:100%;min-height:50px;border:1px solid #d9ded6;border-radius:13px;padding:12px 14px;font:inherit;direction:ltr;text-align:left}.field input:focus{outline:3px solid #c99a4b35;border-color:var(--gold)}button{width:100%;border:0;border-radius:99px;background:var(--gold);color:#173b35;font:inherit;font-weight:800;padding:13px 18px;cursor:pointer;margin-top:8px}button:disabled{opacity:.6;cursor:wait}.feedback{font-size:13px;margin-top:15px;min-height:22px}.feedback.error{color:#a13f32}.feedback.success{color:#237451}.result{display:none;margin-top:18px;border:1px solid var(--line);border-radius:16px;padding:17px;background:#fbfaf6}.result.show{display:block}.result strong{display:block;color:var(--green);font-size:17px}.result small{color:var(--muted)}.steps{padding:70px 0}.steps h2{text-align:center;color:var(--green);font-size:27px}.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.step b{color:var(--green)}.step p{font-size:13px;color:var(--muted);margin-bottom:0}footer{background:#132f2a;color:#e8eee9;padding:25px 0;font-size:12px}footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}footer a{color:#f1d28f}
 @media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero{padding:44px 0 64px}.steps-grid{grid-template-columns:1fr}.nav{min-height:68px}.brand img{width:46px;height:46px}}
 </style>
+<style>
+
+:root{--forest:#073a35;--forest2:#0b4a43;--gold:#d8ad5b;--muted:#6b8078}
+:focus-visible{outline:3px solid rgba(216,173,91,.85)!important;outline-offset:3px!important}
+.hero{background:radial-gradient(circle at 12% 12%,rgba(216,173,91,.18),transparent 35%),linear-gradient(120deg,#073a35,#0b4b44)!important;border-bottom:1px solid rgba(216,173,91,.42)!important}
+.hero h1,.hero h2{line-height:1.4!important;letter-spacing:-.02em!important}
+.kicker,.eyebrow{color:#e7c47e!important;font-weight:850!important}
+.btn{border-radius:999px!important;font-weight:850!important;transition:transform .2s ease,box-shadow .2s ease!important}
+.btn:hover{transform:translateY(-2px)!important;box-shadow:0 10px 24px rgba(7,52,45,.14)!important}
+.primary{background:linear-gradient(135deg,#f0d18f,#d8a94e)!important;color:#123d35!important}
+.secondary,.outline{border-color:rgba(216,173,91,.6)!important}
+.section,.intro,.grid{padding-block:clamp(38px,5vw,68px)!important}
+.card,.service,.panel,.step{border:1px solid rgba(7,58,53,.12)!important;border-radius:20px!important;box-shadow:0 12px 34px rgba(7,52,45,.06)!important}
+.card h2,.card h3,.service h2,.service h3{color:#073a35!important}
+.field input,.field select{border-radius:12px!important;border-color:#dbe5de!important}
+@media(max-width:700px){.hero{padding-inline:18px!important}.card,.service,.panel{border-radius:17px!important}}
+
+</style>
 </head>
 <body>
 <div class="top"><div class="wrap"><span>تسنيم للسفريات والسياحة</span><span dir="ltr">+966 53 701 7117</span></div></div>
