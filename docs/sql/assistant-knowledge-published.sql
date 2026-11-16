@@ -8,8 +8,16 @@ create table if not exists public.assistant_knowledge_published (
 );
 alter table public.assistant_knowledge_published enable row level security;
 revoke all on table public.assistant_knowledge_published from anon, authenticated;
-grant select (id, content, version, published_at) on public.assistant_knowledge_published to anon;
-grant select, insert, update on public.assistant_knowledge_published to authenticated;
+-- Keep the admin audit identity private from ordinary authenticated readers too.
+grant select (id, content, version, published_at)
+  on public.assistant_knowledge_published to anon, authenticated;
+
+-- The publish RPC runs as SECURITY INVOKER, so grant only the columns it writes.
+-- RLS still limits INSERT/UPDATE to the verified Tasneem admin identity.
+grant insert (id, content, version, published_at, published_by)
+  on public.assistant_knowledge_published to authenticated;
+grant update (content, version, published_at, published_by)
+  on public.assistant_knowledge_published to authenticated;
 
 drop policy if exists "Public can read published Tasneem knowledge" on public.assistant_knowledge_published;
 create policy "Public can read published Tasneem knowledge"
