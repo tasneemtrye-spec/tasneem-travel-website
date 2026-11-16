@@ -70,6 +70,16 @@ begin
      or jsonb_typeof(draft_row.content->'limitations') is distinct from 'array'
      or jsonb_typeof(draft_row.content#>'{agency,name}') is distinct from 'string'
      or length(btrim(draft_row.content#>>'{agency,name}')) = 0
+     or jsonb_typeof(draft_row.content#>'{agency,tagline}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,tagline}')) = 0
+     or jsonb_typeof(draft_row.content#>'{agency,email}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,email}')) = 0
+     or jsonb_typeof(draft_row.content#>'{agency,phone}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,phone}')) = 0
+     or jsonb_typeof(draft_row.content#>'{agency,whatsapp}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,whatsapp}')) = 0
+     or jsonb_typeof(draft_row.content#>'{agency,website}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,website}')) = 0
      or jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') is distinct from 'array'
      or jsonb_typeof(draft_row.content#>'{booking_process,disclaimer}') is distinct from 'string'
      or jsonb_typeof(draft_row.content#>'{privacy,collected_data}') is distinct from 'string'
@@ -80,6 +90,11 @@ begin
      or case when jsonb_typeof(draft_row.content->'destinations') = 'array' then jsonb_array_length(draft_row.content->'destinations') > 50 else true end
      or case when jsonb_typeof(draft_row.content->'faq') = 'array' then jsonb_array_length(draft_row.content->'faq') > 100 else true end
      or case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30 else true end
+     or exists (
+       select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then draft_row.content#>'{booking_process,form_fields}' else '[]'::jsonb end) field_value
+       where jsonb_typeof(field_value) is distinct from 'string'
+          or length(btrim(field_value#>>'{}')) = 0
+     )
      or case when jsonb_typeof(draft_row.content->'limitations') = 'array' then jsonb_array_length(draft_row.content->'limitations') > 30 else true end
      or exists (
        select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'services') = 'array' then draft_row.content->'services' else '[]'::jsonb end) item
