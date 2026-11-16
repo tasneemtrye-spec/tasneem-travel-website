@@ -1321,6 +1321,44 @@ footer:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;backg
 @media(max-width:760px){.footer-invite{align-items:flex-start;flex-direction:column;padding:24px 21px;margin-top:22px}.footer-cta{width:100%}.footer-main{grid-template-columns:1fr 1fr;gap:28px 20px;padding:32px 4px}.footer-brand{grid-column:1/-1}.footer-brand>p{max-width:560px}.footer-contact-link{max-width:none}.footer-bottom{align-items:flex-start;flex-direction:column;gap:7px;padding-inline:4px}}
 @media(max-width:430px){.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-invite h2{font-size:21px}.footer-brand-name{font-size:17px}.footer-logo-frame{width:68px;height:68px}.site-footer .foot-logo{width:54px;height:54px}}
 
+
+/* Footer typography refinement: clearer hierarchy and balanced contrast */
+.site-footer{font-family:"Cairo","IBM Plex Sans Arabic",Tahoma,sans-serif}
+.footer-invite h2{font-size:clamp(23px,2.5vw,31px);font-weight:900;letter-spacing:-.35px;color:#fff;line-height:1.55}
+.footer-invite p{font-size:14px;line-height:1.95;color:#d0e0e1;font-weight:500}
+.footer-eyebrow{font-size:13px;color:#f0d49a;font-weight:800}
+.footer-cta{font-size:14px;font-weight:900;letter-spacing:0;min-height:50px;padding:13px 23px}
+.footer-brand-name{font-size:21px;font-weight:900;line-height:1.55;color:#fff;letter-spacing:-.45px}
+.footer-brand-name small{font-size:12px;line-height:1.8;color:#e2c78f;font-weight:700}
+.footer-brand>p{font-size:14px;line-height:2.15;color:#c5d9da;font-weight:500}
+.footer-trust-note{font-size:13px;font-weight:800;color:#f0d49a}
+.site-footer .footer-main h3{font-size:18px;font-weight:900;color:#fff;line-height:1.6;margin-bottom:20px}
+.footer-nav>a{font-size:14px;font-weight:650;line-height:1.8;color:#d0e0e1;padding:6px 0}
+.footer-contact-intro{font-size:13px;line-height:2;color:#c5d9da;font-weight:500}
+.footer-contact-link{padding:11px 12px;gap:12px}
+.footer-contact-link small{font-size:11px;font-weight:600;color:#a9c4c5}
+.footer-contact-link b{font-size:13px;font-weight:800;color:#f0f6f4;line-height:1.7}
+.footer-contact-icon{font-size:18px}
+.footer-link-arrow{font-size:16px}
+.footer-bottom{font-size:12px;line-height:1.9;color:#b0c6c7;font-weight:500;padding-top:19px}
+.footer-bottom-note{color:#b9cecf}
+.footer-bottom>a{font-size:12px;font-weight:800;color:#e6c98f}
+@media(max-width:760px){
+ .footer-invite h2{font-size:24px;line-height:1.55}
+ .footer-invite p{font-size:13px}
+ .footer-brand-name{font-size:19px}
+ .footer-brand>p{font-size:13px}
+ .site-footer .footer-main h3{font-size:17px}
+ .footer-nav>a{font-size:14px}
+ .footer-contact-link b{font-size:12px}
+ .footer-bottom{font-size:11px}
+}
+@media(max-width:430px){
+ .footer-invite h2{font-size:22px}
+ .footer-brand-name{font-size:18px}
+ .footer-nav>a{font-size:14px}
+}
+
 </style>
 </head>
 <body>
