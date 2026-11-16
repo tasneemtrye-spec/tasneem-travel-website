@@ -1,4 +1,4 @@
--- Production migration applied on 2026-11-16. Reapplying is safe for the table/policy and function definitions.
+-- Production migration applied on 2026-11-16. This file is the reviewed source record; do not replay the CREATE TABLE block on an already-provisioned project.
 create table if not exists public.assistant_knowledge_published (
   id text primary key check (id = 'tasneem'),
   content jsonb not null check (jsonb_typeof(content) = 'object'),
