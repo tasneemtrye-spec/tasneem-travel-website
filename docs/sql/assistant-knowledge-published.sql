@@ -1,4 +1,4 @@
--- Proposed migration only. Do not apply until the preview rollout is approved.
+-- Production migration applied on 2026-11-16. Reapplying is safe for the table/policy and function definitions.
 create table if not exists public.assistant_knowledge_published (
   id text primary key check (id = 'tasneem'),
   content jsonb not null check (jsonb_typeof(content) = 'object'),
@@ -73,16 +73,16 @@ begin
      or jsonb_typeof(draft_row.content#>'{privacy,usage}') is distinct from 'string'
      or jsonb_typeof(draft_row.content#>'{privacy,sensitive}') is distinct from 'string'
      or jsonb_typeof(draft_row.content#>'{privacy,contact}') is distinct from 'string'
-     or case when jsonb_typeof(draft_row.content->'services') = 'array' then jsonb_array_length(draft_row.content->'services') > 30 else true end
-     or case when jsonb_typeof(draft_row.content->'destinations') = 'array' then jsonb_array_length(draft_row.content->'destinations') > 50 else true end
-     or case when jsonb_typeof(draft_row.content->'faq') = 'array' then jsonb_array_length(draft_row.content->'faq') > 100 else true end
-     or case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30 else true end
+     or (case when jsonb_typeof(draft_row.content->'services') = 'array' then jsonb_array_length(draft_row.content->'services') > 30 else true end)
+     or (case when jsonb_typeof(draft_row.content->'destinations') = 'array' then jsonb_array_length(draft_row.content->'destinations') > 50 else true end)
+     or (case when jsonb_typeof(draft_row.content->'faq') = 'array' then jsonb_array_length(draft_row.content->'faq') > 100 else true end)
+     or (case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30 else true end)
      or exists (
        select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then draft_row.content#>'{booking_process,form_fields}' else '[]'::jsonb end) field_value
        where jsonb_typeof(field_value) is distinct from 'string'
           or length(btrim(field_value#>>'{}')) = 0
      )
-     or case when jsonb_typeof(draft_row.content->'limitations') = 'array' then jsonb_array_length(draft_row.content->'limitations') > 30 else true end
+     or (case when jsonb_typeof(draft_row.content->'limitations') = 'array' then jsonb_array_length(draft_row.content->'limitations') > 30 else true end)
      or exists (
        select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'services') = 'array' then draft_row.content->'services' else '[]'::jsonb end) item
        where jsonb_typeof(item) is distinct from 'object'
