@@ -116,6 +116,9 @@ const URL="https://kbllhakivjduwanefvtf.supabase.co";
 const KEY="sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS";
 const supabase=createClient(URL,KEY);
 
+
+
+const $=id=>document.getElementById(id);
 const WORKER_URL="https://tasneem-images-uploader.tasneemtrye.workers.dev";
 const heroFile=$("hero-file"),heroPreview=$("hero-preview"),heroPreviewWrap=$("hero-preview-wrap");
 const heroUpload=$("hero-upload-button"),heroStatus=$("hero-upload-status"),heroResult=$("hero-result");
@@ -156,8 +159,6 @@ heroUpload.addEventListener("click",async()=>{
  }catch(error){heroMsg(error instanceof Error?error.message:"حدث خطأ أثناء رفع الصورة.","error")}
  finally{heroUpload.disabled=!heroSelectedFile}
 });
-
-const $=id=>document.getElementById(id);
 const loginCard=$("login-card"),dashboard=$("dashboard"),recoveryCard=$("recovery-card");
 const statusLabels={new:"جديد",contacted:"تم التواصل",in_progress:"قيد المتابعة",confirmed:"مؤكد",cancelled:"ملغي",closed:"مغلق"};
 function msg(el,text,type=""){el.textContent=text;el.className="feedback "+type}
