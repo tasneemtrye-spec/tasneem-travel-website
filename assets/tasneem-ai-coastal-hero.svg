@@ -21,11 +21,6 @@
 <path d="M1600 900V625Q1480 580 1390 615Q1290 655 1225 740Q1170 820 1090 900Z" fill="#263f43"/>
 <path d="M1600 900V710Q1480 665 1395 705Q1320 745 1260 820L1200 900Z" fill="#173a40"/>
 <g opacity=".5" fill="#f4d1a3"><path d="M90 770q90-55 180 5l-28 10q-70-35-130 5z"/><path d="M1320 765q75-55 155-8l-25 10q-60-28-115 12z"/></g>
-<g transform="translate(800 225) rotate(-8)" fill="#102c39" stroke="#f6d8a4" stroke-width="2">
- <path d="M-155 8Q-40-2 22-10L110-82Q127-91 133-78L105-5 195 20Q207 26 199 34L94 24 54 74Q43 85 35 76L24 22Q-55 20-155 18Q-174 17-155 8Z"/>
- <path d="M-12 5 5-37 18 4Z" fill="#e8c18b" stroke="none"/>
-</g>
-<path d="M590 270Q700 210 800 225" fill="none" stroke="#f2d29c" stroke-width="3" stroke-dasharray="7 14" opacity=".7"/>
 <g fill="#fff0d5" opacity=".5"><circle cx="180" cy="150" r="2"/><circle cx="350" cy="210" r="2"/><circle cx="1380" cy="130" r="2"/><circle cx="1490" cy="250" r="2"/></g>
 <rect width="1600" height="900" fill="#062c32" opacity=".15"/>
 </svg>
