@@ -2277,6 +2277,11 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
   };
   form.addEventListener("submit", async event => {
     event.preventDefault();
+    // Preview branch URLs must never submit customer data to the production booking endpoint.
+    if (window.location.origin !== "https://tasneem-travel-preview.pages.dev") {
+      showMessage("هذه نسخة معاينة للاختبار ولا تستقبل طلبات حجز فعلية. لإرسال طلبك، افتح الموقع الرسمي لتسنيم.", false);
+      return;
+    }
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     const payload = {
