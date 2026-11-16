@@ -1911,7 +1911,7 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" type="button" aria-label="فتح القائمة" aria-controls="links" aria-expanded="false">☰</button>
-<nav class="links" id="links" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="services.html">دليل الخدمات</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="#contact">تواصل معنا</a></nav>
+<nav class="links" id="links" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="about.html">عن تسنيم</a><a href="#services">خدماتنا</a><a href="services.html">دليل الخدمات</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a></nav>
 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تفعيل الوضع الليلي" title="تبديل المظهر"><span aria-hidden="true">☾</span></button>
 <button class="quick-search-launcher" id="quick-search-toggle" type="button" aria-label="ابحث عن رحلتك" title="ابحث عن رحلتك" aria-expanded="false" aria-controls="quick-search-panel">
   <svg class="launcher-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
@@ -2020,6 +2020,8 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
         <a href="#destinations">الوجهات</a>
         <a href="#steps">كيف نعمل</a>
         <a href="#faq">الأسئلة الشائعة</a>
+        <a href="about.html">عن تسنيم</a>
+        <a href="track.html">متابعة الطلب</a>
         <a href="privacy.html">سياسة الخصوصية</a>
       </nav>
       <div class="footer-contact">
@@ -2320,7 +2322,7 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
         throw new Error(messages[result.error] || "تعذر إرسال الطلب حالياً. يرجى المحاولة مجدداً أو التواصل عبر واتساب.");
       }
       form.reset();
-      showMessage("تم استلام طلبك بنجاح. سيتواصل معك فريق تسنيم لمراجعة التفاصيل.", true);
+      showMessage("تم استلام طلبك بنجاح. رقم طلبك: " + result.booking_id + " — احتفظ به ورقم هاتفك لمتابعة الحالة من صفحة «متابعة الطلب».", true);
     } catch (error) {
       showMessage(error instanceof Error ? error.message : "حدث خطأ غير متوقع. حاول مجدداً.", false);
     } finally {
