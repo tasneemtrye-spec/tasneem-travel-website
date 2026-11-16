@@ -1816,12 +1816,28 @@ img{height:auto}
 }
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none;transform:none}.ticker-window{overflow-x:auto}}
 
+
+/* Accessible pause / resume control for the ticker */
+.ticker-toggle{
+ flex:0 0 27px;width:27px;height:27px;display:inline-flex;align-items:center;justify-content:center;
+ padding:0;border:1px solid rgba(238,197,119,.5);border-radius:50%;
+ background:rgba(255,255,255,.08);color:#f1c878;font:700 13px/1 inherit;
+ cursor:pointer;transition:background .18s ease,color .18s ease
+}
+.ticker-toggle:hover,.ticker-toggle:focus-visible{background:#f1c878;color:#123b35;outline-offset:2px}
+.tasneem-news-ticker.is-paused .ticker-track{animation-play-state:paused!important}
+.ticker-toggle-icon{display:block;line-height:1}
+@media(max-width:700px){.ticker-toggle{width:25px;height:25px;flex-basis:25px}}
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
 <div class="tasneem-news-ticker" role="region" aria-label="شريط العبارة الإيمانية">
   <span class="ticker-label">كلمة طيبة</span>
+  <button class="ticker-toggle" id="ticker-toggle" type="button" aria-label="إيقاف حركة العبارة" aria-pressed="false" title="إيقاف الحركة">
+    <span class="ticker-toggle-icon" aria-hidden="true">Ⅱ</span>
+  </button>
   <div class="ticker-window">
     <div class="ticker-track">
       <span>بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
@@ -1996,6 +2012,18 @@ img{height:auto}
     links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 700) closeMenu(); });
+  }
+
+  const ticker = document.querySelector(".tasneem-news-ticker");
+  const tickerToggle = document.getElementById("ticker-toggle");
+  if (ticker && tickerToggle) {
+    tickerToggle.addEventListener("click", () => {
+      const paused = ticker.classList.toggle("is-paused");
+      tickerToggle.setAttribute("aria-pressed", String(paused));
+      tickerToggle.setAttribute("aria-label", paused ? "استئناف حركة العبارة" : "إيقاف حركة العبارة");
+      tickerToggle.setAttribute("title", paused ? "استئناف الحركة" : "إيقاف الحركة");
+      tickerToggle.querySelector(".ticker-toggle-icon").textContent = paused ? "▶" : "Ⅱ";
+    });
   }
 
   const quickPanel = document.getElementById("quick-search-panel");
