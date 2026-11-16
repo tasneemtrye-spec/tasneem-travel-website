@@ -2208,42 +2208,63 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
     document.getElementById("contact")?.scrollIntoView({behavior:"smooth",block:"start"});
     setTimeout(() => booking.querySelector('[name="destination"]')?.focus({preventScroll:true}), 350);
   };
-  const answerAssistant = raw => {
-    const q = raw.trim().toLowerCase();
-    if (!q) return;
-    addAssistantMessage(raw, "user");
-    const asksPrice = /سعر|أسعار|تكلفة|كم|عرض|ميزانية/.test(q);
-    const asksFlight = /طيران|تذكرة|رحلة جوية|رحلات جوية/.test(q);
-    const asksHotel = /فندق|فنادق|إقامة/.test(q);
-    const asksPilgrimage = /عمرة|حج|مكة|المدينة المنورة|الحرم/.test(q);
-    const asksVisa = /تأشيرة|فيزا|جواز|سفارة/.test(q);
-    const asksBooking = /حجز|احجز|تذكرة|طيران|فندق/.test(q);
-    const asksPlan = /رحلة|سياح|وجهة|أخطط|تخطيط|برنامج/.test(q);
-    let answer = "يسعدنا مساعدتك. أخبرنا بنوع الخدمة والوجهة والتاريخ التقريبي وعدد المسافرين، وسنرشدك إلى الخطوة المناسبة. لا نؤكد الأسعار أو التوافر إلا بعد مراجعة فريق تسنيم.";
-    // Specific commercial intents take precedence over broad destination/service words.
-    if (asksPrice && asksFlight) answer = "يسعدنا مساعدتك في تسعير تذكرة الطيران. نحتاج مدينة المغادرة والوصول (وقد ذكرت وجهتك)، وتاريخ السفر، وهل الرحلة ذهاب فقط أم ذهاب وعودة، وعدد المسافرين. الأسعار والتوافر تتغير حسب الموعد وشركة الطيران، لذلك لا أعرض سعراً تخمينياً. يمكنك فتح نموذج طلب الحجز وإرسال التفاصيل لفريق تسنيم.";
-    else if (asksPrice && asksHotel) answer = "لإعداد عرض فندق مناسب، نحتاج المدينة، تاريخ الدخول والخروج، عدد الغرف والنزلاء، ومستوى الإقامة المفضل. الأسعار والتوافر متغيران وسيؤكدهما فريق تسنيم قبل أي حجز.";
-    else if (asksPrice) answer = "تختلف الأسعار حسب نوع الخدمة والوجهة والتاريخ ومزود الخدمة. اذكر الخدمة والوجهة وتاريخ السفر وعدد المسافرين، وسيراجع فريق تسنيم الخيارات المتاحة دون عرض أسعار غير مؤكدة.";
-    else if (asksPilgrimage) answer = "لخدمات الحج والعمرة، أخبرنا بموعد السفر وعدد المسافرين ومدينة الانطلاق ونوع البرنامج المطلوب. يمكننا توجيه طلبك إلى فريق تسنيم لمراجعة التفاصيل المتاحة.";
-    else if (asksVisa) answer = "يمكن لفريق تسنيم مراجعة استفسارك عن التأشيرات ومتطلبات السفر بحسب جنسيتك والوجهة ونوع التأشيرة. لا ترسل رقم جوازك أو صور وثائقك أو بيانات حساسة داخل هذه المحادثة.";
-    else if (asksBooking) answer = "يمكنك إرسال طلب حجز طيران أو فندق من نموذج تسنيم. جهّز الوجهة وتاريخ السفر وعدد المسافرين، وسأفتح لك النموذج لتكمل البيانات.";
-    else if (asksPlan) answer = "لنخطط رحلتك خطوة بخطوة: ما الوجهة التي تفكر بها؟ وما تاريخ السفر التقريبي ومدة الرحلة وعدد المسافرين؟ يمكنني مساعدتك في ترتيب المتطلبات ثم تحويلها إلى طلب لفريق تسنيم.";
+  const assistantHistory = [];
+  const answerAssistant = async raw => {
+    const message = raw.trim();
+    if (!message) return;
+    addAssistantMessage(message, "user");
+    assistantHistory.push({role:"user",content:message});
+    const asksBooking = /حجز|احجز|تذكرة|طيران|فندق|سعر|أسعار|تكلفة/.test(message);
+    const asksHotel = /فندق|فنادق|إقامة/.test(message);
+    const waiting = document.createElement("div");
+    waiting.className = "assistant-bubble assistant-bot";
+    waiting.textContent = "يفكر مساعد تسنيم في طلبك…";
+    waiting.setAttribute("aria-live","polite");
+    assistantMessages.appendChild(waiting);
+    assistantMessages.scrollTop = assistantMessages.scrollHeight;
+    if (assistantInput) assistantInput.disabled = true;
+    const submitButton = assistantForm?.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+    let answer = "";
+    try {
+      const response = await fetch("https://tasneem-ai-assistant.tasneemtrye.workers.dev", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({messages:assistantHistory.slice(-10)})
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || typeof result.reply !== "string" || !result.reply.trim()) {
+        throw new Error(result.error || "assistant_unavailable");
+      }
+      answer = result.reply.trim();
+    } catch (error) {
+      console.error("Tasneem assistant request failed", error);
+      answer = "أعتذر، تعذر الاتصال بالمساعد الذكي حالياً. يمكنك متابعة استفسارك عبر نموذج الحجز أو التواصل مباشرة مع فريق تسنيم عبر واتساب.";
+    } finally {
+      waiting.remove();
+      if (assistantInput) assistantInput.disabled = false;
+      if (submitButton) submitButton.disabled = false;
+      assistantInput?.focus();
+    }
     addAssistantMessage(answer);
-    if (asksBooking || (asksPrice && (asksFlight || asksHotel))) {
+    assistantHistory.push({role:"assistant",content:answer});
+    if (assistantHistory.length > 10) assistantHistory.splice(0, assistantHistory.length - 10);
+    if (asksBooking) {
       const action = document.createElement("button");
       action.type = "button"; action.className = "assistant-quick-actions";
       action.textContent = "فتح نموذج طلب الحجز";
       action.addEventListener("click", () => { openAssistant(false); prepareBooking(asksHotel ? "حجز فندق" : "حجز طيران"); });
       assistantMessages.appendChild(action);
+      assistantMessages.scrollTop = assistantMessages.scrollHeight;
     }
   };
   if (assistantForm) assistantForm.addEventListener("submit", event => {
-    event.preventDefault(); answerAssistant(assistantInput.value); assistantInput.value = "";
+    event.preventDefault(); const question = assistantInput.value; assistantInput.value = ""; void answerAssistant(question);
   });
   document.querySelectorAll("[data-assistant-intent]").forEach(button => button.addEventListener("click", () => {
     const intent = button.dataset.assistantIntent;
-    if (intent === "plan") answerAssistant("أريد التخطيط لرحلة سياحية");
-    else if (intent === "support") answerAssistant("أريد الاستفسار عن خدمات تسنيم والتأشيرات");
+    if (intent === "plan") void answerAssistant("أريد التخطيط لرحلة سياحية");
+    else if (intent === "support") void answerAssistant("أريد الاستفسار عن خدمات تسنيم والتأشيرات");
     else { openAssistant(false); prepareBooking("حجز طيران"); }
   }));
 
