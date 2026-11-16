@@ -135,11 +135,35 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
  .hero-services a:nth-child(2n){border-left:0}
  .hero-services a span{font-size:25px}.hero-services b{font-size:11px}
 }
+
+/* Header alignment hotfix: one contact strip, no wrapped phone digits */
+.topline{min-height:42px;padding:5px 0}
+.topline .wrap{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;white-space:nowrap}
+.topline-contact{display:flex;flex-wrap:nowrap;align-items:center;white-space:nowrap;gap:clamp(14px,2.2vw,32px);direction:ltr}
+.topline-contact a{display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap;font-variant-numeric:lining-nums}
+.header .nav{display:flex;flex-wrap:nowrap;gap:clamp(12px,1.7vw,26px);min-width:0}
+.header .brand{flex:0 0 auto;white-space:nowrap}
+.header .links{flex:1 1 auto;min-width:0;justify-content:center;flex-wrap:nowrap;white-space:nowrap;gap:clamp(9px,1.15vw,18px);font-size:clamp(11px,.88vw,14px)}
+.nav-book{flex:0 0 auto}
+@media(max-width:1100px) and (min-width:701px){
+ .header .nav{gap:12px}
+ .header .brand{font-size:17px;gap:8px}
+ .header .brand-logo{width:58px;height:58px;flex-basis:58px}
+ .header .links{gap:9px;font-size:11px}
+ .nav-book{padding:9px 12px;font-size:11px}
+}
+@media(max-width:700px){
+ .topline{min-height:0;padding:6px 0}
+ .topline .wrap{justify-content:center;gap:8px;flex-wrap:wrap;white-space:normal}
+ .topline-contact{justify-content:center;flex-wrap:wrap;gap:8px 16px;font-size:11px}
+ .header .nav{gap:8px}
+ .header .brand{white-space:normal;flex:1 1 auto}
+ .header .links{white-space:normal}
+}
 </style>
 </head>
 <body>
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
-<div class="topline"><div class="wrap"><span>🌐 العربية</span><div class="topline-contact"><span>📍 الجمهورية اليمنية</span><a href="tel:+966537017117">☎ +966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">✉ tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
