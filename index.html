@@ -265,6 +265,111 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f2
  .dest-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Official page structure and layout system — November 2026 */
+:root{--page-bg:#f7f8f6;--surface:#fff;--surface-soft:#eef3ef;--ink:#173b35;--muted:#64756e;--brand:#17483f;--accent:#c99a4b;--hairline:#e2e9e4;--section-space:clamp(64px,7.2vw,104px)}
+body{background:var(--page-bg);color:var(--ink)}
+.wrap{width:min(1240px,calc(100% - 48px))}
+.topline{font-size:12px;padding:6px 0}
+.topline .wrap{min-height:28px}
+.header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--hairline);box-shadow:0 5px 24px rgba(18,52,43,.055)}
+.nav{height:82px;gap:clamp(12px,1.5vw,24px)}
+.brand{font-size:clamp(17px,1.45vw,22px);gap:12px;flex:0 0 auto}
+.brand-logo{width:62px;height:62px;flex-basis:62px}
+.brand small{font-size:12px}
+.links{gap:clamp(10px,1.25vw,19px);font-size:13px;white-space:nowrap}
+.links a{padding:8px 0;position:relative}
+.links a:after{content:"";position:absolute;right:0;bottom:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .2s}
+.links a:hover:after,.links a:focus-visible:after{transform:scaleX(1)}
+.nav-book{white-space:nowrap;padding:10px 16px;font-size:13px}
+.hero{min-height:clamp(570px,68vw,700px)}
+.hero-grid{width:min(1160px,calc(100% - 56px));grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:clamp(28px,5vw,68px);padding:clamp(64px,7vw,96px) 0}
+.hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.35}
+.hero p{font-size:17px;line-height:2}
+.plane-frame{border-radius:26px;padding:7px}
+.plane-frame img{height:clamp(260px,29vw,370px);border-radius:20px}
+.hero-actions{gap:12px}
+.btn{min-height:46px;padding:11px 20px}
+.trustbar{margin-top:-28px}
+.trust-grid{padding:20px 14px;border-radius:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.trust-item{padding-inline:10px;gap:10px}
+section{padding:var(--section-space) 0}
+section:not(.hero):nth-of-type(even){background:#fff}
+.section-head{margin:0 auto clamp(30px,4vw,46px);max-width:720px}
+.section-head .kicker{display:inline-flex;align-items:center;gap:9px;padding:5px 13px;border-radius:99px;background:#eaf1eb;color:#286453}
+.section-head h2{font-size:clamp(27px,3.3vw,40px);margin:12px 0 9px}
+.section-head p{max-width:620px;margin-inline:auto;font-size:15px;line-height:2;color:var(--muted)}
+#services{background:#fff}
+.services{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service{padding:26px 25px 24px;border:1px solid var(--hairline);border-radius:18px;box-shadow:0 5px 20px rgba(18,52,43,.035);background:#fff}
+.service-icon{width:50px;height:50px;border-radius:15px;margin-bottom:14px}
+.service h3{font-size:18px}
+.service p{font-size:13px;line-height:1.9}
+.service a{margin-top:14px}
+.destinations{background:#f0f3ef!important}
+.dest-grid{gap:16px}
+.destination{min-height:clamp(220px,21vw,285px);border-radius:19px}
+.yemeni-story{background:#fff}
+.story-card{overflow:hidden;border:1px solid var(--hairline)}
+#steps{background:#f7f8f6}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.step{border:1px solid var(--hairline);border-radius:18px;padding:24px;background:#fff}
+#why{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.why-card{border:1px solid var(--hairline);border-radius:18px;padding:22px;background:#fff}
+#contact{background:#f0f3ef}
+.booking-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:22px;align-items:start}
+.booking-form-card,.booking-aside{background:#fff;border:1px solid var(--hairline);border-radius:20px}
+.faq{background:#fff}
+.faq-list{max-width:900px;margin-inline:auto}
+footer{padding:54px 0 22px}
+footer .wrap{max-width:1240px}
+.copyright{margin-top:36px;padding-top:16px}
+@media(max-width:1050px) and (min-width:701px){
+ .wrap{width:calc(100% - 36px)}
+ .nav{gap:10px}.brand{font-size:16px;gap:8px}.brand-logo{width:52px;height:52px;flex-basis:52px}
+ .links{gap:9px;font-size:11px}.nav-book{padding:9px 11px;font-size:11px}
+ .hero-grid{grid-template-columns:1fr 1fr;gap:22px}
+ .hero h1{font-size:clamp(36px,4.5vw,48px)}
+ .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 32px)}
+ .topline .wrap{justify-content:center}
+ .nav{height:70px;gap:8px}
+ .brand{font-size:14px;gap:7px;flex:1 1 auto}
+ .brand-logo{width:48px;height:48px;flex-basis:48px}
+ .nav-book{font-size:10px;padding:8px 10px;min-height:36px}
+ .menu{display:inline-flex;align-items:center;justify-content:center;order:3;width:40px;height:40px;padding:0}
+ .links{display:none;position:absolute;top:100%;right:0;left:0;z-index:40;background:#fff;border:1px solid var(--hairline);border-radius:0 0 16px 16px;padding:8px 14px;box-shadow:0 18px 35px #092b2030;white-space:normal;align-items:stretch;gap:0;flex-direction:column}
+ .links.is-open{display:flex}
+ .links a{padding:11px 8px;border-bottom:1px solid var(--hairline)}
+ .links a:last-child{border-bottom:0}
+ .links a:after{display:none}
+ .hero{min-height:0}
+ .hero-grid{width:calc(100% - 36px);grid-template-columns:1fr;gap:24px;padding:42px 0 70px}
+ .hero-grid>div:first-child{width:100%}
+ .hero h1{font-size:clamp(34px,9vw,46px);margin:12px 0}
+ .hero p{font-size:15px;line-height:1.9}
+ .plane-frame{max-width:520px;margin-inline:auto;width:100%}
+ .plane-frame img{height:auto;aspect-ratio:16/10}
+ .trustbar{margin-top:-20px}
+ .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px}
+ .trust-item{justify-content:flex-start;border:0;padding:6px}
+ .services,.steps,.why-grid{grid-template-columns:1fr}
+ .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .destination{min-height:190px;border-radius:16px;padding:15px}
+ .booking-layout{grid-template-columns:1fr}
+ section{padding:58px 0}
+ .section-head{margin-bottom:28px}
+ footer{padding-top:42px}
+}
+@media(max-width:390px){
+ .brand{font-size:12px}.brand-logo{width:42px;height:42px;flex-basis:42px}
+ .nav-book{font-size:9px;padding:7px 8px}
+ .hero-actions .btn{padding:10px 13px;font-size:12px}
+ .dest-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -272,7 +377,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f2
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#destinations">الوجهات والعروض</a><a href="#contact">تواصل معنا</a></nav>
+<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="#contact">تواصل معنا</a></nav>
 <a class="btn btn-primary nav-book" href="https://wa.me/966537017117?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D8%B1%D9%8A%D8%B9">▦ طلب حجز سريع</a>
 </div></header>
 <main>
