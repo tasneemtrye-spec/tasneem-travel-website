@@ -4,6 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#173b35">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تسنيم للسفريات والسياحة | من روح اليمن إلى العالم">
+<meta name="twitter:description" content="خدمات سفر متكاملة لحجوزات الطيران والفنادق والبرامج السياحية والحج والعمرة.">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="dns-prefetch" href="//kbllhakivjduwanefvtf.supabase.co">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "تسنيم للسفريات والسياحة",
+  "url": "https://tasneem-travel-preview.pages.dev/",
+  "logo": "https://tasneem-travel-preview.pages.dev/assets/tasneem-official.webp",
+  "description": "خدمات سفر متكاملة تشمل حجوزات الطيران والفنادق والبرامج السياحية والسياحة الداخلية والخارجية وخدمات الحج والعمرة.",
+  "email": "tasneemtrye@gmail.com",
+  "telephone": "+966537017117",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+966537017117",
+    "contactType": "customer service",
+    "availableLanguage": ["Arabic"]
+  }
+}
+</script>
+
 <meta name="description" content="تسنيم للسفريات والسياحة — هوية يمنية أصيلة وخدمات سفر عصرية لحجوزات الطيران والفنادق والبرامج السياحية.">
 <link rel="canonical" href="https://tasneem-travel-preview.pages.dev/">
 <meta property="og:type" content="website">
@@ -1114,17 +1140,29 @@ section:not(.hero){padding-block:var(--section-space)!important}
  .hero-services{width:calc(100% - 24px)!important}
 }
 
+
+/* Accessibility and quality baseline */
+.skip-link{position:fixed;z-index:1000;top:10px;right:10px;transform:translateY(-160%);padding:11px 17px;border-radius:10px;background:#fff;color:#123d36;border:2px solid #c99a4b;font-weight:800;box-shadow:0 8px 25px #0018}
+.skip-link:focus{transform:translateY(0);outline:3px solid #f3c66d;outline-offset:3px}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #d9a747!important;outline-offset:3px!important}
+html{scroll-padding-top:100px}
+img{height:auto}
+.hero-visual img{height:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:700px){html{scroll-padding-top:78px}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
-<button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="#contact">تواصل معنا</a></nav>
+<button class="menu" id="menu" type="button" aria-label="فتح القائمة" aria-controls="links" aria-expanded="false">☰</button>
+<nav class="links" id="links" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="#contact">تواصل معنا</a></nav>
 <a class="btn btn-primary nav-book" href="https://wa.me/966537017117?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D8%B1%D9%8A%D8%B9">▦ طلب حجز سريع</a>
 </div></header>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="hero" id="home"><img class="hero-backdrop" src="assets/hero-home-8efce791.svg" alt="" fetchpriority="high" decoding="async">
 <div class="hero-visual" aria-label="مشاهد من رحلات تسنيم">
   <div class="hero-visual-plane"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85" alt="طائرة ركاب تحلق فوق السحاب" fetchpriority="high" decoding="async"></div>
@@ -1133,7 +1171,6 @@ section:not(.hero){padding-block:var(--section-space)!important}
     <figure class="hero-scene hero-scene-yemen"><img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=82" alt="عمارة تاريخية ووجهة ثقافية" loading="eager" decoding="async"><figcaption>وجهات ثقافية</figcaption></figure>
     <figure class="hero-scene hero-scene-nature"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=82" alt="بحيرة وجبال في وجهة سياحية" loading="eager" decoding="async"><figcaption>السياحة والطبيعة</figcaption></figure>
   </div>
-  <div class="hero-luggage"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=82" alt="حقيبة سفر مجهزة للرحلة" loading="eager" decoding="async"><span>رحلتك تبدأ من هنا</span></div>
   <span class="hero-visual-glow" aria-hidden="true"></span>
 </div>
 <div class="wrap hero-grid">
