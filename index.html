@@ -2239,6 +2239,17 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .theme-toggle{margin-inline:4px!important}
 }
 
+
+/* Explicit physical left-to-right grid so the brand is anchored at the visual right edge */
+@media(min-width:1101px){
+ .header .wrap.nav{direction:ltr!important;grid-template-columns:auto 44px 44px minmax(0,1fr) auto!important}
+ .header .nav-book{grid-column:1!important;justify-self:start!important}
+ .header .quick-search-launcher{grid-column:2!important;justify-self:center!important}
+ .header .theme-toggle{grid-column:3!important;justify-self:center!important}
+ .header .links{grid-column:4!important;direction:rtl!important}
+ .header .brand{grid-column:5!important;direction:rtl!important;justify-self:end!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
