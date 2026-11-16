@@ -2407,6 +2407,63 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .brand-copy small{font-size:9px!important}
 }
 
+
+/* Hero composition: copy panel stays right, aircraft gets a clean left stage */
+@media(min-width:901px){
+ .hero-flight-home{min-height:clamp(600px,calc(100vh - 108px),790px)!important;overflow:hidden!important}
+ .hero-flight-home .hero-flight-background{
+  object-fit:cover!important;object-position:24% center!important;
+  transform:scale(1.025)!important;
+ }
+ .hero-flight-home .hero-flight-shade{
+  background:linear-gradient(90deg,
+   rgba(2,24,34,.06) 0%,
+   rgba(2,24,34,.02) 42%,
+   rgba(3,29,38,.24) 63%,
+   rgba(3,29,38,.66) 100%)!important;
+ }
+ .hero-flight-home .hero-grid{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  width:min(1500px,calc(100% - 72px))!important;min-height:inherit!important;
+  padding:clamp(38px,4.5vh,64px) 0!important;
+ }
+ .hero-flight-home .hero-flight-copy{
+  width:clamp(430px,36vw,530px)!important;max-width:530px!important;
+  margin-inline-start:0!important;margin-inline-end:auto!important;
+  padding:clamp(26px,2.4vw,38px)!important;
+  background:linear-gradient(145deg,rgba(3,35,43,.9),rgba(4,42,48,.82))!important;
+  border:1px solid rgba(225,185,105,.55)!important;border-right:4px solid #dfb45f!important;
+  border-radius:22px!important;box-shadow:0 20px 56px rgba(0,17,25,.22)!important;
+  backdrop-filter:blur(5px)!important;
+ }
+ .hero-flight-home .hero-flight-copy .eyebrow{display:none!important}
+ .hero-flight-home h1{font-size:clamp(39px,3.4vw,52px)!important;line-height:1.27!important;margin:0 0 16px!important}
+ .hero-flight-home p{font-size:clamp(15px,1.08vw,17px)!important;line-height:1.9!important;margin:0 0 22px!important}
+ .hero-flight-home .hero-actions{gap:12px!important}
+ .hero-flight-home .hero-actions .btn{min-height:50px!important;padding:12px 20px!important}
+ .hero-flight-home .hero-note{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:20px!important}
+ .hero-flight-home .hero-note span{font-size:11px!important;padding:7px 10px!important}
+}
+@media(min-width:901px) and (max-width:1150px){
+ .hero-flight-home .hero-flight-copy{width:clamp(390px,40vw,470px)!important}
+ .hero-flight-home .hero-flight-background{object-position:20% center!important}
+}
+@media(max-width:900px){
+ .hero-flight-home .hero-flight-background{object-position:32% top!important}
+ .hero-flight-home .hero-flight-copy{margin-inline:auto!important}
+}
+/* Shorter, balanced navigation bar to match the visual weight of the brand */
+@media(min-width:1101px){
+ .header .wrap.nav{height:108px!important;min-height:108px!important}
+ .header .brand{min-height:88px!important;padding:2px 0!important}
+ .header .brand-logo{width:62px!important;height:62px!important;flex-basis:62px!important}
+ .header .brand-copy strong{font-size:26px!important}
+}
+@media(min-width:1101px) and (max-width:1320px){
+ .header .wrap.nav{height:104px!important;min-height:104px!important}
+ .header .brand-logo{width:56px!important;height:56px!important;flex-basis:56px!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
