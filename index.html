@@ -1838,6 +1838,120 @@ img{height:auto}
 
 
 
+
+/* Final responsive pass: phone + tablet layouts */
+@media (min-width:701px) and (max-width:1050px){
+  .wrap{width:calc(100% - 48px)}
+  .header .nav{height:82px;gap:12px}
+  .header .brand{font-size:17px;gap:10px;flex:1 1 auto;min-width:0}
+  .header .brand-logo{width:58px;height:58px;flex-basis:58px}
+  .header .menu{display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px}
+  .header .links{display:none;position:absolute;top:calc(100% - 1px);right:0;left:0;z-index:50;flex-direction:column;align-items:stretch;gap:0;padding:10px 16px;background:#fff;color:#173b35!important;border:1px solid #dce6df;border-radius:0 0 18px 18px;box-shadow:0 18px 35px rgba(9,43,32,.16);white-space:normal;font-size:15px}
+  .header .links.is-open{display:flex}
+  .header .links a{padding:12px 10px;border-bottom:1px solid #e8eee9;color:#173b35!important}
+  .header .links a:last-child{border-bottom:0}
+  .header .nav-book{display:none}
+  .hero{display:flex;flex-direction:column;min-height:0}
+  .hero-grid{order:1;display:block!important;width:calc(100% - 56px)!important;min-height:0!important;padding:58px 0 20px!important}
+  .hero-grid>div:first-child{position:relative!important;inset:auto!important;transform:none!important;width:100%!important;max-width:780px!important;margin:0 auto!important;text-align:center!important}
+  .hero-grid .eyebrow{margin-inline:auto!important}
+  .hero-grid h1{font-size:clamp(40px,6vw,58px)!important;line-height:1.25!important}
+  .hero-grid>div:first-child>p{margin-inline:auto!important;max-width:700px!important}
+  .hero-actions,.hero-note{justify-content:center}
+  .hero-visual{order:2;position:relative!important;inset:auto!important;transform:none!important;width:min(88%,700px)!important;height:clamp(280px,38vw,370px)!important;margin:8px auto 34px!important}
+  .hero-visual:before{inset:5% 1% 0!important;border-radius:26px!important;transform:none!important}
+  .hero-visual-plane{left:10%!important;right:10%!important;width:80%!important;height:53%!important;border-radius:22px!important;transform:none!important}
+  .hero-visual-destinations{left:1%!important;right:1%!important;bottom:0!important;height:39%!important;gap:10px!important}
+  .hero-scene{border-radius:16px!important}
+  .hero-services{position:relative;z-index:4}
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trust-item:nth-child(2){border:0}
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+  html{scroll-padding-top:72px}
+  body{overflow-x:hidden}
+  .wrap{width:calc(100% - 30px)!important}
+  .tasneem-news-ticker{height:32px;font-size:12px;gap:6px}
+  .ticker-label{font-size:9px;margin-inline-start:7px;padding:2px 7px}
+  .ticker-track{gap:32px;animation-duration:30s}
+  .ticker-toggle{width:24px;height:24px;flex-basis:24px}
+  .topline{padding:5px 0;font-size:10px}
+  .topline .wrap{justify-content:center;gap:4px}
+  .topline .wrap>span{display:none}
+  .topline-contact{width:100%;justify-content:center;gap:14px;font-size:10px}
+  .header .nav{height:72px;gap:8px;justify-content:space-between}
+  .header .brand{order:1;flex:1 1 auto;min-width:0;gap:8px;font-size:clamp(13px,3.8vw,17px);line-height:1.35}
+  .header .brand>span{min-width:0}
+  .header .brand small{font-size:10px;white-space:nowrap}
+  .header .brand-logo{width:46px!important;height:46px!important;flex:0 0 46px!important}
+  .header .menu{order:2;display:inline-flex!important;align-items:center;justify-content:center;width:40px;height:40px;flex:0 0 40px;padding:0}
+  .header .theme-toggle,.header .quick-search-launcher{width:36px;height:36px;flex:0 0 36px}
+  .header .links{display:none;position:absolute;top:calc(100% - 1px);right:0;left:0;z-index:60;flex-direction:column;align-items:stretch;gap:0;padding:8px 14px;background:#fff!important;color:#173b35!important;border:1px solid #dce6df!important;border-radius:0 0 16px 16px;box-shadow:0 18px 35px rgba(9,43,32,.16);white-space:normal;font-size:14px}
+  .header .links.is-open{display:flex!important}
+  .header .links a{display:block;padding:11px 8px;border-bottom:1px solid #e8eee9;color:#173b35!important}
+  .header .links a:last-child{border-bottom:0}
+  .header .nav-book{display:none!important}
+  .hero{display:flex!important;flex-direction:column!important;min-height:0!important;padding:0!important}
+  .hero-grid{order:1;display:block!important;width:calc(100% - 32px)!important;min-height:0!important;height:auto!important;padding:34px 0 10px!important;margin:0 auto!important}
+  .hero-grid>div:first-child{position:relative!important;inset:auto!important;transform:none!important;width:100%!important;max-width:620px!important;margin:0 auto!important;text-align:center!important}
+  .hero-grid .eyebrow{display:inline-flex!important;margin:0 auto 14px!important;padding:7px 13px!important;font-size:11px!important}
+  .hero-grid h1{font-size:clamp(34px,9.2vw,46px)!important;line-height:1.28!important;letter-spacing:0!important;margin:0 0 13px!important}
+  .hero-grid>div:first-child>p{font-size:14px!important;line-height:1.85!important;margin:0 auto 18px!important;max-width:540px!important}
+  .hero-actions{justify-content:center;gap:9px}
+  .hero-actions .btn{font-size:12px;padding:10px 15px;min-height:42px}
+  .hero-note{justify-content:center;gap:8px 12px;margin-top:18px;font-size:11px}
+  .hero-visual{order:2;position:relative!important;inset:auto!important;transform:none!important;width:calc(100% - 30px)!important;height:clamp(220px,62vw,285px)!important;margin:12px auto 30px!important;opacity:1!important;pointer-events:none}
+  .hero-visual:before{inset:5% 1% 0!important;border-radius:20px!important;transform:none!important}
+  .hero-visual-plane{left:7%!important;right:7%!important;top:0!important;width:86%!important;height:52%!important;border-radius:16px!important;border-width:2px!important;transform:none!important}
+  .hero-visual-destinations{left:0!important;right:0!important;bottom:0!important;height:39%!important;gap:6px!important}
+  .hero-scene{border-radius:12px!important}
+  .hero-scene figcaption{font-size:10px!important;padding:5px 3px!important}
+  .hero-visual-glow{bottom:0!important}
+  .hero-services{position:relative;z-index:4;margin-top:0!important}
+  .trustbar{margin-top:-14px}
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:14px}
+  .trust-item{min-width:0;justify-content:flex-start;gap:8px}
+  .trust-item b{font-size:11px}
+  .trust-item small{font-size:9px}
+  section{padding:52px 0!important}
+  .section-head{margin-bottom:24px}
+  .section-head h2{font-size:clamp(25px,7vw,32px)}
+  .services{grid-template-columns:1fr!important;gap:15px}
+  .service{padding:20px!important;border-radius:18px!important}
+  .service-media{height:clamp(180px,55vw,235px)!important}
+  .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .destination{min-height:clamp(155px,48vw,205px)!important;padding:12px!important;border-radius:16px!important}
+  .destination b{font-size:15px!important}
+  .destination small{font-size:10px!important}
+  .story-card{grid-template-columns:1fr!important;padding:22px!important;gap:16px}
+  .steps{grid-template-columns:1fr!important;gap:8px}
+  .why-grid,.contact-grid{grid-template-columns:1fr!important}
+  .booking-layout{grid-template-columns:1fr!important}
+  .booking-aside{display:flex!important}
+  .form-grid{grid-template-columns:1fr!important}
+  .field-wide{grid-column:auto!important}
+  .foot-grid,.footer-main{grid-template-columns:1fr!important}
+  .footer-brand{grid-column:auto!important}
+  .whatsapp{left:12px!important;bottom:12px!important;min-height:44px;padding:9px 12px;font-size:12px}
+  .assistant-launcher{right:12px!important;bottom:68px!important;padding:9px 12px!important;font-size:12px}
+  .assistant-panel{right:10px!important;left:10px!important;width:auto!important;bottom:122px!important}
+  img{max-width:100%;height:auto}
+}
+@media (max-width:380px){
+  .header .brand{font-size:12px}
+  .header .brand-logo{width:40px!important;height:40px!important;flex-basis:40px!important}
+  .header .theme-toggle,.header .quick-search-launcher{width:32px;height:32px;flex-basis:32px}
+  .hero-grid h1{font-size:32px!important}
+  .hero-visual{height:218px!important}
+  .hero-note{font-size:10px}
+  .hero-actions .btn{padding-inline:11px}
+  .dest-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .tasneem-news-ticker .ticker-track{animation:none!important}
+}
+
 </style>
 <style>
 /* Keep all five Yemen destination cards on one row on wide screens */
