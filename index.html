@@ -1551,6 +1551,71 @@ img{height:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 
+
+/* 2026 signature homepage refresh */
+:root{--navy:#062f36;--navy2:#0b5050;--teal:#087c73;--gold:#e8b957;--cream:#fbf8f1;--ink:#17353a;--line:#e8e2d6;--shadow:0 22px 60px rgba(3,39,45,.13)}
+.topline{background:#04282e}
+.header{background:rgba(4,43,49,.97);border-bottom:1px solid rgba(232,185,87,.42)}
+.header .nav{height:82px}
+.header .brand{color:#fff}.header .brand small{color:#d7e8e2}
+.header .links{color:#f8f5ed}.header .links a:hover{color:#f4c86d}
+.nav-book{background:linear-gradient(135deg,#f6d78e,#dca33c);color:#17353a}
+.hero{min-height:clamp(650px,78vw,790px);background:#062f36}
+.hero-backdrop{object-fit:cover;object-position:center 46%;filter:saturate(1.06)}
+.hero:before{background:linear-gradient(270deg,rgba(2,32,38,.84) 0%,rgba(3,48,52,.62) 43%,rgba(3,45,48,.18) 78%,rgba(3,45,48,.06) 100%)}
+.hero-grid{padding-top:clamp(75px,8vw,112px);padding-bottom:clamp(180px,20vw,245px)}
+.hero-grid>div:first-child{width:min(58%,730px)}
+.hero .eyebrow{background:rgba(4,47,51,.68);border:1px solid rgba(235,190,100,.65);color:#ffdda0}
+.hero h1{font-size:clamp(42px,5.4vw,72px);line-height:1.25;font-weight:900}
+.hero h1 span{color:#f4c76c}
+.hero p{font-size:clamp(16px,1.4vw,19px);line-height:2;color:#f3f5ed}
+.hero .btn-primary{background:linear-gradient(135deg,#f6d78e,#dca33c);color:#17353a}
+.hero .btn-outline{background:rgba(4,45,48,.35);border-color:#f5e6c7}
+.hero-quick-search{position:relative;z-index:6;width:min(1160px,calc(100% - 48px));margin:-145px auto 0;padding:0 0 18px;border-radius:26px;background:#fff;box-shadow:0 24px 65px rgba(3,35,43,.2);border:1px solid rgba(255,255,255,.85);overflow:hidden}
+.quick-search-tabs{display:grid;grid-template-columns:repeat(4,1fr);background:#f7f5ef;padding:0 14px}
+.quick-search-tabs a{display:flex;justify-content:center;align-items:center;gap:10px;padding:17px 8px;color:#24454a;font-weight:800;border-bottom:3px solid transparent}
+.quick-search-tabs a:first-child{background:#fff;border-bottom-color:#dca33c;color:#075b59}
+.quick-search-tabs a span{font-size:22px;color:#b8872f}
+.quick-search-fields{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:12px;align-items:end;padding:22px 24px 8px}
+.quick-search-fields label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:800;color:#315258}
+.quick-search-fields input,.quick-search-fields select{width:100%;height:52px;border:1px solid #dfe6e2;border-radius:13px;padding:0 14px;background:#fbfcfa;color:#27454a;font:inherit;font-size:14px;min-width:0}
+.quick-search-fields button{height:52px;padding:0 26px;border:0;border-radius:13px;background:linear-gradient(135deg,#f4d28a,#dba33d);color:#17353a;font:inherit;font-weight:900;white-space:nowrap;cursor:pointer}
+.quick-search-fields button:hover{filter:brightness(.97);transform:translateY(-1px)}
+.quick-search-hint{padding:0 24px;margin:7px 0 0;color:#82908a;font-size:11px}
+.hero-services{margin-top:26px;background:linear-gradient(120deg,#073b40,#0c5b5c);border:1px solid #d9bd7c66;box-shadow:0 15px 38px rgba(3,44,48,.12);grid-template-columns:repeat(4,minmax(0,1fr));border-radius:20px}
+.hero-services a{min-height:82px;border-color:#ffffff24;flex-direction:row;gap:9px}
+.hero-services a span{font-size:25px;color:#f2c66b}
+.hero-services a b{font-size:13px}
+.trustbar{margin-top:28px}
+.trust-grid{border-radius:22px;box-shadow:0 15px 42px rgba(3,39,45,.07)}
+.section-head h2{color:#073b40}
+.service{border-radius:24px}
+.service-icon{background:#e8f2ed;color:#087c73}
+@media(max-width:900px){
+ .hero{min-height:640px}.hero-grid>div:first-child{width:68%}
+ .hero-quick-search{margin-top:-112px}
+ .quick-search-fields{grid-template-columns:1fr 1fr}
+ .quick-search-fields button{grid-column:1/-1}
+}
+@media(max-width:700px){
+ .header .nav{height:72px}.header .brand{font-size:15px}
+ .hero{min-height:0}
+ .hero-grid{padding:clamp(115px,35vw,160px) 0 150px}
+ .hero-grid>div:first-child{width:100%}
+ .hero h1{font-size:clamp(36px,9vw,49px)}
+ .hero-quick-search{width:calc(100% - 28px);margin-top:-112px;border-radius:20px;padding-bottom:15px}
+ .quick-search-tabs{grid-template-columns:repeat(2,1fr);padding:0}
+ .quick-search-tabs a{font-size:12px;padding:12px 5px}
+ .quick-search-tabs a:nth-child(2){border-left:0}
+ .quick-search-fields{grid-template-columns:1fr;padding:17px 16px 6px;gap:11px}
+ .quick-search-fields button{grid-column:auto;width:100%}
+ .quick-search-hint{padding:0 16px;line-height:1.7}
+ .hero-services{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px;padding:6px}
+ .hero-services a{min-height:70px;flex-direction:row}
+ .hero-services a:nth-child(2n){border-left:0}
+}
+@media(prefers-reduced-motion:reduce){.hero-aircraft{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -1577,6 +1642,22 @@ img{height:auto}
 <div><span class="eyebrow">تسنيم للسفريات والسياحة</span><h1>بوابتك إلى أجمل<br><span>وجهات السفر</span></h1><p>خدمات سفر متكاملة تشمل حجز تذاكر الطيران، الفنادق، السياحة الداخلية والخارجية، برامج العمرة والحج، والتأشيرات.</p>
 <div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">خطّط لرحلتك الآن <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
 <div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div></div>
+
+<div class="hero-quick-search" aria-label="ابدأ البحث عن رحلتك">
+  <div class="quick-search-tabs" aria-label="أنواع الخدمات">
+    <a href="#contact" data-service="حجز طيران"><span>✈</span> حجز طيران</a>
+    <a href="#contact" data-service="حجز فندق"><span>▰</span> فنادق</a>
+    <a href="#contact" data-service="برنامج سياحي"><span>⌖</span> رحلات سياحية</a>
+    <a href="#contact" data-service="حج وعمرة"><span>☾</span> حج وعمرة</a>
+  </div>
+  <form class="quick-search-fields" id="quick-search-form">
+    <label><span>الوجهة</span><input id="quick-destination" type="text" placeholder="إلى أين ترغب بالسفر؟" autocomplete="off"></label>
+    <label><span>تاريخ السفر</span><input id="quick-date" type="date"></label>
+    <label><span>عدد المسافرين</span><select id="quick-travellers"><option value="1">مسافر واحد</option><option value="2" selected>مسافران</option><option value="3">3 مسافرين</option><option value="4">4 مسافرين</option><option value="5">5 مسافرين</option><option value="6">6 مسافرين</option><option value="7">7 مسافرين</option><option value="8 أو أكثر">8 أو أكثر</option></select></label>
+    <button type="submit">ابدأ طلبك <span aria-hidden="true">←</span></button>
+  </form>
+  <p class="quick-search-hint">خطوة أولى سريعة — نراجع التفاصيل معك قبل تأكيد أي حجز.</p>
+</div>
 </div></section>
 
 <nav class="hero-services wrap" aria-label="خدمات تسنيم السريعة">
@@ -1698,6 +1779,36 @@ img{height:auto}
     links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 700) closeMenu(); });
+  }
+
+  const quickForm = document.getElementById("quick-search-form");
+  if (quickForm) {
+    quickForm.querySelectorAll("[data-service]").forEach(tab => tab.addEventListener("click", () => {
+      const serviceSelect = document.querySelector('#booking-form [name="service"]');
+      if (serviceSelect) {
+        const requested = tab.dataset.service;
+        const option = [...serviceSelect.options].find(item => item.textContent.trim() === requested || (requested === "حج وعمرة" && item.textContent.includes("أخرى")));
+        if (option) serviceSelect.value = option.value;
+      }
+    }));
+    quickForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const booking = document.getElementById("booking-form");
+      if (!booking) return;
+      const destination = document.getElementById("quick-destination");
+      const date = document.getElementById("quick-date");
+      const travellers = document.getElementById("quick-travellers");
+      const destinationField = booking.querySelector('[name="destination"]');
+      const dateField = booking.querySelector('[name="travel-date"]');
+      const travellersField = booking.querySelector('[name="travellers"]');
+      if (destinationField && destination) destinationField.value = destination.value.trim();
+      if (dateField && date) dateField.value = date.value;
+      if (travellersField && travellers) travellersField.value = travellers.value;
+      booking.scrollIntoView({behavior:"smooth",block:"center"});
+      const serviceField = booking.querySelector('[name="service"]');
+      if (serviceField && !serviceField.value) serviceField.focus({preventScroll:true});
+      else if (destinationField && !destinationField.value) destinationField.focus({preventScroll:true});
+    });
   }
 
   const form = document.getElementById("booking-form");
