@@ -267,6 +267,28 @@ async function loadKnowledge(){
  }catch(error){knowledgeMsg("تعذر تحميل المسودة. قد لا يكون ترحيل قاعدة المعرفة مطبقاً بعد أو أن صلاحيات الحساب غير كافية.","error")}
  finally{$("knowledge-load").disabled=false}
 }
+async function publishKnowledge(){
+ const button=$("knowledge-publish");
+ if(!window.confirm("سيتم نشر المسودة المحفوظة حالياً ليستخدمها مساعد تسنيم في ردوده العامة. هل راجعت المحتوى وتوافق على نشره؟"))return;
+ button.disabled=true;
+ try{
+  const parsed=validateKnowledge(JSON.parse(knowledgeEditor.value));
+  const {data:{user},error:userError}=await supabase.auth.getUser();
+  if(userError||!user||user.email?.toLowerCase()!=="tasneemtrye@gmail.com")throw new Error("الحساب الحالي غير مخوّل للنشر.");
+  const {data:draft,error:draftError}=await supabase.from("assistant_knowledge").select("content,version").eq("id","tasneem").single();
+  if(draftError||!draft)throw new Error("تعذر قراءة المسودة المحفوظة. احفظ المسودة ثم أعد المحاولة.");
+  if(Number(draft.version)!==knowledgeLoadedVersion||JSON.stringify(draft.content)!==JSON.stringify(parsed))
+   throw new Error("المحتوى المعروض يختلف عن المسودة المحفوظة أو تغير إصدارها. احفظ المسودة/أعد تحميلها قبل النشر.");
+  const {data,error}=await supabase.from("assistant_knowledge_published").upsert({
+   id:"tasneem",content:draft.content,version:Number(draft.version),
+   published_at:new Date().toISOString(),published_by:user.id
+  },{onConflict:"id"}).select("version,published_at").single();
+  if(error)throw error;
+  knowledgeMsg("تم اعتماد ونشر الإصدار "+data.version+" للمساعد الذكي. لم يتم نشر أي بيانات حجوزات.","success");
+ }catch(error){
+  knowledgeMsg(error instanceof SyntaxError?"صيغة JSON غير صحيحة. راجع الأقواس والفواصل.":error instanceof Error?error.message:"تعذر نشر المعرفة. تحقق من صلاحيات قاعدة البيانات.","error");
+ }finally{button.disabled=false}
+}
 async function saveKnowledge(){
  const button=$("knowledge-save");button.disabled=true;
  try{
