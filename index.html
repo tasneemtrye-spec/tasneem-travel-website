@@ -92,6 +92,28 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
  .hero-actions .btn{font-size:12px;padding-inline:11px}
  .hero-note{font-size:11px}
 }
+
+/* AI-inspired travel hero enhancements: cinematic aircraft, layered glow and responsive composition */
+.hero{background:#082f45!important}
+.hero:before{background:linear-gradient(270deg,rgba(3,25,44,.72) 0%,rgba(3,35,55,.40) 42%,rgba(4,38,52,.08) 78%)!important}
+.hero-grid>div:first-child{width:min(58%,720px)!important;max-width:720px!important}
+.hero .eyebrow{display:inline-flex;padding:8px 15px;border:1px solid rgba(238,194,112,.55);border-radius:999px;background:rgba(5,35,55,.46);backdrop-filter:blur(8px);color:#ffdda0}
+.hero h1{font-size:clamp(40px,5.1vw,68px);line-height:1.28;letter-spacing:-1.2px}
+.hero h1 span{color:#ffd17a;text-shadow:0 3px 20px rgba(0,0,0,.24)}
+.hero p{font-size:clamp(16px,1.45vw,19px);line-height:2.05;max-width:650px}
+.hero .btn-primary{background:linear-gradient(135deg,#f6d38c,#c48b35);color:#102e43;box-shadow:0 12px 30px rgba(3,25,44,.28)}
+.hero .btn-outline{border-color:rgba(255,255,255,.78);background:rgba(5,35,55,.25);backdrop-filter:blur(7px)}
+.hero-aircraft{position:absolute;z-index:2;left:clamp(3%,7vw,110px);top:clamp(45px,8vw,115px);width:clamp(180px,26vw,360px);height:auto;transform:rotate(-13deg);filter:drop-shadow(0 16px 22px rgba(0,14,32,.42));animation:tasneem-flight 7s ease-in-out infinite;pointer-events:none}
+.hero-aircraft svg{display:block;width:100%;overflow:visible}
+.hero-aircraft .plane-shadow{fill:#f8fbff;stroke:#b8d3e8;stroke-width:2}
+.hero-aircraft .plane-highlight{fill:none;stroke:#d5a34c;stroke-width:3;stroke-linecap:round;opacity:.95}
+.flight-trail{position:absolute;width:125%;height:30%;left:-50%;top:32%;border-top:3px solid rgba(255,213,137,.8);border-radius:50%;transform:rotate(-10deg);filter:drop-shadow(0 0 8px #f3c16b)}
+.plane-label{position:absolute;top:43%;left:42%;font-size:clamp(7px,.75vw,10px);font-weight:900;letter-spacing:1px;color:#173b55;transform:rotate(0deg);white-space:nowrap}
+.hero-note span{padding:5px 11px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(3,34,50,.24);backdrop-filter:blur(5px)}
+@keyframes tasneem-flight{0%,100%{transform:translate3d(0,0,0) rotate(-13deg)}50%{transform:translate3d(0,-13px,0) rotate(-10deg)}}
+@media(max-width:1050px){.hero-grid>div:first-child{width:min(64%,700px)!important}.hero-aircraft{left:2%;top:5%;width:clamp(160px,25vw,270px)}}
+@media(max-width:700px){.hero:before{display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(180deg,rgba(3,28,46,.08) 0%,rgba(3,28,46,.24) 34%,rgba(3,28,46,.96) 58%,#062f45 100%)!important}.hero-aircraft{top:18px;left:4%;width:clamp(150px,48vw,220px);opacity:.98}.hero-grid{position:relative!important;padding:185px 0 58px!important}.hero-grid>div:first-child{width:100%!important;max-width:none!important}.hero h1{font-size:clamp(34px,9vw,48px)!important;letter-spacing:-.5px}.hero p{font-size:15px!important}.hero-note{gap:8px}.hero-note span{font-size:10px;padding:4px 8px}}
+@media(prefers-reduced-motion:reduce){.hero-aircraft{animation:none!important}}
 </style>
 </head>
 <body>
@@ -103,11 +125,12 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
 <a class="btn btn-dark" href="https://wa.me/966537017117" target="_blank" rel="noopener">تواصل معنا ↗</a>
 </div></header>
 <main>
-<section class="hero" id="home"><img class="hero-backdrop" src="assets/tasneem-coastal-hero.webp?v=20261116-5" alt="" fetchpriority="high" decoding="async"><div class="wrap hero-grid">
-<div><span class="eyebrow">من أرض البن واللبان… إلى كل وجهة تحلم بها</span><h1>من <span>روح اليمن</span>…<br>نفتح لك أبواب العالم</h1><p>هوية تستلهم دفء العمارة اليمنية ونقوش القمرية وألوان الأرض، وخدمات سفر عصرية تساعدك على ترتيب رحلتك بثقة واهتمام بالتفاصيل.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">ابدأ التخطيط لرحلتك <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
-<div class="hero-note"><span>✦ جذور يمنية أصيلة</span><span>✦ خيارات سفر واضحة</span><span>✦ عناية بكل التفاصيل</span></div></div>
-
+<section class="hero" id="home"><img class="hero-backdrop" src="assets/tasneem-coastal-hero.webp?v=20261116-5" alt="" fetchpriority="high" decoding="async">
+<div class="hero-aircraft" aria-hidden="true"><span class="flight-trail"></span><svg viewBox="0 0 360 180" role="presentation"><path class="plane-shadow" d="M178 12c8 0 13 7 15 18l13 53 94 28c10 3 16 10 14 17-2 6-8 8-17 6l-90-19-10 40c-2 8-9 13-17 13h-17l2-53-88 18c-9 2-15 0-17-6-2-7 4-14 14-17l89-27 2-56c2-11 7-18 15-18z"/><path class="plane-highlight" d="M180 22v134M168 88 82 116m110-28 86 26"/></svg><span class="plane-label">TASNEEM AIRWAYS</span></div>
+<div class="wrap hero-grid">
+<div><span class="eyebrow">من أرض البن واللبان… إلى آفاق العالم</span><h1>رحلتك تبدأ من هنا…<br><span>والعالم أقرب مما تتخيل</span></h1><p>نرتّب لك تجربة سفر متكاملة تجمع بين حجوزات الطيران والفنادق، والبرامج السياحية، وخدمات الحج والعمرة والتأشيرات؛ باهتمام بالتفاصيل وتواصل واضح من أول خطوة.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">خطّط لرحلتك الآن <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
+<div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div></div>
 </div></section>
 <div class="trustbar"><div class="wrap trust-grid">
 <div class="trust-item"><span class="trust-icon">✈</span><span><b>حجوزات الطيران</b><small>خيارات سفر متعددة</small></span></div>
