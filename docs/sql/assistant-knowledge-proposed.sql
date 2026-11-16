@@ -1,5 +1,5 @@
--- PROPOSED ONLY: review and apply as a Supabase migration after explicit approval.
--- This file is not executed by the repository workflow.
+-- APPLIED ON LIVE SUPABASE: migration 20261116111732_create_assistant_knowledge_admin_drafts.
+-- Retained as the reviewed SQL record; do not re-run manually or treat this file as an automated migration.
 create table if not exists public.assistant_knowledge (
   id text primary key check (id = 'tasneem'),
   content jsonb not null check (jsonb_typeof(content) = 'object'),
