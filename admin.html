@@ -279,12 +279,11 @@ async function publishKnowledge(){
   if(draftError||!draft)throw new Error("تعذر قراءة المسودة المحفوظة. احفظ المسودة ثم أعد المحاولة.");
   if(Number(draft.version)!==knowledgeLoadedVersion||JSON.stringify(draft.content)!==JSON.stringify(parsed))
    throw new Error("المحتوى المعروض يختلف عن المسودة المحفوظة أو تغير إصدارها. احفظ المسودة/أعد تحميلها قبل النشر.");
-  const {data,error}=await supabase.from("assistant_knowledge_published").upsert({
-   id:"tasneem",content:draft.content,version:Number(draft.version),
-   published_at:new Date().toISOString(),published_by:user.id
-  },{onConflict:"id"}).select("version,published_at").single();
+  const {data,error}=await supabase.rpc("publish_assistant_knowledge",{expected_version:knowledgeLoadedVersion});
   if(error)throw error;
-  knowledgeMsg("تم اعتماد ونشر الإصدار "+data.version+" للمساعد الذكي. لم يتم نشر أي بيانات حجوزات.","success");
+  const published=Array.isArray(data)?data[0]:data;
+  if(!published)throw new Error("لم تُرجع عملية النشر إصداراً مؤكداً.");
+  knowledgeMsg("تم اعتماد ونشر الإصدار "+published.published_version+" للمساعد الذكي. لم يتم نشر أي بيانات حجوزات.","success");
  }catch(error){
   knowledgeMsg(error instanceof SyntaxError?"صيغة JSON غير صحيحة. راجع الأقواس والفواصل.":error instanceof Error?error.message:"تعذر نشر المعرفة. تحقق من صلاحيات قاعدة البيانات.","error");
  }finally{button.disabled=false}
