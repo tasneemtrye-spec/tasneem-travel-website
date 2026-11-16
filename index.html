@@ -165,6 +165,106 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
 @media(max-width:700px){.hero{background-image:none!important;background-color:#07345a!important}}
 .hero-backdrop{object-position:center center}
 @media(min-width:701px){.hero-backdrop{object-position:center 42%}}
+
+/* Tasneem visual refinement */
+:root{--navy:#082e50;--navy2:#12466b;--teal:#167b75;--gold:#e6b653;--cream:#f7f8f6;--line:#e4e9e8;--shadow:0 18px 48px rgba(7,39,61,.10)}
+html{scroll-padding-top:104px}
+body{background:#fbfcfa;color:#183548}
+.topline{background:#062441;padding:8px 0}
+.header{box-shadow:0 8px 28px rgba(4,32,54,.10)}
+.header .nav{height:88px}
+.header .brand{gap:12px;font-size:clamp(17px,1.55vw,23px)}
+.header .brand-logo{width:68px;height:68px;flex-basis:68px}
+.header .links{gap:clamp(10px,1.25vw,20px)}
+.header .links a{position:relative;padding:10px 0}
+.header .links a:after{content:"";position:absolute;right:0;left:0;bottom:3px;height:2px;background:#f2c76b;transform:scaleX(0);transform-origin:right;transition:transform .2s}
+.header .links a:hover:after,.header .links a:focus-visible:after{transform:scaleX(1)}
+.nav-book{box-shadow:0 8px 22px rgba(220,169,64,.22)}
+.hero{min-height:clamp(590px,calc(100svh - 130px),790px)}
+.hero-backdrop{object-fit:cover;object-position:center 44%}
+.hero:before{background:linear-gradient(270deg,rgba(3,28,48,.82) 0%,rgba(3,36,61,.55) 42%,rgba(3,39,65,.12) 82%,rgba(3,39,65,.04) 100%)}
+.hero-grid{padding-top:clamp(84px,9vw,132px);padding-bottom:clamp(160px,17vw,220px)}
+.hero-grid>div:first-child{width:min(54%,700px)}
+.hero h1{font-weight:900;line-height:1.22;margin-block:22px}
+.hero p{line-height:2.05}
+.hero-actions .btn{min-height:50px;padding-inline:24px}
+.hero-services{margin-top:-112px;min-height:132px;padding:12px;border-radius:26px;background:linear-gradient(115deg,rgba(8,39,58,.91),rgba(21,77,91,.91));border-color:rgba(255,255,255,.5)}
+.hero-services a{min-height:108px;border-color:rgba(255,255,255,.22)}
+.hero-services a span{font-size:34px;text-shadow:0 4px 15px rgba(255,199,96,.2)}
+.trustbar{margin-top:30px}
+.trust-grid{border-radius:22px;padding:24px 18px;box-shadow:0 14px 42px rgba(7,39,61,.07)}
+section{padding-block:clamp(68px,7vw,100px)}
+.section-head{margin-bottom:46px}
+.section-head h2{font-weight:900;letter-spacing:-.4px}
+.section-head p{font-size:15px;line-height:2}
+.services{gap:20px}
+.service{position:relative;overflow:hidden;border-radius:24px;padding:30px;box-shadow:0 8px 26px rgba(7,39,61,.035);transition:transform .25s,box-shadow .25s,border-color .25s}
+.service:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#e7bc62,#177c79);opacity:0;transition:opacity .2s}
+.service:hover:before{opacity:1}
+.service:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(7,39,61,.11)}
+.service-icon{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#eaf4f1,#d9eae5);color:#14766e}
+.service h3{font-weight:850}
+.service p{line-height:1.95}
+.destination{border-radius:26px;min-height:clamp(240px,23vw,330px);box-shadow:0 14px 34px rgba(9,42,49,.13)}
+.destination b{display:block;font-size:20px;font-weight:900;margin-bottom:4px}
+.destination small{display:block;font-size:13px;color:#f4f5f1}
+.story-card{border-radius:30px;box-shadow:0 22px 55px rgba(8,42,54,.12)}
+.step{border:1px solid var(--line);border-radius:22px;padding:28px;background:#fff;box-shadow:0 10px 28px rgba(7,39,61,.045)}
+.why-card{border:1px solid var(--line);border-radius:20px;background:#fff;padding:22px;box-shadow:0 8px 22px rgba(7,39,61,.04)}
+.booking-form-card,.booking-aside{border-radius:26px;box-shadow:0 18px 48px rgba(7,39,61,.08)}
+.field input,.field select,.field textarea{border-radius:13px;border:1px solid #dce5e3;background:#fcfdfc;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#26877d;box-shadow:0 0 0 3px rgba(38,135,125,.12)}
+.submit-booking{min-height:52px}
+.form-feedback.success{color:#147b5a}.form-feedback.error{color:#b33c35}
+.faq-list details{border:1px solid var(--line);border-radius:17px;background:#fff;margin-bottom:12px;padding:16px 20px;box-shadow:0 6px 18px rgba(7,39,61,.035)}
+.faq-list summary{font-weight:800}
+footer{background:linear-gradient(130deg,#061f37,#0a3c59);color:#eaf1f3;padding-top:64px}
+footer h3{color:#fff}.foot-links a:hover{color:#ffd16d}.copyright{border-color:#ffffff26}
+.whatsapp{box-shadow:0 12px 30px rgba(9,91,67,.3);transition:transform .2s,box-shadow .2s}
+.whatsapp:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(9,91,67,.4)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f2c76b;outline-offset:4px}
+@media(max-width:1100px) and (min-width:701px){
+ .header .nav{gap:12px}.header .brand{font-size:16px}.header .brand-logo{width:56px;height:56px;flex-basis:56px}
+ .header .links{gap:8px;font-size:11px}.nav-book{padding:9px 11px;font-size:11px}
+ .hero-grid>div:first-child{width:62%}
+}
+@media(max-width:700px){
+ .topline .wrap{gap:6px 12px;flex-wrap:wrap;justify-content:center}
+ .header .nav{height:72px;gap:8px}
+ .header .brand{font-size:15px;gap:8px;flex:1 1 auto}
+ .header .brand-logo{width:52px;height:52px;flex-basis:52px}
+ .header .menu{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;flex:0 0 42px;background:#ffffff12;border-color:#ffffff55}
+ .header .links{display:none;position:absolute;top:calc(100% - 1px);right:14px;left:14px;z-index:30;padding:12px;border-radius:0 0 18px 18px;box-shadow:0 18px 35px rgba(0,0,0,.22);flex-direction:column;align-items:stretch;gap:0;white-space:normal}
+ .header .links.is-open{display:flex}
+ .header .links a{padding:12px 14px;border-bottom:1px solid #ffffff20}
+ .header .links a:last-child{border-bottom:0}
+ .nav-book{font-size:10px;padding:8px 10px;min-height:38px}
+ .hero{min-height:0}
+ .hero-backdrop{aspect-ratio:16/9;object-position:center 45%}
+ .hero:before{background:linear-gradient(180deg,rgba(3,28,46,.02) 0%,rgba(3,28,46,.08) 28%,rgba(3,28,46,.96) 66%,#062f45 100%)}
+ .hero-grid{padding:clamp(120px,38vw,170px) 0 126px}
+ .hero-grid>div:first-child{width:100%}
+ .hero h1{font-size:clamp(35px,9vw,47px)}
+ .hero-services{margin-top:-90px;grid-template-columns:repeat(2,minmax(0,1fr));padding:7px}
+ .hero-services a{min-height:88px}
+ .trust-grid{grid-template-columns:repeat(2,1fr);gap:16px;padding:18px}
+ .trust-item{border:0;justify-content:flex-start}
+ .services{grid-template-columns:1fr;gap:14px}
+ .service{padding:24px}
+ .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .destination{min-height:220px;border-radius:19px;padding:16px}
+ .destination b{font-size:17px}.destination small{font-size:11px}
+ .booking-layout{grid-template-columns:1fr}
+ footer{padding-top:48px}
+}
+@media(max-width:390px){
+ .header .brand{font-size:13px}.header .brand-logo{width:46px;height:46px;flex-basis:46px}
+ .nav-book{font-size:9px;padding-inline:8px}
+ .hero-grid{padding-top:132px}
+ .hero-actions .btn{font-size:12px;padding-inline:12px}
+ .dest-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -172,7 +272,7 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
 <button class="menu" id="menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#about">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#offers">العروض والباقات</a><a href="#contact">تواصل معنا</a></nav>
+<nav class="links" id="links"><a href="#home">الرئيسية</a><a href="#yemeni-identity">عن تسنيم</a><a href="#services">خدماتنا</a><a href="#destinations">الوجهات السياحية</a><a href="#destinations">الوجهات والعروض</a><a href="#contact">تواصل معنا</a></nav>
 <a class="btn btn-primary nav-book" href="https://wa.me/966537017117?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D8%B1%D9%8A%D8%B9">▦ طلب حجز سريع</a>
 </div></header>
 <main>
@@ -224,4 +324,92 @@ footer{background:#061f2b;color:#d3e2df;padding:45px 0 22px}.foot-grid{display:g
 </div></div></section>
 </main>
 <footer><div class="wrap"><div class="foot-grid"><div><img class="foot-logo" src="assets/tasneem-official.webp" alt="شعار تسنيم" width="64" height="64"><h3>تسنيم للسفريات والسياحة</h3><p>نساعدك على ترتيب رحلتك بخطوات واضحة وتواصل مباشر. وجهتك تبدأ من هنا.</p></div><div><h3>روابط سريعة</h3><div class="foot-links"><a href="#services">خدماتنا</a><a href="#destinations">الوجهات</a><a href="#steps">كيف نعمل</a><a href="#faq">الأسئلة الشائعة</a><a href="privacy.html">سياسة الخصوصية</a><a href="admin.html" rel="nofollow">لوحة الإدارة</a></div></div><div><h3>تواصل معنا</h3><div class="foot-links contact-social"><a href="https://wa.me/966537017117" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> محادثة واتساب · +966 53 701 7117</a><a href="tel:+966537017117"><span aria-hidden="true">☎</span> اتصال هاتفي · +966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com"><span aria-hidden="true">✉</span> tasneemtrye@gmail.com</a></div><p class="social-note">قنوات التواصل الرسمية المباشرة</p></div></div><div class="copyright"><span>© <span id="year"></span> تسنيم للسفريات والسياحة. جميع الحقوق محفوظة.</span><span>صُمّم ليجعل التخطيط لرحلتك أكثر وضوحاً.</span></div></div></footer>
-<a class="whatsapp" href="https://wa.me/966537017117" target="_blank" rel="noopener noreferrer" aria-label="افتح محادثة واتساب مع تسنيم"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 .8A15 15 0 0 0 3.1 23.5L1 31l7.7-2A15 15 0 1 0 16 .8Zm0 27.3a12.2 12.2 0 0 1-6.2-1.7l-.5-.3-4.6 1.2 1.2-4.5-.3-.5A12.2 12.2 0 1 1 16 28.1Zm6.7-9.1c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2s-.9 1.2-1.1 1.4-.4.3-.8.1a10 10 0 0 1-3-1.9 11.2 11.2 0 0 1-2.1-2.6c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h
+<a class="whatsapp" href="https://wa.me/966537017117" target="_blank" rel="noopener noreferrer" aria-label="افتح محادثة واتساب مع تسنيم">
+<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 2.2a13.5 13.5 0 0 0-11.6 20.4L2.6 29l6.6-1.7A13.5 13.5 0 1 0 16 2.2Zm0 24.6a11 11 0 0 1-5.6-1.5l-.4-.2-3.3.9.9-3.2-.3-.5A11 11 0 1 1 16 26.8Zm6-8.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4Z"/></svg>
+</a>
+<script>
+(() => {
+  const menu = document.getElementById("menu");
+  const links = document.getElementById("links");
+  const year = document.getElementById("year");
+  if (year) year.textContent = String(new Date().getFullYear());
+  const closeMenu = () => {
+    if (!menu || !links) return;
+    links.classList.remove("is-open");
+    menu.setAttribute("aria-expanded", "false");
+    menu.setAttribute("aria-label", "فتح القائمة");
+    menu.textContent = "☰";
+  };
+  if (menu && links) {
+    menu.addEventListener("click", () => {
+      const open = !links.classList.contains("is-open");
+      links.classList.toggle("is-open", open);
+      menu.setAttribute("aria-expanded", String(open));
+      menu.setAttribute("aria-label", open ? "إغلاق القائمة" : "فتح القائمة");
+      menu.textContent = open ? "×" : "☰";
+    });
+    links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 700) closeMenu(); });
+  }
+
+  const form = document.getElementById("booking-form");
+  const feedback = document.getElementById("form-feedback");
+  if (!form || !feedback) return;
+  const submit = form.querySelector('button[type="submit"]');
+  const showMessage = (message, ok) => {
+    feedback.textContent = message;
+    feedback.className = "form-feedback " + (ok ? "success" : "error");
+  };
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const payload = {
+      "bot-field": String(data.get("bot-field") || ""),
+      full_name: String(data.get("full-name") || "").trim(),
+      phone: String(data.get("phone") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      service: String(data.get("service") || ""),
+      destination: String(data.get("destination") || "").trim(),
+      travel_date: String(data.get("travel-date") || ""),
+      travellers: String(data.get("travellers") || "2"),
+      contact_method: String(data.get("contact-method") || "واتساب"),
+      message: String(data.get("message") || "").trim(),
+      privacy_consent: form.querySelector('[name="privacy-consent"]').checked
+    };
+    submit.disabled = true;
+    submit.querySelector("span").textContent = "جارٍ إرسال طلبك…";
+    showMessage("يتم إرسال طلبك بأمان، يرجى الانتظار.", true);
+    try {
+      const response = await fetch("https://kbllhakivjduwanefvtf.supabase.co/functions/v1/submit-booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS"
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success !== true) {
+        const messages = {
+          captcha_required: "يرجى إكمال التحقق الأمني ثم إعادة المحاولة.",
+          captcha_failed: "تعذر التحقق الأمني. حدّث الصفحة وحاول مجدداً.",
+          rate_limited: "تم استلام عدد كبير من المحاولات. يرجى الانتظار قليلاً ثم المحاولة.",
+          invalid_form: "يرجى مراجعة البيانات المدخلة والتأكد من الموافقة على سياسة الخصوصية."
+        };
+        throw new Error(messages[result.error] || "تعذر إرسال الطلب حالياً. يرجى المحاولة مجدداً أو التواصل عبر واتساب.");
+      }
+      form.reset();
+      showMessage("تم استلام طلبك بنجاح. سيتواصل معك فريق تسنيم لمراجعة التفاصيل.", true);
+    } catch (error) {
+      showMessage(error instanceof Error ? error.message : "حدث خطأ غير متوقع. حاول مجدداً.", false);
+    } finally {
+      submit.disabled = false;
+      submit.querySelector("span").textContent = "إرسال طلب الحجز";
+    }
+  });
+})();
+</script>
+</body>
+</html>
