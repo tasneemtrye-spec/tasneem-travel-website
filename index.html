@@ -2099,7 +2099,8 @@ body[data-theme="dark"] .assistant-input-row input{background:#12201b;color:#e7e
       quickPanel.hidden = !open;
       quickToggle.setAttribute("aria-expanded", String(open));
       quickToggle.classList.toggle("is-open", open);
-      quickToggle.querySelector(".launcher-chevron").textContent = open ? "⌃" : "⌄";
+      const chevron = quickToggle.querySelector(".launcher-chevron");
+      if (chevron) chevron.textContent = open ? "⌃" : "⌄";
       if (open) {
         window.setTimeout(() => quickPanel.scrollIntoView({behavior:"smooth",block:"nearest"}), 40);
       }
