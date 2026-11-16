@@ -597,6 +597,112 @@ footer .wrap{gap:clamp(20px,3vw,36px)}
  .steps .step{padding:19px}
 }
 
+
+/* Refined "Why Tasneem" section — balanced grid and consistent cards */
+.why{
+  padding-block:clamp(76px,8vw,112px)!important;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(44,112,96,.22),transparent 52%),
+    linear-gradient(145deg,#123d38 0%,#0d302e 58%,#102f2e 100%)!important;
+}
+.why:after{opacity:.42;left:-115px;top:-125px}
+.why .wrap{width:min(1420px,calc(100% - clamp(36px,7vw,120px)))!important}
+.why .section-head{
+  max-width:760px!important;
+  margin:0 auto clamp(34px,4.5vw,54px)!important;
+  text-align:center;
+}
+.why .section-head .kicker{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:8px 18px;border-radius:999px;
+  background:rgba(255,255,255,.94);color:#b47a27!important;
+  font-size:13px;font-weight:800;letter-spacing:.1px;
+}
+.why .section-head h2{
+  margin:20px 0 12px!important;
+  font-size:clamp(30px,3.2vw,44px)!important;
+  line-height:1.4;letter-spacing:-.5px;
+}
+.why .section-head p{
+  max-width:620px;margin:0 auto!important;
+  color:#d4e5df!important;font-size:clamp(15px,1.25vw,17px);
+  line-height:1.95;
+}
+.why-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  align-items:stretch;gap:clamp(14px,1.5vw,22px)!important;
+}
+.why-card{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:205px;height:100%;
+  padding:clamp(22px,2vw,30px)!important;
+  display:flex!important;flex-direction:column;align-items:flex-start;
+  gap:17px!important;
+  border:1px solid rgba(218,238,228,.22)!important;
+  border-radius:22px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045))!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;
+}
+.why-card:before{
+  content:"";position:absolute;inset:0 0 auto;height:3px;z-index:-1;
+  background:linear-gradient(90deg,transparent,#e9bd68,transparent);opacity:.8;
+}
+.why-card:after{
+  content:"";position:absolute;width:150px;height:150px;left:-85px;bottom:-100px;
+  border:1px solid rgba(232,190,111,.16);border-radius:50%;z-index:-1;
+}
+.why-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(239,198,119,.58)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.07))!important;
+  box-shadow:0 20px 38px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.10);
+}
+.why-card i{
+  width:48px;height:48px;flex:0 0 48px;
+  display:grid;place-items:center;
+  border-radius:15px;
+  background:linear-gradient(145deg,rgba(238,195,112,.22),rgba(238,195,112,.08));
+  border:1px solid rgba(238,195,112,.38);
+  color:#ffd27e!important;font-size:24px!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+.why-card div{width:100%}
+.why-card b{
+  display:block;color:#fff!important;font-size:clamp(16px,1.3vw,18px);
+  line-height:1.6;margin:0 0 8px!important;
+}
+.why-card p{
+  color:#d6e5df!important;font-size:14px!important;
+  line-height:1.9;margin:0!important;max-width:34ch;
+}
+@media(max-width:1150px){
+ .why .wrap{width:calc(100% - 56px)!important}
+ .why-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}
+ .why-card{min-height:190px}
+}
+@media(max-width:620px){
+ .why{padding-block:54px!important}
+ .why .wrap{width:calc(100% - 36px)!important}
+ .why .section-head{margin-bottom:26px!important}
+ .why .section-head h2{font-size:27px!important;margin:16px 0 9px!important}
+ .why .section-head p{font-size:14px;line-height:1.9}
+ .why-grid{grid-template-columns:1fr!important;gap:13px!important}
+ .why-card{
+   min-height:0;padding:19px!important;border-radius:18px!important;
+   display:grid!important;grid-template-columns:46px minmax(0,1fr);
+   align-items:start;gap:13px!important;
+ }
+ .why-card i{width:44px;height:44px;flex-basis:44px;border-radius:13px;font-size:21px!important}
+ .why-card b{font-size:16px;margin:0 0 5px!important}
+ .why-card p{font-size:13px!important;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .why-card{transition:none!important}
+ .why-card:hover{transform:none}
+}
+
 </style>
 </head>
 <body>
