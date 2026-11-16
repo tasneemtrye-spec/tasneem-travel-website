@@ -1794,7 +1794,7 @@ img{height:auto}
  height:38px;display:flex;align-items:center;gap:14px;overflow:hidden;
  background:linear-gradient(90deg,#082d2b,#10483f 52%,#082d2b);
  color:#fff3d6;border-bottom:1px solid rgba(218,174,91,.48);
- position:relative;z-index:22;font-size:13px;font-weight:800
+ position:relative;z-index:22;font-size:16px;line-height:1.15;font-weight:800
 }
 .ticker-label{
  flex:0 0 auto;margin-inline-start:clamp(12px,3vw,42px);
@@ -1807,10 +1807,10 @@ img{height:auto}
  direction:ltr;animation:tasneemTickerMove 34s linear infinite
 }
 .ticker-track span{direction:rtl;unicode-bidi:plaintext;display:block;white-space:nowrap}
-@keyframes tasneemTickerMove{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes tasneemTickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .tasneem-news-ticker:hover .ticker-track{animation-play-state:paused}
 @media(max-width:700px){
- .tasneem-news-ticker{height:34px;font-size:11px;gap:8px}
+ .tasneem-news-ticker{height:34px;font-size:14px;line-height:1.1;gap:8px}
  .ticker-label{font-size:10px;margin-inline-start:8px;padding:2px 8px}
  .ticker-track{gap:48px;animation-duration:27s}
 }
