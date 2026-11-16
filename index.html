@@ -2201,6 +2201,44 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .brand-logo{width:48px!important;height:48px!important;flex-basis:48px!important}
 }
 
+
+/* Header identity correction — explicit desktop layout */
+@media(min-width:1101px){
+ .header .wrap.nav{display:grid!important;grid-template-columns:auto minmax(0,1fr) 44px 44px auto!important;align-items:center!important;column-gap:clamp(14px,1.35vw,25px)!important;height:94px!important;width:min(1480px,calc(100% - 64px))!important;margin-inline:auto!important}
+ .header .brand{grid-column:1;display:flex!important;align-items:center!important;justify-self:start!important;flex-direction:row!important;gap:16px!important;margin:0!important;min-width:0!important;white-space:normal!important}
+ .header .brand-logo{width:70px!important;height:70px!important;flex:0 0 70px!important;order:0!important}
+ .header .brand-copy{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:1px!important;min-width:0!important;line-height:1.25!important;white-space:nowrap!important}
+ .header .brand-copy strong{display:block!important;font-size:clamp(24px,1.75vw,30px)!important;font-weight:900!important;color:#103b37!important;line-height:1.2!important}
+ .header .brand-copy small{display:block!important;font-size:13px!important;font-weight:650!important;color:#71847d!important;line-height:1.45!important;white-space:nowrap!important}
+ .header .links{grid-column:2;display:flex!important;justify-content:center!important;align-items:center!important;gap:clamp(10px,.9vw,17px)!important;min-width:0!important;white-space:nowrap!important}
+ .header .links a{font-size:clamp(12px,.78vw,14px)!important;white-space:nowrap!important}
+ .header .menu{display:none!important}
+ .header .theme-toggle{grid-column:3!important;justify-self:center!important;position:static!important;margin:0!important;width:44px!important;height:44px!important;min-width:44px!important;flex:0 0 44px!important;border-radius:50%!important;border:1px solid #d9b36d!important;background:#fffaf0!important;color:#a9792d!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+ .header .quick-search-launcher{grid-column:4!important;justify-self:center!important;position:static!important;margin:0!important;width:44px!important;height:44px!important;min-width:44px!important;flex:0 0 44px!important}
+ .header .nav-book{grid-column:5!important;justify-self:end!important;position:static!important;margin:0!important;white-space:nowrap!important;padding:13px 19px!important}
+}
+@media(min-width:701px) and (max-width:1100px){
+ .header .wrap.nav{display:flex!important;align-items:center!important;gap:12px!important}
+ .header .brand{order:1!important;flex:0 0 auto!important;gap:10px!important;margin-inline-start:auto!important;white-space:normal!important}
+ .header .brand-logo{width:56px!important;height:56px!important;flex-basis:56px!important}
+ .header .brand-copy{display:flex!important;flex-direction:column!important;gap:1px!important;white-space:nowrap!important;line-height:1.3!important}
+ .header .brand-copy strong{font-size:21px!important;color:#103b37!important}
+ .header .brand-copy small{display:block!important;font-size:11px!important;color:#71847d!important}
+ .header .menu{order:2!important;display:none!important}
+ .header .links{order:3!important;flex:1 1 auto!important;justify-content:center!important;gap:8px!important;white-space:nowrap!important}
+ .header .links a{font-size:11px!important}
+ .header .theme-toggle{order:4!important;position:static!important;margin:0 7px!important;flex:0 0 42px!important;width:42px!important;height:42px!important}
+ .header .quick-search-launcher{order:5!important;position:static!important;margin:0!important;flex:0 0 42px!important;width:42px!important;height:42px!important}
+ .header .nav-book{order:6!important;position:static!important;margin:0!important;padding:10px 12px!important;font-size:11px!important}
+}
+@media(max-width:700px){
+ .header .brand-copy{display:flex!important;flex-direction:column!important;gap:0!important;line-height:1.25!important;white-space:nowrap!important}
+ .header .brand-copy strong{font-size:18px!important;color:#103b37!important}
+ .header .brand-copy small{display:block!important;font-size:10px!important;color:#71847d!important}
+ .header .brand{gap:9px!important}
+ .header .theme-toggle{margin-inline:4px!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
@@ -2225,7 +2263,7 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
 
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
 <header class="header"><div class="wrap nav">
-<a class="brand" href="#home"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم للسفريات والسياحة" width="76" height="76"><span>تسنيم للسفريات والسياحة<small>أصالة يمنية… وآفاق عالمية</small></span></a>
+<a class="brand" href="#home" aria-label="تسنيم للسفريات والسياحة وخدمات الحج والعمرة"><img class="brand-logo" decoding="async" fetchpriority="high" src="assets/tasneem-official.webp" alt="الشعار الرسمي لتسنيم" width="76" height="76"><span class="brand-copy"><strong>تسنيم</strong><small>للسفريات والسياحة</small><small>وخدمات الحج والعمرة</small></span></a>
 <button class="menu" id="menu" type="button" aria-label="فتح القائمة" aria-controls="links" aria-expanded="false">☰</button>
 <nav class="links" id="links" aria-label="القائمة الرئيسية"><a href="#home">الرئيسية</a><a href="about.html">عن تسنيم</a><a href="#services">خدماتنا</a><a href="services.html">دليل الخدمات</a><a href="#destinations">الوجهات السياحية</a><a href="#steps">آلية الحجز</a><a href="track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a></nav>
 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تفعيل الوضع الليلي" title="تبديل المظهر"><span aria-hidden="true">☾</span></button>
