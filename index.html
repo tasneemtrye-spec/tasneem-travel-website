@@ -1831,6 +1831,15 @@ img{height:auto}
 @media(max-width:700px){.ticker-toggle{width:25px;height:25px;flex-basis:25px}}
 
 </style>
+<style>
+/* Keep all five Yemen destination cards on one row on wide screens */
+@media(min-width:1051px){
+  #destinations .dest-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  #destinations .destination{min-width:0;min-height:clamp(205px,19vw,270px)}
+  #destinations .destination b{font-size:clamp(15px,1.25vw,19px)}
+  #destinations .destination small{font-size:clamp(10px,.9vw,13px)}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
