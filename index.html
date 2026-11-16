@@ -2061,6 +2061,38 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
 @media(max-width:700px){.wrap{width:calc(100% - 30px)}.nav{height:78px}.brand-logo{width:58px;height:58px;flex-basis:58px}.brand{gap:9px}.hero-grid{padding:56px 0 82px;gap:30px}.hero h1{font-size:clamp(37px,10vw,49px);letter-spacing:-.8px}.hero p{font-size:15px}.plane-frame{transform:none;max-width:none}.plane-frame img{height:clamp(220px,62vw,310px)}.trust-grid{padding:16px;gap:14px}.trust-item{gap:9px}.trust-icon{width:38px;height:38px;flex:0 0 38px}.services{grid-template-columns:1fr;gap:18px}.service{padding-bottom:23px}.service-media{height:clamp(205px,58vw,285px)}.service h3,.service p,.service>a{margin-inline:22px}.service p{min-height:0}.service-icon{margin-inline:20px}.dest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.destination{min-height:clamp(175px,48vw,230px);padding:15px;border-radius:20px}.destination b{font-size:17px}.destination small{font-size:11px}.story-card{padding:25px;border-radius:24px}.why-grid{gap:12px}.why-card{padding:20px;border-radius:18px}.contact-panel,.contact-cta{padding:24px;border-radius:23px}.whatsapp{bottom:14px;left:14px}}
 @media(min-width:701px) and (max-width:1024px){.hero-grid{grid-template-columns:1fr 1fr}.hero{min-height:560px}.plane-frame img{height:310px}.trust-grid{grid-template-columns:repeat(2,1fr);row-gap:20px}.trust-item:nth-child(2){border:0}.dest-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.service-media{height:210px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Single-image flight hero: clean, legible and responsive */
+.hero.hero-flight-home{min-height:clamp(620px,calc(100svh - 96px),850px);position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;background:#073b46;color:#fff}
+.hero-flight-home .hero-flight-background{position:absolute;inset:0;z-index:-3;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 48%;display:block}
+.hero-flight-home .hero-flight-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(3,35,43,.82) 0%,rgba(4,43,52,.66) 42%,rgba(4,43,52,.18) 100%),linear-gradient(0deg,rgba(3,29,38,.28),transparent 55%)}
+.hero-flight-home:before,.hero-flight-home:after{display:none}
+.hero-flight-home .hero-grid{width:min(1320px,calc(100% - clamp(32px,5vw,80px)));margin-inline:auto;display:block;padding:clamp(70px,10vh,120px) 0;position:relative;z-index:1}
+.hero-flight-home .hero-flight-copy{max-width:720px;text-align:right}
+.hero-flight-home .eyebrow{color:#ffdc9b}
+.hero-flight-home h1{font-size:clamp(40px,6vw,76px);line-height:1.2;text-shadow:0 3px 22px rgba(0,0,0,.3);margin:20px 0}
+.hero-flight-home h1 span{color:#ffcf78}
+.hero-flight-home p{max-width:620px;color:#f1f6f4;font-size:clamp(16px,1.5vw,20px);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.hero-flight-home .hero-actions{margin-top:28px}
+.hero-flight-home .btn-primary{background:#e5b65e;color:#17352f;border-color:#f4d18e}
+.hero-flight-home .btn-outline{border-color:rgba(255,255,255,.8);background:rgba(4,37,46,.24);backdrop-filter:blur(8px)}
+.hero-flight-home .hero-note{gap:10px 18px}
+.hero-flight-home .hero-note span{background:rgba(3,35,43,.38);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 12px;backdrop-filter:blur(7px)}
+.hero-flight-home .hero-quick-search{max-width:760px;margin-top:28px}
+@media(max-width:700px){
+ .hero.hero-flight-home{min-height:680px;min-height:min(760px,calc(100svh - 82px));align-items:flex-end}
+ .hero-flight-home .hero-flight-background{object-position:57% center}
+ .hero-flight-home .hero-flight-shade{background:linear-gradient(0deg,rgba(3,31,40,.9) 0%,rgba(3,36,45,.66) 46%,rgba(3,36,45,.08) 100%)}
+ .hero-flight-home .hero-grid{width:calc(100% - 32px);padding:55px 0 68px}
+ .hero-flight-home .hero-flight-copy{max-width:100%}
+ .hero-flight-home h1{font-size:clamp(34px,9vw,48px);margin:14px 0}
+ .hero-flight-home p{font-size:15px;line-height:1.9;margin-bottom:20px}
+ .hero-flight-home .hero-note{margin-top:22px;gap:8px}
+ .hero-flight-home .hero-note span{font-size:11px;padding:6px 9px}
+ .hero-flight-home .hero-actions{gap:9px}
+ .hero-flight-home .hero-actions .btn{font-size:13px;padding:11px 15px}
+}
+@media(prefers-reduced-motion:reduce){.hero-flight-home *{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -2094,37 +2126,37 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
 <a class="btn btn-primary nav-book" href="https://wa.me/966537017117?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D8%B1%D9%8A%D8%B9">▦ طلب حجز سريع</a>
 </div></header>
 <main id="main-content" tabindex="-1">
-<section class="hero" id="home"><img class="hero-backdrop" src="assets/hero-home-8efce791.svg" alt="" fetchpriority="high" decoding="async">
-<div class="hero-visual" aria-label="مشاهد من رحلات تسنيم">
-  <div class="hero-visual-plane"><img src="assets/hero-flight-q78.webp" alt="طائرة ركاب تحلق فوق السحاب" fetchpriority="high" decoding="async"></div>
-  <div class="hero-visual-destinations">
-    <figure class="hero-scene hero-scene-makkah"><img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=82" alt="مشهد للمسجد الحرام في مكة" loading="eager" decoding="async"><figcaption>الحج والعمرة</figcaption></figure>
-    <figure class="hero-scene hero-scene-yemen"><img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=82" alt="عمارة تاريخية ووجهة ثقافية" loading="eager" decoding="async"><figcaption>وجهات ثقافية</figcaption></figure>
-    <figure class="hero-scene hero-scene-nature"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=82" alt="بحيرة وجبال في وجهة سياحية" loading="eager" decoding="async"><figcaption>السياحة والطبيعة</figcaption></figure>
+<section class="hero hero-flight-home" id="home">
+  <img class="hero-flight-background" src="assets/hero-flight-q78.webp" alt="طائرة ركاب تسنيم تحلق فوق السحاب عند شروق الشمس" fetchpriority="high" decoding="async">
+  <div class="hero-flight-shade" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-flight-copy">
+      <span class="eyebrow">تسنيم للسفريات والسياحة</span>
+      <h1>رحلتك تبدأ من هنا<br><span>والعالم بانتظارك</span></h1>
+      <p>نرافقك في كل خطوة؛ من حجز تذاكر الطيران والفنادق إلى البرامج السياحية وخدمات الحج والعمرة.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">احجز رحلتك الآن <span>←</span></a>
+        <a class="btn btn-outline" href="#services">استكشف خدماتنا</a>
+      </div>
+      <div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div>
+    </div>
+    <div class="hero-quick-search" id="quick-search-panel" aria-label="ابدأ البحث عن رحلتك" hidden>
+      <div class="quick-search-tabs" aria-label="أنواع الخدمات">
+        <a href="#contact" data-service="حجز طيران"><span>✈</span> حجز طيران</a>
+        <a href="#contact" data-service="حجز فندق"><span>▰</span> فنادق</a>
+        <a href="#contact" data-service="برنامج سياحي"><span>⌖</span> رحلات سياحية</a>
+        <a href="#contact" data-service="حج وعمرة"><span>☾</span> حج وعمرة</a>
+      </div>
+      <form class="quick-search-fields" id="quick-search-form">
+        <label><span>الوجهة</span><input id="quick-destination" type="text" placeholder="إلى أين ترغب بالسفر؟" autocomplete="off"></label>
+        <label><span>تاريخ السفر</span><input id="quick-date" type="date"></label>
+        <label><span>عدد المسافرين</span><select id="quick-travellers"><option value="1">مسافر واحد</option><option value="2" selected>مسافران</option><option value="3">3 مسافرين</option><option value="4">4 مسافرين</option><option value="5">5 مسافرين</option><option value="6">6 مسافرين</option><option value="7">7 مسافرين</option><option value="8 أو أكثر">8 أو أكثر</option></select></label>
+        <button type="submit">ابدأ طلبك <span aria-hidden="true">←</span></button>
+      </form>
+      <p class="quick-search-hint">خطوة أولى سريعة — نراجع التفاصيل معك قبل تأكيد أي حجز.</p>
+    </div>
   </div>
-  <span class="hero-visual-glow" aria-hidden="true"></span>
-</div>
-<div class="wrap hero-grid">
-<div><span class="eyebrow">تسنيم للسفريات والسياحة</span><h1>بوابتك إلى أجمل<br><span>وجهات السفر</span></h1><p>خدمات سفر متكاملة تشمل حجز تذاكر الطيران، الفنادق، السياحة الداخلية والخارجية، برامج العمرة والحج، والتأشيرات.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="https://wa.me/966537017117" target="_blank" rel="noopener">خطّط لرحلتك الآن <span>←</span></a><a class="btn btn-outline" href="#services">اكتشف خدماتنا</a></div>
-<div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div></div>
-
-<div class="hero-quick-search" id="quick-search-panel" aria-label="ابدأ البحث عن رحلتك" hidden>
-  <div class="quick-search-tabs" aria-label="أنواع الخدمات">
-    <a href="#contact" data-service="حجز طيران"><span>✈</span> حجز طيران</a>
-    <a href="#contact" data-service="حجز فندق"><span>▰</span> فنادق</a>
-    <a href="#contact" data-service="برنامج سياحي"><span>⌖</span> رحلات سياحية</a>
-    <a href="#contact" data-service="حج وعمرة"><span>☾</span> حج وعمرة</a>
-  </div>
-  <form class="quick-search-fields" id="quick-search-form">
-    <label><span>الوجهة</span><input id="quick-destination" type="text" placeholder="إلى أين ترغب بالسفر؟" autocomplete="off"></label>
-    <label><span>تاريخ السفر</span><input id="quick-date" type="date"></label>
-    <label><span>عدد المسافرين</span><select id="quick-travellers"><option value="1">مسافر واحد</option><option value="2" selected>مسافران</option><option value="3">3 مسافرين</option><option value="4">4 مسافرين</option><option value="5">5 مسافرين</option><option value="6">6 مسافرين</option><option value="7">7 مسافرين</option><option value="8 أو أكثر">8 أو أكثر</option></select></label>
-    <button type="submit">ابدأ طلبك <span aria-hidden="true">←</span></button>
-  </form>
-  <p class="quick-search-hint">خطوة أولى سريعة — نراجع التفاصيل معك قبل تأكيد أي حجز.</p>
-</div>
-</div></section>
+</section>
 
 <nav class="hero-services wrap" aria-label="خدمات تسنيم السريعة">
 <a href="#services"><span>✈</span><b>حجز تذاكر الطيران</b></a>
