@@ -76,13 +76,13 @@ begin
      or jsonb_typeof(draft_row.content#>'{privacy,usage}') is distinct from 'string'
      or jsonb_typeof(draft_row.content#>'{privacy,sensitive}') is distinct from 'string'
      or jsonb_typeof(draft_row.content#>'{privacy,contact}') is distinct from 'string'
-     or jsonb_array_length(draft_row.content->'services') > 30
-     or jsonb_array_length(draft_row.content->'destinations') > 50
-     or jsonb_array_length(draft_row.content->'faq') > 100
-     or jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30
-     or jsonb_array_length(draft_row.content->'limitations') > 30
+     or case when jsonb_typeof(draft_row.content->'services') = 'array' then jsonb_array_length(draft_row.content->'services') > 30 else true end
+     or case when jsonb_typeof(draft_row.content->'destinations') = 'array' then jsonb_array_length(draft_row.content->'destinations') > 50 else true end
+     or case when jsonb_typeof(draft_row.content->'faq') = 'array' then jsonb_array_length(draft_row.content->'faq') > 100 else true end
+     or case when jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') = 'array' then jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30 else true end
+     or case when jsonb_typeof(draft_row.content->'limitations') = 'array' then jsonb_array_length(draft_row.content->'limitations') > 30 else true end
      or exists (
-       select 1 from jsonb_array_elements(draft_row.content->'services') item
+       select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'services') = 'array' then draft_row.content->'services' else '[]'::jsonb end) item
        where jsonb_typeof(item) is distinct from 'object'
           or jsonb_typeof(item->'name') is distinct from 'string'
           or length(btrim(item->>'name')) = 0
@@ -90,7 +90,7 @@ begin
           or length(btrim(item->>'scope')) = 0
      )
      or exists (
-       select 1 from jsonb_array_elements(draft_row.content->'destinations') item
+       select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'destinations') = 'array' then draft_row.content->'destinations' else '[]'::jsonb end) item
        where jsonb_typeof(item) is distinct from 'object'
           or jsonb_typeof(item->'name') is distinct from 'string'
           or length(btrim(item->>'name')) = 0
@@ -98,7 +98,7 @@ begin
           or length(btrim(item->>'description')) = 0
      )
      or exists (
-       select 1 from jsonb_array_elements(draft_row.content->'faq') item
+       select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'faq') = 'array' then draft_row.content->'faq' else '[]'::jsonb end) item
        where jsonb_typeof(item) is distinct from 'object'
           or jsonb_typeof(item->'q') is distinct from 'string'
           or length(btrim(item->>'q')) = 0
@@ -106,7 +106,7 @@ begin
           or length(btrim(item->>'a')) = 0
      )
      or exists (
-       select 1 from jsonb_array_elements(draft_row.content->'limitations') item
+       select 1 from jsonb_array_elements(case when jsonb_typeof(draft_row.content->'limitations') = 'array' then draft_row.content->'limitations' else '[]'::jsonb end) item
        where jsonb_typeof(item) is distinct from 'string'
           or length(btrim(item#>>'{}')) = 0
      ) then
