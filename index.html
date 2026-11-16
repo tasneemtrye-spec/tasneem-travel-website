@@ -1807,7 +1807,7 @@ img{height:auto}
  direction:ltr;animation:tasneemTickerMove 34s linear infinite
 }
 .ticker-track span{direction:rtl;unicode-bidi:plaintext;display:block;white-space:nowrap}
-@keyframes tasneemTickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tasneemTickerMove{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .tasneem-news-ticker:hover .ticker-track{animation-play-state:paused}
 @media(max-width:700px){
  .tasneem-news-ticker{height:34px;font-size:14px;line-height:1.1;gap:8px}
@@ -1835,9 +1835,6 @@ img{height:auto}
 <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
 <div class="tasneem-news-ticker" role="region" aria-label="شريط العبارة الإيمانية">
   <span class="ticker-label">كلمة طيبة</span>
-  <button class="ticker-toggle" id="ticker-toggle" type="button" aria-label="إيقاف حركة العبارة" aria-pressed="false" title="إيقاف الحركة">
-    <span class="ticker-toggle-icon" aria-hidden="true">Ⅱ</span>
-  </button>
   <div class="ticker-window">
     <div class="ticker-track">
       <span>بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
@@ -1848,6 +1845,9 @@ img{height:auto}
       <span aria-hidden="true">بسم الله توكلنا على الله، ولا حول ولا قوة إلا بالله، وما توفيقي إلا بالله</span>
     </div>
   </div>
+  <button class="ticker-toggle" id="ticker-toggle" type="button" aria-label="إيقاف حركة العبارة" aria-pressed="false" title="إيقاف الحركة">
+    <span class="ticker-toggle-icon" aria-hidden="true">Ⅱ</span>
+  </button>
 </div>
 
 <div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ معنا</span><div class="topline-contact"><a href="tel:+966537017117" dir="ltr">+966 53 701 7117</a><a href="mailto:tasneemtrye@gmail.com">tasneemtrye@gmail.com</a></div></div></div>
