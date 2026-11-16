@@ -2464,6 +2464,21 @@ footer{background:linear-gradient(135deg,#071f1b,#0d3028 65%,#102b26)}
  .header .brand-logo{width:56px!important;height:56px!important;flex-basis:56px!important}
 }
 
+
+/* Physical placement lock: aircraft LEFT, Arabic information panel RIGHT */
+@media(min-width:901px){
+ .hero-flight-home .hero-grid{
+  direction:ltr!important;display:flex!important;justify-content:flex-end!important;
+  align-items:center!important;
+ }
+ .hero-flight-home .hero-flight-copy{
+  direction:rtl!important;text-align:right!important;
+  margin-left:auto!important;margin-right:0!important;
+  border-right:4px solid #dfb45f!important;border-left:1px solid rgba(225,185,105,.55)!important;
+ }
+ .hero-flight-home .hero-flight-background{object-position:20% center!important}
+}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/brand-system.css?v=1">
 </head>
