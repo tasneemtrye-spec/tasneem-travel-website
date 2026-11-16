@@ -59,6 +59,60 @@ begin
     raise exception 'draft_version_mismatch' using errcode = '40001';
   end if;
 
+  -- Enforce the public knowledge contract at the database boundary too;
+  -- browser-side validation is not a security boundary.
+  if jsonb_typeof(draft_row.content->'agency') is distinct from 'object'
+     or jsonb_typeof(draft_row.content->'services') is distinct from 'array'
+     or jsonb_typeof(draft_row.content->'destinations') is distinct from 'array'
+     or jsonb_typeof(draft_row.content->'faq') is distinct from 'array'
+     or jsonb_typeof(draft_row.content->'booking_process') is distinct from 'object'
+     or jsonb_typeof(draft_row.content->'privacy') is distinct from 'object'
+     or jsonb_typeof(draft_row.content->'limitations') is distinct from 'array'
+     or jsonb_typeof(draft_row.content#>'{agency,name}') is distinct from 'string'
+     or length(btrim(draft_row.content#>>'{agency,name}')) = 0
+     or jsonb_typeof(draft_row.content#>'{booking_process,form_fields}') is distinct from 'array'
+     or jsonb_typeof(draft_row.content#>'{booking_process,disclaimer}') is distinct from 'string'
+     or jsonb_typeof(draft_row.content#>'{privacy,collected_data}') is distinct from 'string'
+     or jsonb_typeof(draft_row.content#>'{privacy,usage}') is distinct from 'string'
+     or jsonb_typeof(draft_row.content#>'{privacy,sensitive}') is distinct from 'string'
+     or jsonb_typeof(draft_row.content#>'{privacy,contact}') is distinct from 'string'
+     or jsonb_array_length(draft_row.content->'services') > 30
+     or jsonb_array_length(draft_row.content->'destinations') > 50
+     or jsonb_array_length(draft_row.content->'faq') > 100
+     or jsonb_array_length(draft_row.content#>'{booking_process,form_fields}') > 30
+     or jsonb_array_length(draft_row.content->'limitations') > 30
+     or exists (
+       select 1 from jsonb_array_elements(draft_row.content->'services') item
+       where jsonb_typeof(item) is distinct from 'object'
+          or jsonb_typeof(item->'name') is distinct from 'string'
+          or length(btrim(item->>'name')) = 0
+          or jsonb_typeof(item->'scope') is distinct from 'string'
+          or length(btrim(item->>'scope')) = 0
+     )
+     or exists (
+       select 1 from jsonb_array_elements(draft_row.content->'destinations') item
+       where jsonb_typeof(item) is distinct from 'object'
+          or jsonb_typeof(item->'name') is distinct from 'string'
+          or length(btrim(item->>'name')) = 0
+          or jsonb_typeof(item->'description') is distinct from 'string'
+          or length(btrim(item->>'description')) = 0
+     )
+     or exists (
+       select 1 from jsonb_array_elements(draft_row.content->'faq') item
+       where jsonb_typeof(item) is distinct from 'object'
+          or jsonb_typeof(item->'q') is distinct from 'string'
+          or length(btrim(item->>'q')) = 0
+          or jsonb_typeof(item->'a') is distinct from 'string'
+          or length(btrim(item->>'a')) = 0
+     )
+     or exists (
+       select 1 from jsonb_array_elements(draft_row.content->'limitations') item
+       where jsonb_typeof(item) is distinct from 'string'
+          or length(btrim(item#>>'{}')) = 0
+     ) then
+    raise exception 'invalid_knowledge_schema' using errcode = '22023';
+  end if;
+
   insert into public.assistant_knowledge_published
     (id, content, version, published_at, published_by)
   values
