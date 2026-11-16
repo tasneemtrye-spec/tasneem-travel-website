@@ -124,12 +124,22 @@ ${JSON.stringify(knowledge)}
 - إجابات موجزة وعملية، 2 إلى 5 جمل غالباً.`;
 }
 function validPublishedKnowledge(value){
- return !!value && typeof value==="object" && !Array.isArray(value)
-  && !!value.agency && typeof value.agency.name==="string"
-  && Array.isArray(value.services) && Array.isArray(value.destinations)
-  && Array.isArray(value.faq) && !!value.booking_process
-  && !!value.privacy && Array.isArray(value.limitations)
-  && JSON.stringify(value).length<=50000;
+ const isText=(item,max=2000)=>typeof item==="string"&&item.trim().length>0&&item.length<=max;
+ const isTextList=(items,maxItems,maxText=200)=>Array.isArray(items)&&items.length<=maxItems&&items.every(item=>isText(item,maxText));
+ if(!value||typeof value!=="object"||Array.isArray(value))return false;
+ const {agency,services,destinations,faq,booking_process,privacy,limitations}=value;
+ if(!agency||typeof agency!=="object"||Array.isArray(agency))return false;
+ for(const key of ["name","tagline","email","phone","whatsapp","website"])
+  if(!isText(agency[key],320))return false;
+ if(!Array.isArray(services)||services.length>30||!services.every(item=>item&&typeof item==="object"&&!Array.isArray(item)&&isText(item.name,160)&&isText(item.scope,1200)))return false;
+ if(!Array.isArray(destinations)||destinations.length>50||!destinations.every(item=>item&&typeof item==="object"&&!Array.isArray(item)&&isText(item.name,160)&&isText(item.description,1200)))return false;
+ if(!Array.isArray(faq)||faq.length>100||!faq.every(item=>item&&typeof item==="object"&&!Array.isArray(item)&&isText(item.q,500)&&isText(item.a,2000)))return false;
+ if(!booking_process||typeof booking_process!=="object"||Array.isArray(booking_process)||!isTextList(booking_process.form_fields,30,160)||!isText(booking_process.disclaimer,1000))return false;
+ if(!privacy||typeof privacy!=="object"||Array.isArray(privacy))return false;
+ for(const key of ["collected_data","usage","sensitive","contact"])
+  if(!isText(privacy[key],2000))return false;
+ if(!isTextList(limitations,30,500))return false;
+ try{return new TextEncoder().encode(JSON.stringify(value)).byteLength<=50000;}catch{return false;}
 }
 async function loadPublishedKnowledge(env){
  const fallback={content:KNOWLEDGE,version:"embedded-fallback"};
