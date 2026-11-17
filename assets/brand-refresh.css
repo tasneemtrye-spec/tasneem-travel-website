@@ -307,3 +307,27 @@ header.header nav.links::-webkit-scrollbar{display:none!important}
    background:rgba(4,43,48,.91)!important;
  }
 }
+
+
+/* Explicit hero photo layer: avoids background-image cascade and cache ambiguity */
+.hero.hero-flight-home{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#07363b!important}
+.hero.hero-flight-home>img.hero-photo-bg{
+ position:absolute!important;inset:0!important;z-index:0!important;
+ display:block!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center center!important;
+ opacity:1!important;visibility:visible!important;pointer-events:none!important;
+}
+.hero.hero-flight-home>.hero-flight-shade{
+ position:absolute!important;inset:0!important;z-index:1!important;
+ background:linear-gradient(90deg,rgba(3,35,42,.02) 0%,rgba(3,35,42,.08) 38%,rgba(3,35,42,.26) 58%,rgba(3,35,42,.55) 100%)!important;
+}
+.hero.hero-flight-home .hero-brand-ornament{display:none!important}
+.hero.hero-flight-home .hero-grid{position:relative!important;z-index:2!important}
+.hero.hero-flight-home .hero-flight-copy{
+ background:linear-gradient(145deg,rgba(4,42,48,.88),rgba(4,48,51,.86))!important;
+ border-color:rgba(232,193,117,.92)!important;
+}
+@media(max-width:760px){
+ .hero.hero-flight-home>img.hero-photo-bg{object-position:38% center!important}
+ .hero.hero-flight-home>.hero-flight-shade{background:linear-gradient(180deg,rgba(3,35,42,.12),rgba(3,35,42,.66))!important}
+}
