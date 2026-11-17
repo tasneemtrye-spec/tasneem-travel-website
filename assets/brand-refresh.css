@@ -207,7 +207,7 @@ header.header nav.links::-webkit-scrollbar{display:none!important}
   background-color:#07363b!important;
   background-image:
     linear-gradient(90deg,rgba(4,39,43,.12) 0%,rgba(4,39,43,.24) 28%,rgba(4,39,43,.68) 51%,rgba(4,39,43,.94) 72%,rgba(4,39,43,.97) 100%),
-    url("tasneem-coastal-hero.webp")!important;
+    url("/assets/tasneem-ai-coastal-hero.svg")!important;
   background-position:center,left center!important;
   background-size:cover,cover!important;
   background-repeat:no-repeat!important;
@@ -250,7 +250,7 @@ header.header nav.links::-webkit-scrollbar{display:none!important}
 @media(max-width:760px){
  .hero.hero-flight-home{
    min-height:0!important;padding:34px 0 42px!important;
-   background-image:linear-gradient(180deg,rgba(3,38,43,.55),rgba(3,38,43,.88)),url("tasneem-coastal-hero.webp")!important;
+   background-image:linear-gradient(180deg,rgba(3,38,43,.55),rgba(3,38,43,.88)),url("/assets/tasneem-ai-coastal-hero.svg")!important;
    background-position:center,center!important;
  }
  .hero.hero-flight-home .hero-flight-copy{
@@ -259,4 +259,21 @@ header.header nav.links::-webkit-scrollbar{display:none!important}
    padding:25px 20px!important;
  }
  .hero.hero-flight-home .hero-flight-copy h1{font-size:clamp(32px,8vw,44px)!important}
+}
+
+
+/* Ensure the live homepage uses the verified illustrated coastal artwork */
+.hero.hero-flight-home{
+ background-image:
+  linear-gradient(90deg,rgba(3,35,42,.06) 0%,rgba(3,35,42,.16) 30%,rgba(3,35,42,.60) 53%,rgba(3,35,42,.91) 75%,rgba(3,35,42,.96) 100%),
+  url("/assets/tasneem-ai-coastal-hero.svg")!important;
+ background-position:center center,center center!important;
+ background-size:cover,cover!important;
+ background-repeat:no-repeat!important;
+}
+@media(max-width:760px){
+ .hero.hero-flight-home{
+  background-image:linear-gradient(180deg,rgba(3,35,42,.35),rgba(3,35,42,.84)),url("/assets/tasneem-ai-coastal-hero.svg")!important;
+  background-position:center center,center center!important;
+ }
 }
