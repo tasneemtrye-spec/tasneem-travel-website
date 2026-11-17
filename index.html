@@ -76,6 +76,34 @@ footer a{color:#f1d28f}
  .bandgrid{grid-template-columns:1fr}
  .card{padding:20px}
 }
+
+/* Mobile hero artwork: anchor the wide coastal image to its left side
+   so the airplane and coastline stay inside the phone viewport. */
+@media(max-width:760px){
+  .hero{
+    position:relative;
+    isolation:isolate;
+    min-height:520px;
+    padding:52px 0 62px;
+    background-color:#073b3a;
+    background-image:
+      linear-gradient(180deg,rgba(5,45,43,.48) 0%,rgba(5,45,43,.68) 48%,rgba(5,45,43,.88) 100%),
+      url('/assets/tasneem-coastal-hero.webp');
+    background-size:100% 100%,auto 100%;
+    background-position:center,left center;
+    background-repeat:no-repeat;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{max-width:100%;font-size:clamp(30px,8.2vw,40px);line-height:1.42}
+  .hero p{font-size:15px;line-height:1.95}
+  .actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .actions .btn{width:100%;min-height:50px}
+}
+@media(max-width:380px){
+  .hero{min-height:500px;padding-block:42px 54px}
+  .hero h1{font-size:30px}
+  .hero p{font-size:14px}
+}
 </style>
 </head>
 <body>
