@@ -2043,7 +2043,7 @@ html{scroll-behavior:smooth;scroll-padding-top:105px}
 }
 @media(prefers-reduced-motion:reduce){.service,.destination,.why-card,.faq-list details{transition:none!important}.service:hover,.destination:hover,.why-card:hover{transform:none!important}}
 </style>
-<link rel="stylesheet" href="/assets/brand-refresh.css?v=photo-bg-1">
+<link rel="stylesheet" href="/assets/brand-refresh.css?v=header-singleline-1">
 </head>
 <body>
 <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
@@ -2229,7 +2229,7 @@ html{scroll-behavior:smooth;scroll-padding-top:105px}
     });
     links.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
-    window.addEventListener("resize", () => { if (window.innerWidth > 700) closeMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 1180) closeMenu(); });
   }
 
   const ticker = document.querySelector(".tasneem-news-ticker");
