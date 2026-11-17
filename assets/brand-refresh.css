@@ -136,3 +136,64 @@ footer .wrap{gap:18px!important}
 
 main.wrap{max-width:900px!important;width:min(900px,calc(100% - 32px))!important;margin:40px auto!important;padding:clamp(20px,4vw,40px)!important;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Correct overrides for the actual homepage component names */
+header.header{position:sticky!important;top:0!important;z-index:100!important;background:rgba(255,255,255,.97)!important}
+header.header .wrap.nav{width:min(1240px,calc(100% - 48px))!important;min-height:82px!important;height:auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;flex-wrap:nowrap!important}
+header.header .brand{display:flex!important;align-items:center!important;gap:12px!important;white-space:normal!important}
+header.header .brand-logo{width:62px!important;height:62px!important;object-fit:contain!important}
+header.header nav.links{display:flex!important;align-items:center!important;gap:clamp(8px,1.15vw,17px)!important;flex:1 1 auto!important;justify-content:center!important;flex-wrap:wrap!important}
+header.header nav.links a{font-size:clamp(11px,.95vw,13px)!important;font-weight:800!important;color:#23483f!important}
+.hero.hero-flight-home{min-height:clamp(540px,48vw,680px)!important;padding:clamp(42px,5vw,72px) 0!important;background:radial-gradient(ellipse at 16% 78%,rgba(220,174,91,.19),transparent 34%),radial-gradient(ellipse at 18% 20%,rgba(42,116,120,.34),transparent 38%),linear-gradient(115deg,#082f38 0%,#0b4148 48%,#062b34 100%)!important}
+.hero.hero-flight-home .hero-grid{width:min(1240px,calc(100% - 48px))!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;min-height:inherit!important;padding:0!important}
+.hero.hero-flight-home .hero-flight-copy{width:min(58%,720px)!important;max-width:720px!important;padding:clamp(28px,4vw,54px)!important;border:1px solid rgba(230,190,112,.82)!important;border-radius:26px!important;background:linear-gradient(145deg,rgba(5,43,51,.97),rgba(6,51,57,.94))!important;box-shadow:0 28px 75px rgba(0,15,22,.28)!important;text-align:right!important}
+.hero.hero-flight-home .hero-flight-copy h1{font-size:clamp(36px,4.3vw,60px)!important;line-height:1.35!important}
+.hero.hero-flight-home .hero-flight-copy p{font-size:clamp(15px,1.4vw,18px)!important;line-height:2!important}
+.hero.hero-flight-home .hero-brand-ornament{width:clamp(250px,34vw,450px)!important;left:clamp(20px,7vw,130px)!important}
+.hero.hero-flight-home .hero-actions{display:flex!important;gap:12px!important;flex-wrap:wrap!important}
+.hero.hero-flight-home .hero-note{display:flex!important;gap:9px!important;flex-wrap:wrap!important}
+.hero.hero-flight-home .hero-note span{border-radius:999px!important;padding:7px 12px!important}
+.hero-services.wrap{width:min(1240px,calc(100% - 48px))!important;display:flex!important;gap:10px!important;flex-wrap:wrap!important;justify-content:center!important;margin:20px auto 0!important}
+.hero-services a{border:1px solid #dce7df!important;border-radius:13px!important;padding:9px 14px!important;background:#fff!important;color:#16483f!important;font-weight:800!important}
+.trustbar .trust-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;align-items:center!important;gap:12px!important}
+#services .services{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}
+#services .service{overflow:hidden!important;padding:0 0 22px!important;background:#fff!important}
+#services .service .service-media{height:210px!important;overflow:hidden!important;position:relative!important;border-radius:20px 20px 0 0!important}
+#services .service .service-media img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;transition:transform .35s ease!important}
+#services .service:hover .service-media img{transform:scale(1.045)!important}
+#services .service .service-icon{display:grid!important;place-items:center!important;width:48px!important;height:48px!important;margin:18px 22px 10px!important;border-radius:15px!important}
+#services .service h3,#services .service p,#services .service>a{margin-inline:22px!important}
+#services .service>a{display:inline-flex!important;margin-top:10px!important;color:#9b702c!important;font-weight:850!important}
+#destinations .dest-grid,.destinations .dest-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:14px!important}
+#destinations .destination,.destinations .destination{min-height:245px!important;overflow:hidden!important}
+@media(max-width:1000px){
+header.header .wrap.nav{width:calc(100% - 32px)!important;flex-wrap:wrap!important;justify-content:space-between!important}
+header.header nav.links{order:5!important;width:100%!important;flex-basis:100%!important;justify-content:center!important;padding:7px 0!important}
+.hero.hero-flight-home .hero-grid{width:calc(100% - 36px)!important}
+.hero.hero-flight-home .hero-flight-copy{width:min(75%,700px)!important}
+#services .services{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#destinations .dest-grid,.destinations .dest-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+header.header .wrap.nav{min-height:68px!important;width:calc(100% - 28px)!important}
+header.header .brand-logo{width:50px!important;height:50px!important}
+header.header nav.links{justify-content:flex-start!important;overflow-x:auto!important;flex-wrap:nowrap!important;scrollbar-width:none!important}
+header.header nav.links::-webkit-scrollbar{display:none!important}
+.hero.hero-flight-home{min-height:0!important;padding:32px 0 38px!important}
+.hero.hero-flight-home .hero-grid{display:block!important;width:calc(100% - 28px)!important;min-height:0!important}
+.hero.hero-flight-home .hero-flight-copy{width:100%!important;max-width:none!important;padding:24px 19px!important;border-radius:20px!important}
+.hero.hero-flight-home .hero-flight-copy h1{font-size:clamp(30px,8vw,42px)!important}
+.hero.hero-flight-home .hero-flight-copy p{font-size:14px!important}
+.hero.hero-flight-home .hero-brand-ornament{width:210px!important;left:-65px!important;top:auto!important;bottom:-38px!important;opacity:.55!important}
+.hero.hero-flight-home .hero-actions .btn{width:100%!important;justify-content:center!important}
+.hero.hero-flight-home .hero-note{gap:6px!important}
+.hero.hero-flight-home .hero-note span{font-size:10px!important;padding:6px 9px!important}
+.hero-services.wrap{width:calc(100% - 28px)!important;justify-content:flex-start!important;overflow-x:auto!important;flex-wrap:nowrap!important}
+.hero-services a{white-space:nowrap!important}
+.trustbar .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#services .services{grid-template-columns:1fr!important;gap:14px!important}
+#services .service .service-media{height:200px!important}
+#destinations .dest-grid,.destinations .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#destinations .destination,.destinations .destination{min-height:195px!important}
+}
