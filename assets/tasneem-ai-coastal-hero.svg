@@ -49,7 +49,7 @@
  <path d="M250 300q18-20 36 0q18-20 36 0"/><path d="M340 250q13-15 26 0q13-15 26 0"/>
 </g>
 <!-- passenger airplane silhouette, clearly visible -->
-<g transform="translate(620 220) rotate(-9)" fill="#f9f1df" stroke="#183e49" stroke-width="2" stroke-linejoin="round">
+<g transform="translate(445 220) scale(.82) rotate(-9)" fill="#f9f1df" stroke="#183e49" stroke-width="2" stroke-linejoin="round">
  <path d="M-118 4Q-112-3-94-5L-23-10 24-54Q31-60 39-58L47-55 20-9 105-6Q124-5 134 5Q124 15 105 16L18 13 43 52Q48 61 38 64L29 66-22 17-94 14Q-113 13-118 4Z"/>
  <path d="M-90-3L-104-27Q-108-34-101-35L-94-34-67-2Z" fill="#d9b36d"/>
  <path d="M-90 11L-104 34Q-108 41-101 42L-94 41-67 12Z" fill="#d9b36d"/>
