@@ -197,3 +197,66 @@ header.header nav.links::-webkit-scrollbar{display:none!important}
 #destinations .dest-grid,.destinations .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
 #destinations .destination,.destinations .destination{min-height:195px!important}
 }
+
+
+/* Final desktop hero composition: reveal the existing Yemeni coastal artwork */
+.hero.hero-flight-home{
+  position:relative!important;
+  isolation:isolate!important;
+  min-height:clamp(590px,48vw,700px)!important;
+  background-color:#07363b!important;
+  background-image:
+    linear-gradient(90deg,rgba(4,39,43,.12) 0%,rgba(4,39,43,.24) 28%,rgba(4,39,43,.68) 51%,rgba(4,39,43,.94) 72%,rgba(4,39,43,.97) 100%),
+    url("tasneem-coastal-hero.webp")!important;
+  background-position:center,left center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat!important;
+}
+.hero.hero-flight-home .hero-flight-shade{
+  background:linear-gradient(180deg,rgba(2,29,35,.08),rgba(2,29,35,.18))!important;
+}
+.hero.hero-flight-home .hero-brand-ornament{display:none!important}
+.hero.hero-flight-home .hero-flight-copy{
+  width:min(54%,690px)!important;
+  max-width:690px!important;
+  padding:clamp(34px,3.6vw,52px)!important;
+  background:linear-gradient(145deg,rgba(4,42,48,.91),rgba(4,48,51,.88))!important;
+  border:1px solid rgba(232,193,117,.86)!important;
+  box-shadow:0 28px 80px rgba(0,17,22,.32)!important;
+  backdrop-filter:blur(12px)!important;
+}
+.hero.hero-flight-home .hero-flight-copy .eyebrow{
+  display:inline-flex!important;align-items:center!important;
+  padding:9px 17px!important;border-radius:999px!important;
+  color:#173b35!important;
+  background:linear-gradient(135deg,#f5d58f,#d7a747)!important;
+  font-size:13px!important;font-weight:900!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.15)!important;
+}
+.hero.hero-flight-home .hero-flight-copy h1{
+  font-size:clamp(42px,4.1vw,62px)!important;
+  line-height:1.38!important;letter-spacing:-1.5px!important;
+}
+.hero.hero-flight-home .hero-flight-copy p{max-width:620px!important}
+.hero.hero-flight-home .hero-actions .btn{min-height:54px!important;padding:13px 24px!important}
+.hero.hero-flight-home .hero-note span{
+  color:#f5f2e9!important;background:rgba(3,30,35,.72)!important;
+  border-color:rgba(232,193,117,.42)!important;
+}
+@media(max-width:1000px){
+ .hero.hero-flight-home{min-height:570px!important;background-position:center,left center!important}
+ .hero.hero-flight-home .hero-flight-copy{width:min(66%,680px)!important}
+}
+@media(max-width:760px){
+ .hero.hero-flight-home{
+   min-height:0!important;padding:34px 0 42px!important;
+   background-image:linear-gradient(180deg,rgba(3,38,43,.55),rgba(3,38,43,.88)),url("tasneem-coastal-hero.webp")!important;
+   background-position:center,center!important;
+ }
+ .hero.hero-flight-home .hero-flight-copy{
+   width:100%!important;max-width:none!important;
+   background:rgba(4,43,48,.88)!important;
+   padding:25px 20px!important;
+ }
+ .hero.hero-flight-home .hero-flight-copy h1{font-size:clamp(32px,8vw,44px)!important}
+}
