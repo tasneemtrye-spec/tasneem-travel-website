@@ -272,28 +272,128 @@ footer a{color:#f1d28f}
   .card{min-height:0!important}
 }
 
+
+/* Restored Tasneem homepage composition and responsive header */
+header.header{position:relative;z-index:20;background:#fff;border-bottom:1px solid #e8e0d2}
+header.header .wrap.nav{width:min(1280px,calc(100% - 48px));min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:nowrap}
+header.header .brand{flex:0 0 auto;gap:10px;font-size:clamp(16px,1.35vw,21px);white-space:nowrap}
+header.header .brand-logo{width:58px;height:58px;object-fit:contain}
+header.header nav.links{display:flex;align-items:center;justify-content:center;gap:clamp(8px,1vw,16px);flex:1 1 auto;min-width:0;flex-wrap:nowrap;white-space:nowrap}
+header.header nav.links a{font-size:clamp(10px,.9vw,13px);font-weight:800;color:#23483f}
+.nav-tools{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.nav-tools a,.nav-tools button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #e7d4b0;border-radius:999px;background:#fff;color:#b8893e;min-width:40px;height:40px;font:inherit;font-weight:800;cursor:pointer}
+.nav-tools .nav-book{padding:0 15px;background:linear-gradient(120deg,#f2d28e,#c99a4b);color:#173b35;border:0;border-radius:13px;white-space:nowrap;font-size:12px}
+.nav-tools .quick-search-launcher{font-size:25px}
+.nav-tools .menu{display:none}
+.hero.hero-flight-home{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(570px,46vw,680px);padding:52px 0 78px;background:#07363b;color:#fff}
+.hero.hero-flight-home>img.hero-photo-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;pointer-events:none}
+.hero.hero-flight-home>.hero-flight-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(3,35,42,.02) 0%,rgba(3,35,42,.08) 37%,rgba(3,35,42,.40) 53%,rgba(3,35,42,.86) 72%,rgba(3,35,42,.94) 100%);pointer-events:none}
+.hero.hero-flight-home .hero-grid{position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:inherit;display:flex;align-items:center;justify-content:flex-start}
+.hero.hero-flight-home .hero-flight-copy{width:min(52%,690px);margin-inline-start:0;padding:clamp(30px,3.4vw,48px);border:1px solid rgba(232,193,117,.9);border-radius:26px;background:linear-gradient(145deg,rgba(4,42,48,.94),rgba(4,48,51,.91));box-shadow:0 28px 80px rgba(0,17,22,.3);text-align:right;backdrop-filter:blur(8px)}
+.hero.hero-flight-home .eyebrow{display:inline-flex;align-items:center;padding:9px 17px;border-radius:999px;color:#173b35;background:linear-gradient(135deg,#f5d58f,#d7a747);font-size:13px;font-weight:900}
+.hero.hero-flight-home h1{max-width:100%;font-size:clamp(40px,4.15vw,62px);line-height:1.35;margin:18px 0 16px;letter-spacing:-1px}
+.hero.hero-flight-home h1 span{color:#ffc45b}
+.hero.hero-flight-home p{max-width:620px;color:#e1ece7;font-size:clamp(15px,1.35vw,18px);line-height:2;margin:0 0 24px}
+.hero.hero-flight-home .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero.hero-flight-home .hero-actions .btn{min-height:52px;padding:12px 23px}
+.hero.hero-flight-home .btn-primary{background:linear-gradient(135deg,#f2d18a,#d4a447);color:#123a34;box-shadow:0 10px 24px rgba(199,151,63,.2)}
+.hero.hero-flight-home .btn-dark{background:transparent;border:1px solid rgba(216,173,91,.75);color:#fff}
+.hero.hero-flight-home .hero-note{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.hero.hero-flight-home .hero-note span{display:inline-flex;border:1px solid rgba(232,193,117,.42);border-radius:999px;padding:6px 10px;background:rgba(3,30,35,.72);color:#f5f2e9;font-size:11px}
+.floating-actions{position:fixed;z-index:50;inset-inline:18px;bottom:18px;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.floating-actions a{pointer-events:auto;display:inline-flex;align-items:center;justify-content:center;min-height:48px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-weight:800}
+.floating-whatsapp{width:50px;background:#0eaa70;color:#fff;font-size:23px}
+.floating-help{padding:0 20px;background:linear-gradient(120deg,#f2d28e,#c99a4b);color:#173b35;font-size:13px}
+body[data-theme="dark"]{background:#14231f;color:#e8eee9}
+body[data-theme="dark"] header.header{background:#172b26;border-color:#304a40}
+body[data-theme="dark"] header.header .brand,body[data-theme="dark"] header.header nav.links a{color:#e8eee9}
+body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .quick-search-launcher{background:#1e3830;color:#f0d49c}
+@media(min-width:761px) and (max-width:1180px){
+ header.header .wrap.nav{width:calc(100% - 36px);gap:10px}
+ header.header .brand{font-size:16px}
+ header.header .brand-logo{width:52px;height:52px}
+ header.header nav.links{gap:9px}
+ header.header nav.links a{font-size:10px}
+ .nav-tools .nav-book{font-size:10px;padding-inline:10px}
+ .hero.hero-flight-home{min-height:550px}
+ .hero.hero-flight-home .hero-flight-copy{width:min(65%,680px)}
+}
+@media(max-width:760px){
+ header.header .wrap.nav{width:calc(100% - 28px);min-height:68px;gap:8px;flex-wrap:wrap;padding:9px 0}
+ header.header .brand{font-size:15px;gap:8px;flex:1 1 auto;min-width:0}
+ header.header .brand-logo{width:48px;height:48px;flex:0 0 48px}
+ header.header .brand span{white-space:normal;line-height:1.5}
+ header.header .brand small{font-size:10px}
+ header.header nav.links{display:none;order:5;flex:0 0 100%;width:100%;overflow-x:auto;justify-content:flex-start;gap:0;padding:8px 0 5px;scrollbar-width:none}
+ header.header nav.links.is-open{display:flex}
+ header.header nav.links::-webkit-scrollbar{display:none}
+ header.header nav.links a{flex:0 0 auto;padding:6px 12px;font-size:12px;white-space:nowrap}
+ .nav-tools{gap:6px}
+ .nav-tools .nav-book{display:none}
+ .nav-tools .quick-search-launcher{display:none}
+ .nav-tools .theme-toggle{width:36px;height:36px;min-width:36px}
+ .nav-tools .menu{display:inline-flex;width:42px;height:42px;min-width:42px;border-radius:12px;color:#17463d;background:#f7faf7;border-color:#d9e4dc}
+ .hero.hero-flight-home{min-height:0;padding:28px 0 42px}
+ .hero.hero-flight-home>img.hero-photo-bg{object-position:38% center}
+ .hero.hero-flight-home>.hero-flight-shade{background:linear-gradient(180deg,rgba(3,35,42,.28) 0%,rgba(3,35,42,.56) 36%,rgba(3,35,42,.86) 100%)}
+ .hero.hero-flight-home .hero-grid{width:calc(100% - 28px);min-height:0}
+ .hero.hero-flight-home .hero-flight-copy{width:100%;max-width:none;padding:24px 19px;border-radius:20px;background:rgba(4,43,48,.91)}
+ .hero.hero-flight-home .eyebrow{font-size:11px;padding:7px 12px}
+ .hero.hero-flight-home h1{font-size:clamp(30px,8vw,42px);line-height:1.4;margin:14px 0}
+ .hero.hero-flight-home p{font-size:14px;line-height:1.9;margin-bottom:18px}
+ .hero.hero-flight-home .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
+ .hero.hero-flight-home .hero-actions .btn{width:100%;min-height:50px}
+ .hero.hero-flight-home .hero-note{gap:6px;margin-top:16px}
+ .hero.hero-flight-home .hero-note span{font-size:10px;padding:6px 8px}
+ .floating-actions{inset-inline:12px;bottom:12px}
+ .floating-actions a{min-height:44px}
+ .floating-whatsapp{width:46px}
+ .floating-help{padding-inline:14px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
 </style>
 </head>
 <body>
 <div class="top"><div class="wrap"><span>تسنيم للسفريات والسياحة</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span></div></div>
-<header><div class="wrap nav">
-<a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a>
-<nav class="navlinks" aria-label="القائمة الرئيسية">
-<a href="/">الرئيسية</a><a href="/about.html">من نحن</a><a href="/services.html">خدماتنا</a><a href="/track.html">متابعة الطلب</a><a href="/privacy.html">الخصوصية</a>
+<header class="header"><div class="wrap nav">
+<a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a>
+<nav class="links" id="main-navigation" aria-label="القائمة الرئيسية">
+<a href="/">الرئيسية</a><a href="/about.html">عن تسنيم</a><a href="/services.html">خدماتنا</a><a href="/services.html#services">دليل الخدمات</a><a href="/services.html#services">الوجهات السياحية</a><a href="#booking-steps">آلية الحجز</a><a href="/track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a>
 </nav>
+<div class="nav-tools">
+<a class="nav-book" href="/services.html#services">▦ طلب حجز سريع</a>
+<a class="quick-search-launcher" href="/services.html" aria-label="استعراض الخدمات" title="استعراض الخدمات">⌕</a>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="تبديل المظهر" title="تبديل المظهر">☾</button>
+<button class="menu" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-navigation">☰</button>
+</div>
 </div></header>
 <main>
-<section class="hero"><div class="wrap">
-<span class="kicker">من روح اليمن إلى العالم</span>
-<h1>نرتّب تفاصيل رحلتك…<br>لتبدأ بثقة ووضوح</h1>
-<p>تسنيم للسفريات والسياحة تساعدك على استكشاف خيارات السفر وتنسيق تفاصيل الرحلة، من حجوزات الطيران والإقامة إلى البرامج السياحية والاستفسارات المتعلقة بالحج والعمرة.</p>
-<div class="actions"><a class="btn primary" href="/services.html">اكتشف خدماتنا</a><a class="btn outline" href="https://wa.me/966537017117">تواصل مع الفريق</a></div>
-</div></section>
+<section class="hero hero-flight-home" aria-labelledby="hero-title">
+<img class="hero-photo-bg" src="/assets/tasneem-coastal-hero.webp" alt="" aria-hidden="true" fetchpriority="high">
+<div class="hero-flight-shade" aria-hidden="true"></div>
+<div class="wrap hero-grid">
+<div class="hero-flight-copy">
+<span class="eyebrow">رحلتك تبدأ بثقة واهتمام</span>
+<h1 id="hero-title">رحلتك تبدأ من هنا<br><span>والعالم بانتظارك</span></h1>
+<p>نرافقك في كل خطوة: من حجز تذاكر الطيران والفنادق إلى البرامج السياحية وخدمات الحج والعمرة، مع متابعة واهتمام وتفاصيل واضحة قبل الحجز.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="/services.html#services">خطط لرحلتك الآن <span>←</span></a>
+<a class="btn btn-dark" href="/services.html">اكتشف خدماتنا</a>
+</div>
+<div class="hero-note"><span>✦ خيارات سفر متنوعة</span><span>✦ متابعة واهتمام</span><span>✦ تفاصيل واضحة قبل الحجز</span></div>
+</div>
+</div>
+</section>
 <div class="wrap trust">
 <div>✈ حجوزات الطيران<small>خيارات سفر متعددة</small></div>
 <div>⌂ الفنادق والإقامة<small>ترتيب يناسب رحلتك</small></div>
 <div>◎ برامج سياحية<small>تنسيق حسب اهتماماتك</small></div>
 <div>☾ الحج والعمرة<small>استفسارات ومتابعة</small></div>
+</div>
+<div class="floating-actions">
+<a class="floating-whatsapp" href="https://wa.me/966537017117" target="_blank" rel="noopener" aria-label="تواصل مع تسنيم عبر واتساب">◉</a>
+<a class="floating-help" href="https://wa.me/966537017117?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%AA%D8%B3%D9%86%D9%8A%D9%85" target="_blank" rel="noopener">✦ مساعد تسنيم</a>
 </div>
 <section class="section"><div class="wrap">
 <div class="heading"><span class="kicker">خدماتنا</span><h2>كل تفاصيل رحلتك… في مكان واحد</h2><p>نرتّب معك الخيارات الأساسية للسفر، ونوضح لك الخطوات قبل اتخاذ القرار.</p></div>
@@ -318,7 +418,20 @@ footer a{color:#f1d28f}
 <div class="step"><b>03</b><h3>راجع وأكّد</h3><p>بعد مراجعة التفاصيل والسعر والشروط، يمكنك اتخاذ قرارك ومتابعة إجراءات الحجز.</p></div>
 </div>
 </div></section>
-<section class="wrap contact"><h2>دعنا نرتّب رحلتك معاً</h2><p>تواصل مع فريق تسنيم لبدء طلبك أو الاستفسار عن خيارات السفر والخدمات المتاحة.</p><a class="btn primary" href="https://wa.me/966537017117">تواصل عبر واتساب</a></section>
+<section class="wrap contact" id="contact"><h2>دعنا نرتّب رحلتك معاً</h2><p>تواصل مع فريق تسنيم لبدء طلبك أو الاستفسار عن خيارات السفر والخدمات المتاحة.</p><a class="btn primary" href="https://wa.me/966537017117">تواصل عبر واتساب</a></section>
 </main>
 <footer><div class="wrap"><span>© تسنيم للسفريات والسياحة — تعز، اليمن</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span><span><a href="/privacy.html">سياسة الخصوصية</a></span></div></footer>
+
+<script>
+(function(){
+ const menu=document.getElementById('menu-toggle');
+ const nav=document.getElementById('main-navigation');
+ if(menu&&nav){menu.addEventListener('click',function(){const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة');menu.textContent=open?'×':'☰';});}
+ const theme=document.getElementById('theme-toggle');
+ let saved='light';try{saved=localStorage.getItem('tasneem-theme')||'light'}catch(e){}
+ function setTheme(v){document.body.dataset.theme=v;if(theme){theme.textContent=v==='dark'?'☀':'☾';theme.setAttribute('aria-label',v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');}}
+ setTheme(saved==='dark'?'dark':'light');
+ if(theme){theme.addEventListener('click',function(){const next=document.body.dataset.theme==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('tasneem-theme',next)}catch(e){}});}
+})();
+</script>
 </body></html>
