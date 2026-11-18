@@ -46,10 +46,6 @@
 <section class="hero"><div class="wrap">
 <div><span class="eyebrow">خدمة متابعة الطلبات</span><h1>طلبك معنا… وخطواته أوضح</h1><p>يمكنك الاطلاع على آخر حالة مسجلة لطلبك باستخدام رقم الطلب ورقم الهاتف الذي أدخلته عند الإرسال. لا نعرض بياناتك الشخصية في صفحة المتابعة.</p><div class="trust"><span>خصوصية البيانات</span><span>نتيجة مباشرة من النظام</span><span>متابعة سهلة</span></div></div>
 <div class="panel"><h2>استعلم عن طلبك</h2><p>أدخل رقم الطلب الذي ظهر لك بعد إرسال النموذج، ورقم الهاتف نفسه المسجل في الطلب.</p>
-<script>
-const bookingIdFromUrl=new URLSearchParams(location.search).get("id");
-if(bookingIdFromUrl){const bookingIdInput=document.getElementById("booking-id");if(bookingIdInput)bookingIdInput.value=bookingIdFromUrl;}
-</script>
 <form id="track-form">
 <label class="field">رقم الطلب (UUID)<input id="booking-id" name="booking-id" type="text" inputmode="text" autocomplete="off" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}" required></label>
 <label class="field">رقم الهاتف المسجل<input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+966..." minlength="8" maxlength="24" required></label>
@@ -61,6 +57,7 @@ if(bookingIdFromUrl){const bookingIdInput=document.getElementById("booking-id");
 <footer><div class="wrap"><span>© تسنيم للسفريات والسياحة</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="https://wa.me/966537017117" target="_blank" rel="noopener">تواصل مع الفريق</a></span></div></footer>
 <script>
 const form=document.getElementById("track-form"),button=document.getElementById("track-submit"),feedback=document.getElementById("feedback"),result=document.getElementById("result");
+const bookingIdFromUrl=new URLSearchParams(location.search).get("id");if(bookingIdFromUrl)document.getElementById("booking-id").value=bookingIdFromUrl;
 const labels={new:"تم استلام الطلب",contacted:"تم التواصل معك",in_progress:"طلبك قيد المتابعة",confirmed:"تم تأكيد الطلب",cancelled:"تم إلغاء الطلب",closed:"تم إغلاق الطلب"};
 form.addEventListener("submit",async event=>{event.preventDefault();if(location.hostname!=="tasneem-travel.pages.dev"){feedback.className="feedback error";feedback.textContent="المتابعة متاحة من الموقع الرسمي لتسنيم فقط.";return;}if(!form.reportValidity())return;
 button.disabled=true;button.textContent="جارٍ التحقق…";feedback.className="feedback";feedback.textContent="يتم التحقق من بيانات الطلب.";result.classList.remove("show");
