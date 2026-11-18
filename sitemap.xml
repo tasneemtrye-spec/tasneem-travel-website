@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://tasneem-travel-preview.pages.dev/</loc></url>
-<url><loc>https://tasneem-travel-preview.pages.dev/privacy.html</loc></url>
-<url><loc>https://tasneem-travel-preview.pages.dev/services.html</loc></url>
-<url><loc>https://tasneem-travel-preview.pages.dev/about.html</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/about.html</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/services.html</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/hajj.html</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/umrah.html</loc></url>
+<url><loc>https://tasneem-travel.pages.dev/privacy.html</loc></url>
 </urlset>
