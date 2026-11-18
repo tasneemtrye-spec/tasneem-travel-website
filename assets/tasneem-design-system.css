@@ -123,3 +123,17 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
  .nav-tools .menu{width:39px!important;height:39px!important;min-width:39px!important}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Header finish aligned to the approved dark-emerald / gold reference */
+header.header,header.inner-header{background:linear-gradient(105deg,#052f2d,#073b36 58%,#06453d)!important;border-bottom:1px solid rgba(212,166,79,.78)!important}
+header.header .brand,header.inner-header .brand,.brand{color:#fff!important}
+header.header .brand small,header.inner-header .brand small,.brand small{color:#d9e5dd!important}
+header.header nav.links a,header.inner-header nav.links a,.nav-links a{color:#f6f1e5!important}
+header.header nav.links a:hover,header.inner-header nav.links a:hover,.nav-links a:hover{color:#f0c76f!important}
+.nav-tools a,.nav-tools button,.theme{background:transparent!important;color:#f5d58e!important;border-color:rgba(212,166,79,.75)!important}
+.nav-tools .nav-book{background:linear-gradient(120deg,#f2d18a,#d4a64f)!important;color:#173b35!important}
+@media(max-width:1100px){
+ header.header nav.links.is-open,header.inner-header nav.links.is-open,.nav-links.is-open{background:#073b36!important;border-color:rgba(212,166,79,.6)!important}
+ header.header nav.links.is-open a,header.inner-header nav.links.is-open a{color:#fff!important;border-color:rgba(255,255,255,.12)!important}
+ .nav-tools .menu{background:#fff8e9!important;color:#123b35!important}
+}
