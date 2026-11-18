@@ -713,7 +713,7 @@ img{max-width:100%}
 <option value="خدمة أخرى">استفسار أو خدمة أخرى</option>
 </select></label>
 <label>الوجهة أو المدينة<input name="destination" type="text" maxlength="160" placeholder="مثال: جدة، القاهرة، إسطنبول"></label>
-<label>تاريخ السفر المتوقع<input name="travel_date" type="date" lang="ar" dir="ltr" aria-describedby="travel-date-hint"><small class="date-field-hint" id="travel-date-hint">اليوم / الشهر / السنة</small></label>
+<label>تاريخ السفر المتوقع<input name="travel_date" type="date" lang="ar-SA" dir="rtl" aria-label="اختر تاريخ السفر المتوقع"></label>
 <label>عدد المسافرين<select name="travellers"><option value="1">مسافر واحد</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8 أو أكثر">8 أو أكثر</option></select></label>
 <label>طريقة التواصل المفضلة<select name="contact_method" id="contact-method"><option value="واتساب" selected>واتساب</option><option value="اتصال هاتفي">اتصال هاتفي</option><option value="البريد الإلكتروني">البريد الإلكتروني</option></select></label>
 <label class="full-field">تفاصيل إضافية <span>(اختياري)</span><textarea name="message" maxlength="1500" rows="4" placeholder="اكتب أي تفاصيل تساعدنا في فهم طلبك"></textarea></label>
@@ -741,7 +741,7 @@ img{max-width:100%}
  if(menu&&nav){menu.addEventListener('click',function(){const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة');menu.textContent=open?'×':'☰';});}
  const theme=document.getElementById('theme-toggle');
  let saved='light';try{saved=localStorage.getItem('tasneem-theme')||'light'}catch(e){}
- function setTheme(v){document.body.dataset.theme=v;if(theme){theme.textContent=v==='dark'?'☀':'☾';theme.setAttribute('aria-label',v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');}}
+ function setTheme(v){document.body.dataset.theme=v;document.documentElement.dataset.theme=v;if(theme){theme.textContent=v==='dark'?'☀':'☾';theme.setAttribute('aria-label',v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');theme.setAttribute('aria-pressed',String(v==='dark'));theme.title=v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي';}}
  setTheme(saved==='dark'?'dark':'light');
  if(theme){theme.addEventListener('click',function(){const next=document.body.dataset.theme==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('tasneem-theme',next)}catch(e){}});}
 })();
