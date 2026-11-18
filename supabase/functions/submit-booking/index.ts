@@ -5,7 +5,8 @@ const PROJECT_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const PUBLIC_KEY = "sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS";
 const ALLOWED_ORIGINS = new Set([
-  "https://tasneem-travel-preview.pages.dev"
+  "https://tasneem-travel-preview.pages.dev",
+  "https://tasneem-travel.pages.dev"
 ]);
 const supabase = createClient(PROJECT_URL, SERVICE_ROLE_KEY, { auth: { persistSession: false } });
 const corsFor = (origin: string) => ({
@@ -50,7 +51,7 @@ Deno.serve(async (req: Request) => {
   const contact_method = clean(body.contact_method, 40) || "واتساب";
   const message = clean(body.message, 1500);
   const privacy_consent = body.privacy_consent === true;
-  const services = ["حجز طيران", "حجز فندق", "برنامج سياحي", "تأشيرة / خدمات سفر", "خدمة أخرى"];
+  const services = ["حجز طيران", "حجز فندق", "برنامج سياحي", "خدمات الحج والعمرة", "رحلة عائلية", "تأشيرة / خدمات سفر", "خدمة أخرى"];
   const travellerOptions = ["1", "2", "3", "4", "5", "6", "7", "8 أو أكثر"];
   const contactOptions = ["واتساب", "اتصال هاتفي", "البريد الإلكتروني"];
 
