@@ -46,6 +46,10 @@
 <section class="hero"><div class="wrap">
 <div><span class="eyebrow">خدمة متابعة الطلبات</span><h1>طلبك معنا… وخطواته أوضح</h1><p>يمكنك الاطلاع على آخر حالة مسجلة لطلبك باستخدام رقم الطلب ورقم الهاتف الذي أدخلته عند الإرسال. لا نعرض بياناتك الشخصية في صفحة المتابعة.</p><div class="trust"><span>خصوصية البيانات</span><span>نتيجة مباشرة من النظام</span><span>متابعة سهلة</span></div></div>
 <div class="panel"><h2>استعلم عن طلبك</h2><p>أدخل رقم الطلب الذي ظهر لك بعد إرسال النموذج، ورقم الهاتف نفسه المسجل في الطلب.</p>
+<script>
+const bookingIdFromUrl=new URLSearchParams(location.search).get("id");
+if(bookingIdFromUrl){const bookingIdInput=document.getElementById("booking-id");if(bookingIdInput)bookingIdInput.value=bookingIdFromUrl;}
+</script>
 <form id="track-form">
 <label class="field">رقم الطلب (UUID)<input id="booking-id" name="booking-id" type="text" inputmode="text" autocomplete="off" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}" required></label>
 <label class="field">رقم الهاتف المسجل<input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+966..." minlength="8" maxlength="24" required></label>
