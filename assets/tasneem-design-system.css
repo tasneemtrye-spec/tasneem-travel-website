@@ -286,3 +286,62 @@ main{padding-bottom:0!important;margin-bottom:0!important}
 main>section:last-child{margin-bottom:0!important}
 .tasneem-footer{display:block;clear:both;position:relative;z-index:1}
 @media(max-width:640px){#hajj-umrah .section-service-photo{height:155px}#contact.booking-section{padding-bottom:24px!important}}
+
+/* Contrast and interaction corrections – November 2026 */
+/* Theme toggle: clear visual state and full-page dark palette */
+#theme-toggle{position:relative;z-index:5;cursor:pointer!important;pointer-events:auto!important;min-width:48px!important;width:48px!important;height:48px!important;padding:0!important;font-size:22px!important;line-height:1!important;border:1px solid #d4a64f!important;color:#f7d78e!important;background:#073b36!important;box-shadow:0 4px 14px #001d1833!important}
+#theme-toggle:hover{background:#14564b!important;transform:translateY(-1px)}
+#theme-toggle:focus-visible{outline:3px solid #f2cf83!important;outline-offset:3px}
+html[data-theme="dark"] body,body[data-theme="dark"]{background:#101f1b!important;color:#e9eee8!important;color-scheme:dark}
+html[data-theme="dark"] .section,body[data-theme="dark"] .section,
+html[data-theme="dark"] .quick-services,body[data-theme="dark"] .quick-services{background:#142720!important;color:#e9eee8!important}
+html[data-theme="dark"] .card,body[data-theme="dark"] .card,
+html[data-theme="dark"] .service,body[data-theme="dark"] .service,
+html[data-theme="dark"] .step,body[data-theme="dark"] .step,
+html[data-theme="dark"] .booking-form,body[data-theme="dark"] .booking-form,
+html[data-theme="dark"] .booking-aside,body[data-theme="dark"] .booking-aside{background:#1b3028!important;color:#edf1e9!important;border-color:#466052!important}
+html[data-theme="dark"] .card h3,body[data-theme="dark"] .card h3,
+html[data-theme="dark"] .service h3,body[data-theme="dark"] .service h3,
+html[data-theme="dark"] .step h3,body[data-theme="dark"] .step h3,
+html[data-theme="dark"] .heading h2,body[data-theme="dark"] .heading h2{color:#f4d58e!important}
+html[data-theme="dark"] .card p,body[data-theme="dark"] .card p,
+html[data-theme="dark"] .service p,body[data-theme="dark"] .service p,
+html[data-theme="dark"] .step p,body[data-theme="dark"] .step p,
+html[data-theme="dark"] .booking-heading p,body[data-theme="dark"] .booking-heading p{color:#c4d2c9!important}
+html[data-theme="dark"] .booking-fields label,body[data-theme="dark"] .booking-fields label{color:#e9eee8!important}
+html[data-theme="dark"] .booking-fields input,body[data-theme="dark"] .booking-fields input,
+html[data-theme="dark"] .booking-fields select,body[data-theme="dark"] .booking-fields select,
+html[data-theme="dark"] .booking-fields textarea,body[data-theme="dark"] .booking-fields textarea{background:#10221c!important;color:#f4f1e9!important;border-color:#557363!important}
+html[data-theme="dark"] .travel-news,body[data-theme="dark"] .travel-news{background:#1c3028!important;color:#f5e6c6!important;border-color:#665331!important}
+html[data-theme="dark"] .travel-news-track,body[data-theme="dark"] .travel-news-track{color:#f5e6c6!important;text-shadow:none!important}
+html[data-theme="dark"] .quick-services,body[data-theme="dark"] .quick-services{background:linear-gradient(180deg,#142720,#1b3028)!important}
+html[data-theme="dark"] .quick-service,body[data-theme="dark"] .quick-service{background:#1b3028!important;color:#f4d58e!important;border-color:#665331!important}
+html[data-theme="dark"] .quick-service span,body[data-theme="dark"] .quick-service span{color:#f4d58e!important}
+/* Gold call-to-action must keep dark text for legibility */
+.hero.hero-flight-home .hero-actions .btn-primary,
+.hero.hero-flight-home .hero-actions .btn.primary,
+header.header .nav-tools .nav-book,
+header.inner-header .nav-tools .nav-book{color:#123b35!important;background:linear-gradient(125deg,#f4d58e,#d2a044)!important;text-shadow:none!important;font-weight:900!important}
+/* Quick services popover: readable forest-green labels on ivory surfaces */
+.quick-search-menu{background:#fffdf7!important;border:1px solid #d8b46e!important;box-shadow:0 18px 45px rgba(8,42,35,.22)!important;border-radius:20px!important;padding:10px!important;max-width:min(360px,calc(100vw - 28px))!important}
+.quick-search-menu a{display:flex!important;align-items:center;justify-content:center;gap:9px;min-height:48px;margin:3px 0;padding:10px 14px!important;border:1px solid #d4a64f!important;border-radius:999px!important;background:#fffefa!important;color:#123f36!important;font-size:15px!important;font-weight:850!important;line-height:1.45!important;text-align:center!important;white-space:normal!important;text-shadow:none!important}
+.quick-search-menu a:hover,.quick-search-menu a:focus-visible{background:#073b36!important;color:#f7d58e!important;border-color:#073b36!important}
+.quick-search-menu a:focus-visible{outline:3px solid #d4a64f!important;outline-offset:2px}
+/* Date field: remove external helper text and keep Arabic RTL label */
+#booking-form input[name="travel_date"]{direction:rtl!important;text-align:right!important;min-height:54px!important;font-family:inherit!important}
+#booking-form input[name="travel_date"]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.82}
+#booking-form .date-field-hint{display:none!important}
+/* News ticker compact sizing for phones */
+@media(max-width:700px){
+ .travel-news{min-height:42px!important;height:42px!important;max-height:42px!important}
+ .travel-news-label{padding:5px 9px!important;font-size:12px!important;gap:5px!important}
+ .travel-news-label svg{width:16px!important;height:16px!important}
+ .travel-news-track{font-size:13px!important;line-height:1.45!important;gap:18px!important;padding-inline:12px!important;animation-duration:34s!important;font-weight:700!important}
+ .travel-news-track span[aria-hidden="true"]{font-size:10px!important}
+ .travel-news-control{padding-inline:8px!important;font-size:11px!important;gap:4px!important}
+ .travel-news-control .control-icon{font-size:13px!important}
+ .quick-search-menu{inset-inline:12px!important;max-width:calc(100vw - 24px)!important;width:calc(100vw - 24px)!important}
+ .quick-search-menu a{min-height:42px!important;font-size:14px!important;padding:8px 12px!important}
+ #theme-toggle{width:42px!important;height:42px!important;min-width:42px!important;font-size:20px!important}
+}
+@media(prefers-reduced-motion:reduce){#theme-toggle,.quick-search-menu a{transition:none!important}}
