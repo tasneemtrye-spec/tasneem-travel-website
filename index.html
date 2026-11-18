@@ -439,16 +439,20 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 @media(max-width:560px){.booking-section{padding:44px 0!important}.booking-layout{gap:14px}.booking-form,.booking-aside{padding:19px 16px;border-radius:19px}.booking-fields{grid-template-columns:1fr;gap:12px}.booking-fields .full-field{grid-column:auto}.booking-heading{text-align:right;margin-bottom:20px}.booking-heading h2{font-size:28px}.booking-heading p{font-size:13px}.booking-submit{min-height:50px}}
 </style>
 <style>
-.travel-news{display:flex;align-items:stretch;min-height:43px;background:#f4ead6;border-bottom:1px solid #e5d2ac;color:#173b35;overflow:hidden}
-.travel-news-label{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 18px;background:#173b35;color:#f2d28e;font-size:12px;font-weight:900;position:relative;z-index:1}
-.travel-news-window{min-width:0;overflow:hidden;display:flex;align-items:center;direction:ltr}
-.travel-news-track{display:flex;align-items:center;gap:28px;white-space:nowrap;width:max-content;animation:tasneem-news-scroll 34s linear infinite;padding-inline:20px;font-size:12px;font-weight:700;direction:ltr}
+.travel-news{display:flex;align-items:stretch;min-height:58px;background:linear-gradient(90deg,#fbf5e9,#f1e3c7);border-bottom:1px solid #dfc99f;color:#173b35;overflow:hidden;box-shadow:0 3px 12px rgba(23,59,53,.06)}
+.travel-news[hidden]{display:none!important}
+.travel-news-label{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:10px 22px;background:linear-gradient(135deg,#173b35,#24594b);color:#f5d58f;font-size:15px;font-weight:900;position:relative;z-index:1;letter-spacing:.1px}
+.travel-news-window{min-width:0;flex:1 1 auto;overflow:hidden;display:flex;align-items:center;direction:ltr}
+.travel-news-track{display:flex;align-items:center;gap:34px;white-space:nowrap;width:max-content;animation:tasneem-news-scroll 38s linear infinite;padding-inline:26px;font-size:16px;font-weight:800;line-height:1.7;direction:ltr;color:#183d35;text-shadow:0 1px 0 rgba(255,255,255,.65)}
 .travel-news-track span{direction:rtl}
-.travel-news-track span[aria-hidden="true"]{color:#b58a43;font-size:9px}
-.travel-news:hover .travel-news-track{animation-play-state:paused}
-@keyframes tasneem-news-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.travel-news-track span[aria-hidden="true"]{color:#a77b35;font-size:12px}
+.travel-news:hover .travel-news-track,.travel-news:focus-within .travel-news-track{animation-play-state:paused}
+.travel-news-close{flex:0 0 48px;display:grid;place-items:center;border:0;border-inline-start:1px solid #dfc99f;background:#efe1c5;color:#173b35;font-size:25px;font-weight:700;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.travel-news-close:hover{background:#173b35;color:#f5d58f}
+.travel-news-close:focus-visible{outline:3px solid #c99a4b;outline-offset:-4px}
+@keyframes tasneem-news-scroll{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.travel-news-track{animation:none;white-space:normal;flex-wrap:wrap;padding-block:8px}}
-@media(max-width:560px){.travel-news{min-height:40px}.travel-news-label{padding-inline:12px;font-size:11px}.travel-news-track{font-size:11px;gap:18px;animation-duration:28s}}
+@media(max-width:560px){.travel-news{min-height:52px}.travel-news-label{padding-inline:13px;font-size:13px;gap:6px}.travel-news-track{font-size:14px;gap:22px;animation-duration:32s;padding-inline:18px}.travel-news-close{flex-basis:42px;font-size:23px}}
 </style>
 </head>
 <body>
@@ -485,6 +489,7 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
     <span aria-hidden="true">يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
     <span aria-hidden="true">◆</span>
   </div></div>
+  <button class="travel-news-close" id="travel-news-close" type="button" aria-label="إغلاق الشريط الإخباري" title="إغلاق الشريط الإخباري">×</button>
 </section>
 <main>
 <section class="hero hero-flight-home" aria-labelledby="hero-title">
@@ -608,4 +613,13 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
  });
 })();
 </script>
+
+<script>
+(function(){
+ const bar=document.querySelector('.travel-news');
+ const close=document.getElementById('travel-news-close');
+ if(bar&&close){close.addEventListener('click',function(){bar.hidden=true;});}
+})();
+</script>
+
 </body></html>
