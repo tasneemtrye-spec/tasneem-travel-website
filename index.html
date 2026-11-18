@@ -438,9 +438,21 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 @media(max-width:850px){.booking-layout{grid-template-columns:1fr}.booking-aside{order:2}}
 @media(max-width:560px){.booking-section{padding:44px 0!important}.booking-layout{gap:14px}.booking-form,.booking-aside{padding:19px 16px;border-radius:19px}.booking-fields{grid-template-columns:1fr;gap:12px}.booking-fields .full-field{grid-column:auto}.booking-heading{text-align:right;margin-bottom:20px}.booking-heading h2{font-size:28px}.booking-heading p{font-size:13px}.booking-submit{min-height:50px}}
 </style>
+<style>
+.travel-news{display:flex;align-items:stretch;min-height:43px;background:#f4ead6;border-bottom:1px solid #e5d2ac;color:#173b35;overflow:hidden}
+.travel-news-label{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 18px;background:#173b35;color:#f2d28e;font-size:12px;font-weight:900;position:relative;z-index:1}
+.travel-news-window{min-width:0;overflow:hidden;display:flex;align-items:center;direction:ltr}
+.travel-news-track{display:flex;align-items:center;gap:28px;white-space:nowrap;width:max-content;animation:tasneem-news-scroll 34s linear infinite;padding-inline:20px;font-size:12px;font-weight:700;direction:ltr}
+.travel-news-track span{direction:rtl}
+.travel-news-track span[aria-hidden="true"]{color:#b58a43;font-size:9px}
+.travel-news:hover .travel-news-track{animation-play-state:paused}
+@keyframes tasneem-news-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.travel-news-track{animation:none;white-space:normal;flex-wrap:wrap;padding-block:8px}}
+@media(max-width:560px){.travel-news{min-height:40px}.travel-news-label{padding-inline:12px;font-size:11px}.travel-news-track{font-size:11px;gap:18px;animation-duration:28s}}
+</style>
 </head>
 <body>
-<div class="top"><div class="wrap"><span>تسنيم للسفريات والسياحة</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span></div></div>
+<div class="top"><div class="wrap"><span>من روح اليمن إلى العالم · رحلتك تبدأ هنا</span></div></div>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a>
 <nav class="links" id="main-navigation" aria-label="القائمة الرئيسية">
@@ -453,6 +465,19 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 <button class="menu" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-navigation">☰</button>
 </div>
 </div></header>
+<section class="travel-news" aria-label="تنبيهات وأخبار السفر">
+  <div class="travel-news-label"><span aria-hidden="true">✦</span> أخبار السفر</div>
+  <div class="travel-news-window"><div class="travel-news-track">
+    <span>تابع متطلبات السفر والتأشيرة للوجهة قبل موعد الرحلة</span>
+    <span aria-hidden="true">◆</span>
+    <span>تأكد من صلاحية جواز السفر والوثائق المطلوبة قبل السفر</span>
+    <span aria-hidden="true">◆</span>
+    <span>راجع تفاصيل السعر والأمتعة وشروط الحجز قبل التأكيد</span>
+    <span aria-hidden="true">◆</span>
+    <span>يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
+    <span aria-hidden="true">◆</span>
+  </div></div>
+</section>
 <main>
 <section class="hero hero-flight-home" aria-labelledby="hero-title">
 <img class="hero-photo-bg" src="/assets/tasneem-coastal-hero.webp" alt="" aria-hidden="true" fetchpriority="high">
