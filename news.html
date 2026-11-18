@@ -42,7 +42,7 @@ function render(){
  const a=document.createElement('a');a.href=x.article_url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='قراءة الخبر في المصدر الرسمي ←';card.append(a);box.append(card);
  }
 }
-fetch(endpoint,{headers:{apikey:key,Authorization:'Bearer '+key}}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{rows=data.filter(x=>x.is_official&&x.article_url&&x.title);render();status.textContent='آخر مزامنة: '+new Date().toLocaleString('ar-SA')+' • '+rows.length+' خبراً';}).catch(()=>{status.textContent='تعذر تحديث القائمة حالياً';box.innerHTML='<div class="empty">تعذر الاتصال بخدمة الأخبار. يمكنك مراجعة الجهات الرسمية من الروابط المدرجة في الصفحة الرئيسية.</div>';});
+fetch(endpoint,{headers:{apikey:key,Authorization:'Bearer '+key}}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{rows=data.filter(x=>x.is_official&&x.article_url&&x.title);render();status.textContent='آخر جلب من المصدر: '+(rows[0]?.fetched_at?new Date(rows[0].fetched_at).toLocaleString('ar-SA'):'غير متاح')+' • '+rows.length+' خبراً';}).catch(()=>{status.textContent='تعذر تحديث القائمة حالياً';box.innerHTML='<div class="empty">تعذر الاتصال بخدمة الأخبار. يمكنك مراجعة الجهات الرسمية من الروابط المدرجة في الصفحة الرئيسية.</div>';});
 [q,cat,country].forEach(el=>el.addEventListener('input',render));
 })();
 </script>
