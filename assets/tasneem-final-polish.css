@@ -1,0 +1,59 @@
+/* Tasneem final visual consistency layer — single typography and restrained palette */
+:root{
+ --tas-font:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;
+ --tas-green:#073b36;--tas-green-2:#0d5148;--tas-gold:#d2a34d;
+ --tas-cream:#f7f4ec;--tas-white:#fffdf8;--tas-ink:#183b35;
+ --tas-muted:#687a71;--tas-border:#e6ddcc;
+ --tas-shadow:0 10px 28px rgba(7,59,54,.07);--tas-radius:18px;
+}
+html{font-family:var(--tas-font)!important;background:var(--tas-cream)}
+body,button,input,select,textarea{font-family:var(--tas-font)!important;letter-spacing:0!important}
+body{background:var(--tas-cream)!important;color:var(--tas-ink)!important;line-height:1.85!important}
+h1,h2,h3,h4,p,a,button,label,input,select,textarea{letter-spacing:0!important}
+h1,h2,h3{font-weight:800!important;color:var(--tas-green)}
+p{line-height:1.9}
+a{color:var(--tas-green)}
+header,header.header,header.inner-header{
+ background:var(--tas-green)!important;color:#fff!important;
+ border-bottom:1px solid rgba(210,163,77,.65)!important;
+ box-shadow:0 4px 16px rgba(7,59,54,.08)!important;
+}
+header .brand,header .brand span,header .brand small{color:#fff!important}
+header nav a,header .links a{color:#f8f3e8!important;font-weight:700!important}
+header nav a:hover,header .links a:hover{color:#f0ce83!important}
+header .nav-book,.nav-tools .nav-book{
+ background:linear-gradient(120deg,#f1d18e,#d2a34d)!important;color:var(--tas-green)!important;
+ border:0!important;border-radius:999px!important;box-shadow:none!important
+}
+.hero,.service-hero{
+ color:#fff!important;border-bottom:1px solid rgba(210,163,77,.45)!important
+}
+.hero h1,.service-hero h1{color:#fff!important;font-weight:850!important}
+.hero p,.service-hero p{color:#f1f3ed!important}
+.kicker,.eyebrow{color:#c18e35!important;font-weight:800!important}
+.hero .kicker,.hero .eyebrow,.service-hero .kicker,.service-hero .eyebrow{color:#f0d18b!important}
+section:not(.hero):not(.service-hero){background-color:transparent}
+.card,.service,.panel,.step,.booking-form,.booking-aside,.note,.faq-item,.faq details,.booking-card,.form-card{
+ background:var(--tas-white)!important;border:1px solid var(--tas-border)!important;
+ border-radius:var(--tas-radius)!important;box-shadow:var(--tas-shadow)!important
+}
+.card h2,.card h3,.service h2,.service h3,.panel h2,.step h3{color:var(--tas-green)!important}
+.card p,.service p,.panel p,.step p,.note p{color:var(--tas-muted)!important}
+.btn,.button,button{font-family:var(--tas-font)!important}
+.btn-primary,.primary,button[type=submit],form button[type=submit]{
+ background:linear-gradient(120deg,#f1d18e,#d2a34d)!important;color:var(--tas-green)!important;
+ border:1px solid rgba(169,122,42,.2)!important;border-radius:999px!important;
+ box-shadow:0 5px 14px rgba(178,132,52,.12)!important;font-weight:800!important
+}
+.btn-dark,.secondary{background:var(--tas-green)!important;color:#fff!important;border:1px solid rgba(210,163,77,.55)!important}
+input,select,textarea{font-family:var(--tas-font)!important;background:#fffefa!important;color:var(--tas-ink)!important;border:1px solid #dcd6c9!important;border-radius:11px!important}
+footer,.tasneem-footer{background:var(--tas-green)!important;color:#f5f1e8!important;border-top:1px solid var(--tas-gold)!important}
+footer a,.tasneem-footer a{color:#f0d18b!important}
+.travel-news{box-shadow:none!important;border-bottom:1px solid var(--tas-border)!important}
+.travel-news-track{font-family:var(--tas-font)!important;font-weight:650!important}
+@media(max-width:700px){
+ header .nav{min-height:62px!important}
+ header .brand{font-size:14px!important}
+ header .brand img,header .brand-logo{width:44px!important;height:44px!important;flex-basis:44px!important}
+ .card,.service,.panel,.step{border-radius:15px!important}
+}
