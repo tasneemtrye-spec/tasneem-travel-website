@@ -127,3 +127,33 @@ main.wrap{max-width:980px!important;width:min(980px,calc(100% - var(--tuv-gutter
  .brand img,.brand-logo{width:42px!important;height:42px!important;flex-basis:42px!important}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Preserve the existing user-selectable dark theme after the unified light-theme defaults */
+body[data-theme="dark"],html[data-theme="dark"] body{
+ background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.035),transparent 58%),#101f1b!important;
+ color:#e9eee8!important;color-scheme:dark!important
+}
+body[data-theme="dark"] header.header,body[data-theme="dark"] header.inner-header,body[data-theme="dark"] header:not(.service-hero){
+ background:rgba(7,43,38,.97)!important;border-color:rgba(210,163,77,.48)!important
+}
+body[data-theme="dark"] .brand,body[data-theme="dark"] .links a,body[data-theme="dark"] nav a{color:#f4f0e7!important}
+body[data-theme="dark"] .card,body[data-theme="dark"] .service,body[data-theme="dark"] .panel,
+body[data-theme="dark"] .step,body[data-theme="dark"] .booking-form,body[data-theme="dark"] .booking-aside,
+body[data-theme="dark"] .note,body[data-theme="dark"] main.wrap,body[data-theme="dark"] .faq-item,
+body[data-theme="dark"] .faq details,body[data-theme="dark"] .booking-card,body[data-theme="dark"] .form-card{
+ background:#1b3028!important;color:#e9eee8!important;border-color:#466052!important
+}
+body[data-theme="dark"] h1,body[data-theme="dark"] h2,body[data-theme="dark"] h3,
+body[data-theme="dark"] .card h2,body[data-theme="dark"] .card h3,body[data-theme="dark"] .service h2,
+body[data-theme="dark"] .service h3,body[data-theme="dark"] .panel h2,body[data-theme="dark"] .step h3{color:#f4e8ca!important}
+body[data-theme="dark"] .card p,body[data-theme="dark"] .service p,body[data-theme="dark"] .panel p,
+body[data-theme="dark"] .step p,body[data-theme="dark"] .note p,body[data-theme="dark"] .section-head p,
+body[data-theme="dark"] .heading p,body[data-theme="dark"] .head p{color:#c3d0c8!important}
+body[data-theme="dark"] input,body[data-theme="dark"] select,body[data-theme="dark"] textarea{
+ background:#132720!important;color:#f0f2ec!important;border-color:#52685c!important
+}
+body[data-theme="dark"] .band,body[data-theme="dark"] .destinations,body[data-theme="dark"] .about-feature{
+ background:linear-gradient(135deg,#142720,#1a3028)!important;border-color:#466052!important
+}
+body[data-theme="dark"] footer,body[data-theme="dark"] .tasneem-footer{background:#071f1c!important;color:#f4f0e7!important}
+@media(max-width:1100px){body[data-theme="dark"] header.header nav.links.is-open,body[data-theme="dark"] header.inner-header nav.links.is-open{background:#073b36!important}}
