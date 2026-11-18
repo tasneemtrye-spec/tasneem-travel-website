@@ -588,6 +588,54 @@ img{max-width:100%}
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/tasneem-design-system.css?v=responsive-contract-20261118">
+<style>
+/* AI-generated service photography, stored with the site assets */
+.ai-hajj-photo{display:block;width:100%;height:190px;border-radius:16px 16px 0 0;background-image:url('/assets/tasneem-services-ai.svg');background-size:300% 300%;background-repeat:no-repeat}
+.service-visual-card{overflow:hidden;padding-top:0!important}.service-visual-card .icon{margin:18px 24px 0}
+.section .grid:has(> .card:not(.service-visual-card)) .card{overflow:hidden}
+.section .grid:has(> .card:not(.service-visual-card)) .card:before{content:"";display:block;height:145px;margin:-24px -24px 18px;background-image:url('/assets/tasneem-services-ai.svg');background-size:300% 300%;background-repeat:no-repeat}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(1):before{background-position:0 0}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(2):before{background-position:50% 0}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(3):before{background-position:100% 0}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(4):before{background-position:0 50%}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(5):before{background-position:50% 50%}
+.section .grid:has(> .card:nth-child(6)) .card:nth-child(6):before{background-position:100% 50%}
+@media(max-width:760px){.ai-hajj-photo{height:175px}.section .grid:has(> .card:nth-child(6)) .card:before{height:155px}}
+</style>
+<style id="tasneem-ai-photo-render-fix">
+/* Force the AI sprite to render as a full-width photo tile, after shared CSS */
+.ai-hajj-photo,.section-service-photo.ai-hajj-photo{display:block!important;width:100%!important;height:205px!important;min-height:205px!important;background-image:url('/assets/tasneem-services-ai.svg')!important;background-size:300% 300%!important;background-repeat:no-repeat!important;background-origin:border-box!important;flex:0 0 205px!important}
+.section .grid:has(> .card:nth-child(6)) .card:before{display:block!important;width:calc(100% + 48px)!important;height:165px!important;margin:-24px -24px 18px!important;background-image:url('/assets/tasneem-services-ai.svg')!important;background-size:300% 300%!important;background-repeat:no-repeat!important}
+@media(max-width:760px){.ai-hajj-photo{height:185px!important;min-height:185px!important}.section .grid:has(> .card:nth-child(6)) .card:before{height:155px!important}}
+</style>
+<style id="tasneem-independent-home-images">
+img.home-service-photo{display:block!important;width:calc(100% + 48px)!important;height:160px!important;max-width:none!important;object-fit:cover!important;object-position:center!important;margin:-24px -24px 18px!important;border-radius:16px 16px 0 0!important}
+img.section-service-photo.ai-hajj-photo{display:block!important;width:100%!important;height:205px!important;min-height:205px!important;object-fit:cover!important;object-position:center!important;background:none!important;flex:0 0 205px!important;border-radius:16px 16px 0 0!important}
+.section .grid:has(> .card:nth-child(6)) .card:before{content:none!important;display:none!important}
+.service-visual-card{overflow:hidden!important;padding-top:0!important}.service-visual-card .icon{margin:18px 24px 0!important}
+@media(max-width:760px){img.home-service-photo{height:150px!important}img.section-service-photo.ai-hajj-photo{height:185px!important;min-height:185px!important}}
+</style>
+<style id="tasneem-final-photo-layout">
+/* Final independent image rendering: real img elements, no sprite backgrounds */
+img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+ display:block!important;width:100%!important;height:clamp(170px,20vw,220px)!important;
+ min-height:170px!important;max-height:220px!important;object-fit:cover!important;
+ object-position:center!important;background:none!important;border:0!important;
+ border-radius:16px 16px 0 0!important;flex:0 0 auto!important;
+}
+.card:before,.section .grid .card:before{content:none!important;display:none!important}
+.service-with-photo,.service-visual-card{overflow:hidden!important;padding-top:0!important}
+@media(max-width:760px){
+ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+  height:190px!important;min-height:190px!important;max-height:190px!important
+ }
+}
+@media(max-width:420px){
+ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+  height:175px!important;min-height:175px!important;max-height:175px!important
+ }
+}
+</style>
 </head>
 <body>
 
@@ -652,18 +700,18 @@ img{max-width:100%}
 <section class="section" id="hajj-umrah"><div class="wrap">
 <div class="heading"><span class="kicker">أولوية تسنيم</span><h2>خدمات الحج والعمرة</h2><p>ابدأ باستفسارك عن خدمات الحج أو العمرة. يراجع فريق تسنيم التفاصيل ويتواصل معك بالمعلومات المتاحة دون اعتبار الطلب تأكيداً للحجز.</p></div>
 <div class="grid">
-<article class="card service-visual-card"><img class="section-service-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Kaaba%2C_Masjid_Al-Haram%2C_Mecca%2C_Saudi_Arabia_-_panoramio.jpg/1280px-Kaaba%2C_Masjid_Al-Haram%2C_Mecca%2C_Saudi_Arabia_-_panoramio.jpg" alt="الكعبة المشرفة" loading="lazy"><div class="icon">✦</div><h3>خدمات الحج</h3><p>تواصل للاستفسار عن المعلومات والإجراءات والبرامج المتاحة وفق ما يتم اعتماده والإعلان عنه رسمياً.</p><a href="/hajj.html">تفاصيل خدمات الحج ←</a></article>
-<article class="card service-visual-card"><img class="section-service-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Masjid_al-Haram_panorama.JPG/1280px-Masjid_al-Haram_panorama.JPG" alt="المسجد الحرام في مكة المكرمة" loading="lazy"><div class="icon">☾</div><h3>خدمات العمرة</h3><p>أرسل استفسارك عن موعد الرحلة ومدينة الانطلاق وعدد المسافرين واحتياجات البرنامج.</p><a href="/umrah.html">تفاصيل خدمات العمرة ←</a></article>
+<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="/assets/service-photos/hajj.svg" alt="الكعبة المشرفة" loading="lazy" decoding="async"><div class="icon">✦</div><h3>خدمات الحج</h3><p>تواصل للاستفسار عن المعلومات والإجراءات والبرامج المتاحة وفق ما يتم اعتماده والإعلان عنه رسمياً.</p><a href="/hajj.html">تفاصيل خدمات الحج ←</a></article>
+<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="/assets/service-photos/hajj.svg" alt="المسجد الحرام في مكة المكرمة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات العمرة</h3><p>أرسل استفسارك عن موعد الرحلة ومدينة الانطلاق وعدد المسافرين واحتياجات البرنامج.</p><a href="/umrah.html">تفاصيل خدمات العمرة ←</a></article>
 </div></div></section>
 <section class="section"><div class="wrap">
 <div class="heading"><span class="kicker">خدماتنا</span><h2>كل تفاصيل رحلتك… في مكان واحد</h2><p>نرتّب معك الخيارات الأساسية للسفر، ونوضح لك الخطوات قبل اتخاذ القرار.</p></div>
 <div class="grid">
-<article class="card"><div class="icon">✈</div><h3>حجوزات الطيران</h3><p>استعراض خيارات الرحلات ومواعيدها بما يتناسب مع خطتك وميزانيتك.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><div class="icon">⌂</div><h3>الفنادق والإقامة</h3><p>تنسيق خيارات الإقامة ومواقعها ومستوياتها وفق احتياجات المسافرين.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><div class="icon">◇</div><h3>البرامج السياحية</h3><p>ترتيب برنامج مناسب للوجهة ومدة الرحلة والأنشطة التي تفضلها.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><div class="icon">☾</div><h3>خدمات الحج والعمرة</h3><p>استفسارات حول البرامج وخيارات الانطلاق والمواعيد والخدمات المتاحة.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><div class="icon">♧</div><h3>الرحلات العائلية</h3><p>مراعاة عدد المسافرين واحتياجات الأسرة عند ترتيب خيارات السفر.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><div class="icon">☏</div><h3>متابعة واستفسارات</h3><p>تواصل مباشر لتوضيح التفاصيل والإجابة عن استفساراتك قبل تأكيد الحجز.</p><a href="https://wa.me/966537017117">تواصل معنا ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/flight.svg" alt="حجوزات الطيران" loading="lazy" decoding="async"><div class="icon">✈</div><h3>حجوزات الطيران</h3><p>استعراض خيارات الرحلات ومواعيدها بما يتناسب مع خطتك وميزانيتك.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/hotel.svg" alt="الفنادق والإقامة" loading="lazy" decoding="async"><div class="icon">⌂</div><h3>الفنادق والإقامة</h3><p>تنسيق خيارات الإقامة ومواقعها ومستوياتها وفق احتياجات المسافرين.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/coast.svg" alt="البرامج السياحية" loading="lazy" decoding="async"><div class="icon">◇</div><h3>البرامج السياحية</h3><p>ترتيب برنامج مناسب للوجهة ومدة الرحلة والأنشطة التي تفضلها.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/hajj.svg" alt="خدمات الحج والعمرة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات الحج والعمرة</h3><p>استفسارات حول البرامج وخيارات الانطلاق والمواعيد والخدمات المتاحة.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/family.svg" alt="الرحلات العائلية" loading="lazy" decoding="async"><div class="icon">♧</div><h3>الرحلات العائلية</h3><p>مراعاة عدد المسافرين واحتياجات الأسرة عند ترتيب خيارات السفر.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="/assets/service-photos/support.svg" alt="متابعة واستفسارات" loading="lazy" decoding="async"><div class="icon">☏</div><h3>متابعة واستفسارات</h3><p>تواصل مباشر لتوضيح التفاصيل والإجابة عن استفساراتك قبل تأكيد الحجز.</p><a href="https://wa.me/966537017117">تواصل معنا ←</a></article>
 </div>
 </div></section>
 <section class="section band"><div class="wrap bandgrid">
