@@ -55,6 +55,27 @@ img.service-photo.ai-service-photo{display:block!important;width:100%!important;
 .service-with-photo{overflow:hidden!important;padding-top:0!important}.service-with-photo .icon{margin:18px 24px 0!important}
 @media(max-width:520px){img.service-photo.ai-service-photo{height:185px!important;min-height:185px!important}}
 </style>
+<style id="tasneem-final-photo-layout">
+/* Final independent image rendering: real img elements, no sprite backgrounds */
+img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+ display:block!important;width:100%!important;height:clamp(170px,20vw,220px)!important;
+ min-height:170px!important;max-height:220px!important;object-fit:cover!important;
+ object-position:center!important;background:none!important;border:0!important;
+ border-radius:16px 16px 0 0!important;flex:0 0 auto!important;
+}
+.card:before,.section .grid .card:before{content:none!important;display:none!important}
+.service-with-photo,.service-visual-card{overflow:hidden!important;padding-top:0!important}
+@media(max-width:760px){
+ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+  height:190px!important;min-height:190px!important;max-height:190px!important
+ }
+}
+@media(max-width:420px){
+ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+  height:175px!important;min-height:175px!important;max-height:175px!important
+ }
+}
+</style>
 </head>
 <body>
 
