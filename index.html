@@ -589,9 +589,9 @@ img{max-width:100%}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/tasneem-design-system.css?v=20261118">
 </head>
 <body>
-<div class="top"><div class="wrap"><span>من روح اليمن إلى العالم · رحلتك تبدأ هنا</span></div></div>
+
 <header class="header"><div class="wrap nav">
-<a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a>
+<a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة</span></a>
 <nav class="links" id="main-navigation" aria-label="القائمة الرئيسية">
 <a href="/">الرئيسية</a><a href="/about.html">عن تسنيم</a><a href="/hajj.html">الحج</a><a href="/umrah.html">العمرة</a><a href="/services.html">السفر والسياحة</a><a href="/services.html#services">الوجهات السياحية</a><a href="#booking-steps">آلية الحجز</a><a href="/track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a>
 </nav>
@@ -614,7 +614,7 @@ img{max-width:100%}
 </div>
 </div></header>
 <section class="travel-news" aria-label="تنبيهات وأخبار السفر">
-  <div class="travel-news-label"><span aria-hidden="true">✦</span> أخبار السفر</div>
+  <div class="travel-news-label" role="img" aria-label="أخبار السفر" title="أخبار السفر"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a8.5 8.5 0 0 1 0 11"/></svg></div>
   <div class="travel-news-window"><div class="travel-news-track">
     <span>تابع متطلبات السفر والتأشيرة للوجهة قبل موعد الرحلة</span>
     <span aria-hidden="true">◆</span>
@@ -633,7 +633,7 @@ img{max-width:100%}
     <span aria-hidden="true">يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
     <span aria-hidden="true">◆</span>
   </div></div>
-  <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span><span class="control-label">إيقاف</span></button>
+  <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" title="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span></button>
 </section>
 <main>
 <section class="hero hero-flight-home" aria-labelledby="hero-title">
@@ -641,9 +641,9 @@ img{max-width:100%}
 <div class="hero-flight-shade" aria-hidden="true"></div>
 <div class="wrap hero-grid">
 <div class="hero-flight-copy">
-<span class="eyebrow">رحلتك تبدأ بثقة واهتمام</span>
-<h1 id="hero-title">رحلتك الإيمانية تبدأ<br><span>بثقة واهتمام</span></h1>
-<p>نرافقك في خدمات الحج والعمرة أولاً، ثم ننسّق خيارات السفر والطيران والفنادق والبرامج السياحية، مع توضيح التفاصيل والشروط قبل أي تأكيد.</p>
+<span class="eyebrow">من روح اليمن إلى العالم</span>
+<h1 id="hero-title">رحلتك تبدأ<br><span>بثقة واهتمام</span></h1>
+<p>من رحلات الحج والعمرة إلى حجوزات الطيران والإقامة والبرامج السياحية، نرتّب معك الخيارات بعناية، ونوضح التفاصيل والشروط قبل اتخاذ قرارك.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="/umrah.html">اكتشف خدمات العمرة <span>←</span></a>
 <a class="btn btn-dark" href="/hajj.html">خدمات الحج</a>
@@ -777,7 +777,7 @@ img{max-width:100%}
    toggle.setAttribute('aria-pressed',String(paused));
    toggle.setAttribute('aria-label',paused?'استئناف حركة الشريط':'إيقاف حركة الشريط');
    toggle.querySelector('.control-icon').textContent=paused?'▶':'Ⅱ';
-   toggle.querySelector('.control-label').textContent=paused?'تشغيل':'إيقاف';
+   
   });
  }
  const searchToggle=document.getElementById('quick-search-toggle');
