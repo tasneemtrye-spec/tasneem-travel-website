@@ -448,6 +448,7 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 @media(max-width:560px){.booking-section{padding:44px 0!important}.booking-layout{gap:14px}.booking-form,.booking-aside{padding:19px 16px;border-radius:19px}.booking-fields{grid-template-columns:1fr;gap:12px}.booking-fields .full-field{grid-column:auto}.booking-heading{text-align:right;margin-bottom:20px}.booking-heading h2{font-size:28px}.booking-heading p{font-size:13px}.booking-submit{min-height:50px}}
 </style>
 <style>
+.news-all-link{display:flex;align-items:center;padding:0 12px;color:#173b35;font-weight:800;font-size:12px;white-space:nowrap;text-decoration:none;border-inline-start:1px solid #d9bf8e}
 .travel-news{display:flex;align-items:stretch;min-height:70px;background:linear-gradient(90deg,#fffaf0,#f1e3c7);border-bottom:1px solid #d9bf8e;color:#123b32;overflow:hidden;box-shadow:0 4px 15px rgba(23,59,53,.09)}
 .travel-news[hidden]{display:none!important}
 .travel-news-label{flex:0 0 auto;display:flex;align-items:center;gap:11px;padding:12px 25px;background:linear-gradient(135deg,#123b32,#24594b);color:#ffe0a0;font-family:"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif;font-size:19px;font-weight:700;position:relative;z-index:1;letter-spacing:0}
@@ -593,7 +594,7 @@ img{max-width:100%}
 <header class="header"><div class="wrap nav">
 <a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة</span></a>
 <nav class="links" id="main-navigation" aria-label="القائمة الرئيسية">
-<a href="/">الرئيسية</a><a href="/about.html">عن تسنيم</a><a href="/hajj.html">الحج</a><a href="/umrah.html">العمرة</a><a href="/services.html">السفر والسياحة</a><a href="/services.html#services">الوجهات السياحية</a><a href="#booking-steps">آلية الحجز</a><a href="/track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a>
+<a href="/">الرئيسية</a><a href="/about.html">عن تسنيم</a><a href="/hajj.html">الحج</a><a href="/umrah.html">العمرة</a><a href="/services.html">السفر والسياحة</a><a href="/news.html">الأخبار الرسمية</a><a href="/services.html#services">الوجهات السياحية</a><a href="#booking-steps">آلية الحجز</a><a href="/track.html">متابعة الطلب</a><a href="#contact">تواصل معنا</a>
 </nav>
 <div class="nav-tools">
 <a class="nav-book" href="/services.html#services">▦ طلب حجز سريع</a>
@@ -634,6 +635,7 @@ img{max-width:100%}
     <span aria-hidden="true">◆</span>
   </div></div>
   <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" title="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span></button>
+  <a class="news-all-link" href="/news.html" aria-label="عرض جميع الأخبار الرسمية">كل الأخبار ←</a>
 </section>
 <main>
 <section class="hero hero-flight-home" aria-labelledby="hero-title">
@@ -804,4 +806,15 @@ img{max-width:100%}
 })();
 </script>
 
-<script>(function(){var p=location.pathname;document.querySelectorAll('#main-navigation a').forEach(function(a){if(a.getAttribute('href')===p){a.setAttribute('aria-current','page')}});})();</script></body></html>
+<script>(function(){var p=location.pathname;document.querySelectorAll('#main-navigation a').forEach(function(a){if(a.getAttribute('href')===p){a.setAttribute('aria-current','page')}});})();</script><script>
+(function(){
+ const track=document.querySelector('.travel-news-track');if(!track)return;
+ const url='https://kbllhakivjduwanefvtf.supabase.co/rest/v1/travel_news?select=title,article_url,source_name,fetched_at&is_published=eq.true&order=fetched_at.desc&limit=10';
+ const key='sb_publishable_upvTd4y1nomu_QsNu9GgVg';
+ fetch(url,{headers:{apikey:key,Authorization:'Bearer '+key}}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(items=>{
+  if(!items.length)return;track.replaceChildren();
+  const add=(item,hidden)=>{const a=document.createElement('a');a.href=item.article_url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=item.title;a.style.cssText='color:inherit;text-decoration:none;direction:rtl';if(hidden)a.setAttribute('aria-hidden','true');track.append(a);const sep=document.createElement('span');sep.textContent='◆';sep.setAttribute('aria-hidden','true');track.append(sep);};
+  items.forEach(x=>add(x,false));items.slice(0,Math.min(6,items.length)).forEach(x=>add(x,true));
+ }).catch(()=>{});
+})();
+</script></body></html>
