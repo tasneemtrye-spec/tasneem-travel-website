@@ -388,3 +388,103 @@ header.inner-header .nav-tools .nav-book{color:#123b35!important;background:line
  .card,.service,.quick-service{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
  .card:hover,.service:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(8,54,47,.13)!important}
 }
+
+
+/* ==========================================================
+   TASNEEM RESPONSIVE CONTRACT — enforced shared rules
+   Breakpoints: 700 / 1100 / 1600px.
+   Every page must inherit this layer; keep it last in cascade.
+   ========================================================== */
+:root{
+  --ts-page-gutter:clamp(14px,3.2vw,52px);
+  --ts-content-max:1440px;
+  --ts-section-space:clamp(34px,5vw,76px);
+}
+html{width:100%;max-width:100%;scroll-padding-top:clamp(76px,9vw,120px)}
+body{width:100%;max-width:100%;min-width:0;overflow-x:clip}
+*,*::before,*::after{min-width:0}
+img,video,svg,canvas,iframe{max-width:100%}
+img{height:auto}
+.wrap,.content-grid,.service-hero .wrap{
+  width:min(var(--ts-content-max),calc(100% - 2 * var(--ts-page-gutter)))!important;
+  max-width:var(--ts-content-max)!important;
+  margin-inline:auto!important;
+}
+main,section,header,footer,nav,article,aside{min-width:0;max-width:100%}
+section:not(.hero):not(.service-hero){scroll-margin-top:clamp(78px,9vw,120px)}
+h1,h2,h3,h4,p,li,a,label,button{overflow-wrap:anywhere}
+h1{font-size:clamp(1.8rem,3.5vw,3.5rem);line-height:1.32}
+h2{font-size:clamp(1.45rem,2.5vw,2.35rem);line-height:1.4}
+p{max-width:75ch}
+.grid,.services,.steps,.quick-services-grid,.content-grid,.booking-layout,.booking-fields{
+  min-width:0;
+}
+.grid,.services,.steps{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  align-items:stretch;
+}
+.grid>.card,.services>.service,.steps>.step{height:100%;min-width:0}
+.card img,.service img,.section-service-photo{
+  display:block;max-width:100%;height:auto;object-fit:cover;
+}
+input,select,textarea,button{max-width:100%;font-size:16px}
+input,select,textarea{width:100%}
+button,a.btn,.btn{touch-action:manipulation}
+table{max-width:100%;border-collapse:collapse}
+.table-wrap,.table-responsive{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+pre,code{max-width:100%;overflow-wrap:anywhere;white-space:pre-wrap}
+iframe{width:100%;border:0}
+:focus-visible{scroll-margin-block:120px}
+@media(min-width:1600px){
+  :root{--ts-content-max:1480px;--ts-page-gutter:clamp(56px,5vw,110px)}
+  .section,.intro,.steps{padding-block:clamp(64px,5vw,96px)!important}
+}
+@media(min-width:1101px) and (max-width:1599px){
+  :root{--ts-content-max:1360px;--ts-page-gutter:clamp(32px,3vw,56px)}
+  .grid,.services{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(min-width:701px) and (max-width:1100px){
+  :root{--ts-page-gutter:clamp(18px,3vw,32px)}
+  .grid,.services,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .content-grid,.booking-layout{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quick-services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  header.header .wrap.nav,header.inner-header .wrap.nav,.nav{gap:10px!important}
+  .hero,.service-hero{min-height:clamp(300px,42vw,470px)}
+}
+@media(max-width:700px){
+  :root{--ts-page-gutter:14px;--ts-section-space:36px}
+  .wrap,.content-grid,.service-hero .wrap{
+    width:calc(100% - 2 * var(--ts-page-gutter))!important;
+  }
+  .grid,.services,.steps,.content-grid,.booking-layout,.booking-fields{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .quick-services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section,.intro,.steps{padding-block:var(--ts-section-space)!important}
+  .heading{max-width:100%;padding-inline:2px}
+  .heading h2{font-size:clamp(1.45rem,6vw,1.9rem)!important}
+  .card,.service,.panel,.step{padding:clamp(16px,4vw,21px)!important}
+  .hero:not(.hero-flight-home),.service-hero{padding-block:clamp(38px,9vw,58px)!important}
+  .nav-tools{flex-shrink:0}
+  .nav-tools .menu{min-width:44px;min-height:44px}
+  header.header nav.links.is-open,header.inner-header nav.links.is-open,.nav-links.is-open{
+    max-height:min(72vh,560px);overflow-y:auto;overscroll-behavior:contain;
+  }
+  .inquiry,.booking-form,#track-form{width:100%;min-width:0}
+  .inquiry button,.booking-submit,#track-form button{width:100%;min-height:48px}
+  .floating-actions{max-width:calc(100% - 20px)}
+  footer .wrap{width:calc(100% - 28px)!important}
+}
+@media(max-width:380px){
+  :root{--ts-page-gutter:11px}
+  .brand{max-width:calc(100% - 52px)}
+  .brand small{overflow-wrap:anywhere}
+  .quick-service{padding:10px 6px}
+  .quick-service strong{font-size:clamp(11px,3.2vw,13px)}
+  .travel-news-label{padding-inline:7px!important}
+  .travel-news-control{padding-inline:6px!important}
+  .card,.service,.panel,.step{padding:15px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
