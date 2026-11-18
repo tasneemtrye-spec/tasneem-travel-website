@@ -76,6 +76,19 @@ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-ph
  }
 }
 </style>
+
+<style id="tasneem-final-photo-quality-audit">
+/* Correct image mapping, remove the obsolete sprite overlay, and keep a consistent crop */
+img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+ display:block!important;width:100%!important;height:clamp(190px,22vw,245px)!important;
+ min-height:190px!important;max-height:245px!important;object-fit:cover!important;
+ object-position:center!important;background:none!important;background-image:none!important;
+ border:0!important;border-radius:16px 16px 0 0!important;flex:0 0 auto!important;
+}
+img.section-service-photo.ai-hajj-photo{background:none!important;background-image:none!important;height:225px!important;min-height:225px!important;max-height:225px!important}
+@media(max-width:760px){img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{height:200px!important;min-height:200px!important;max-height:200px!important}}
+@media(max-width:420px){img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{height:185px!important;min-height:185px!important;max-height:185px!important}}
+</style>
 </head>
 <body>
 
