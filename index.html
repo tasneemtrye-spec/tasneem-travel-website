@@ -602,6 +602,12 @@ img{max-width:100%}
 .section .grid:has(> .card:nth-child(6)) .card:nth-child(6):before{background-position:100% 50%}
 @media(max-width:760px){.ai-hajj-photo{height:175px}.section .grid:has(> .card:nth-child(6)) .card:before{height:155px}}
 </style>
+<style id="tasneem-ai-photo-render-fix">
+/* Force the AI sprite to render as a full-width photo tile, after shared CSS */
+.ai-hajj-photo,.section-service-photo.ai-hajj-photo{display:block!important;width:100%!important;height:205px!important;min-height:205px!important;background-image:url('/assets/tasneem-services-ai.svg')!important;background-size:300% 300%!important;background-repeat:no-repeat!important;background-origin:border-box!important;flex:0 0 205px!important}
+.section .grid:has(> .card:nth-child(6)) .card:before{display:block!important;width:calc(100% + 48px)!important;height:165px!important;margin:-24px -24px 18px!important;background-image:url('/assets/tasneem-services-ai.svg')!important;background-size:300% 300%!important;background-repeat:no-repeat!important}
+@media(max-width:760px){.ai-hajj-photo{height:185px!important;min-height:185px!important}.section .grid:has(> .card:nth-child(6)) .card:before{height:155px!important}}
+</style>
 </head>
 <body>
 
