@@ -636,6 +636,19 @@ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-ph
  }
 }
 </style>
+
+<style id="tasneem-final-photo-quality-audit">
+/* Correct image mapping, remove the obsolete sprite overlay, and keep a consistent crop */
+img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{
+ display:block!important;width:100%!important;height:clamp(190px,22vw,245px)!important;
+ min-height:190px!important;max-height:245px!important;object-fit:cover!important;
+ object-position:center!important;background:none!important;background-image:none!important;
+ border:0!important;border-radius:16px 16px 0 0!important;flex:0 0 auto!important;
+}
+img.section-service-photo.ai-hajj-photo{background:none!important;background-image:none!important;height:225px!important;min-height:225px!important;max-height:225px!important}
+@media(max-width:760px){img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{height:200px!important;min-height:200px!important;max-height:200px!important}}
+@media(max-width:420px){img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-photo{height:185px!important;min-height:185px!important;max-height:185px!important}}
+</style>
 </head>
 <body>
 
@@ -700,18 +713,18 @@ img.home-service-photo,img.section-service-photo,img.service-photo.ai-service-ph
 <section class="section" id="hajj-umrah"><div class="wrap">
 <div class="heading"><span class="kicker">أولوية تسنيم</span><h2>خدمات الحج والعمرة</h2><p>ابدأ باستفسارك عن خدمات الحج أو العمرة. يراجع فريق تسنيم التفاصيل ويتواصل معك بالمعلومات المتاحة دون اعتبار الطلب تأكيداً للحجز.</p></div>
 <div class="grid">
-<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="https://images.unsplash.com/photo-1693590614566-1d3ea9ef32f7?auto=format&fit=crop&w=1200&q=85" alt="الكعبة المشرفة" loading="lazy" decoding="async"><div class="icon">✦</div><h3>خدمات الحج</h3><p>تواصل للاستفسار عن المعلومات والإجراءات والبرامج المتاحة وفق ما يتم اعتماده والإعلان عنه رسمياً.</p><a href="/hajj.html">تفاصيل خدمات الحج ←</a></article>
-<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="https://images.unsplash.com/photo-1693590614566-1d3ea9ef32f7?auto=format&fit=crop&w=1200&q=85" alt="المسجد الحرام في مكة المكرمة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات العمرة</h3><p>أرسل استفسارك عن موعد الرحلة ومدينة الانطلاق وعدد المسافرين واحتياجات البرنامج.</p><a href="/umrah.html">تفاصيل خدمات العمرة ←</a></article>
+<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="https://images.unsplash.com/photo-1627728734379-a5f8c099763e?auto=format&fit=crop&w=1600&q=88" alt="الكعبة المشرفة" loading="lazy" decoding="async"><div class="icon">✦</div><h3>خدمات الحج</h3><p>تواصل للاستفسار عن المعلومات والإجراءات والبرامج المتاحة وفق ما يتم اعتماده والإعلان عنه رسمياً.</p><a href="/hajj.html">تفاصيل خدمات الحج ←</a></article>
+<article class="card service-visual-card"><img class="section-service-photo ai-hajj-photo" src="https://images.unsplash.com/photo-1693590614566-1d3ea9ef32f7?auto=format&fit=crop&w=1600&q=88" alt="المسجد الحرام في مكة المكرمة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات العمرة</h3><p>أرسل استفسارك عن موعد الرحلة ومدينة الانطلاق وعدد المسافرين واحتياجات البرنامج.</p><a href="/umrah.html">تفاصيل خدمات العمرة ←</a></article>
 </div></div></section>
 <section class="section"><div class="wrap">
 <div class="heading"><span class="kicker">خدماتنا</span><h2>كل تفاصيل رحلتك… في مكان واحد</h2><p>نرتّب معك الخيارات الأساسية للسفر، ونوضح لك الخطوات قبل اتخاذ القرار.</p></div>
 <div class="grid">
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1533090263726-665aa1ca1f2c?auto=format&fit=crop&w=1200&q=85" alt="طائرة ركاب أثناء التحليق" loading="lazy" decoding="async"><div class="icon">✈</div><h3>حجوزات الطيران</h3><p>استعراض خيارات الرحلات ومواعيدها بما يتناسب مع خطتك وميزانيتك.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1718942899965-4fc10607d805?auto=format&fit=crop&w=1200&q=85" alt="الفنادق والإقامة" loading="lazy" decoding="async"><div class="icon">⌂</div><h3>الفنادق والإقامة</h3><p>تنسيق خيارات الإقامة ومواقعها ومستوياتها وفق احتياجات المسافرين.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1762813213862-ba7b2fa02378?auto=format&fit=crop&w=1200&q=85" alt="البرامج السياحية" loading="lazy" decoding="async"><div class="icon">◇</div><h3>البرامج السياحية</h3><p>ترتيب برنامج مناسب للوجهة ومدة الرحلة والأنشطة التي تفضلها.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1693590614566-1d3ea9ef32f7?auto=format&fit=crop&w=1200&q=85" alt="خدمات الحج والعمرة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات الحج والعمرة</h3><p>استفسارات حول البرامج وخيارات الانطلاق والمواعيد والخدمات المتاحة.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1763618769707-3e318c25325f?auto=format&fit=crop&w=1200&q=85" alt="الرحلات العائلية" loading="lazy" decoding="async"><div class="icon">♧</div><h3>الرحلات العائلية</h3><p>مراعاة عدد المسافرين واحتياجات الأسرة عند ترتيب خيارات السفر.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
-<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1763618769707-3e318c25325f?auto=format&fit=crop&w=1200&q=85" alt="متابعة واستفسارات" loading="lazy" decoding="async"><div class="icon">☏</div><h3>متابعة واستفسارات</h3><p>تواصل مباشر لتوضيح التفاصيل والإجابة عن استفساراتك قبل تأكيد الحجز.</p><a href="https://wa.me/966537017117">تواصل معنا ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=88" alt="طائرة ركاب أثناء التحليق" loading="lazy" decoding="async"><div class="icon">✈</div><h3>حجوزات الطيران</h3><p>استعراض خيارات الرحلات ومواعيدها بما يتناسب مع خطتك وميزانيتك.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1777180249046-abf7d640e0d9?auto=format&fit=crop&w=1600&q=88" alt="الفنادق والإقامة" loading="lazy" decoding="async"><div class="icon">⌂</div><h3>الفنادق والإقامة</h3><p>تنسيق خيارات الإقامة ومواقعها ومستوياتها وفق احتياجات المسافرين.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1762813213862-ba7b2fa02378?auto=format&fit=crop&w=1600&q=88" alt="البرامج السياحية" loading="lazy" decoding="async"><div class="icon">◇</div><h3>البرامج السياحية</h3><p>ترتيب برنامج مناسب للوجهة ومدة الرحلة والأنشطة التي تفضلها.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1693590614566-1d3ea9ef32f7?auto=format&fit=crop&w=1600&q=88" alt="خدمات الحج والعمرة" loading="lazy" decoding="async"><div class="icon">☾</div><h3>خدمات الحج والعمرة</h3><p>استفسارات حول البرامج وخيارات الانطلاق والمواعيد والخدمات المتاحة.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1781570091224-2b25d589e245?auto=format&fit=crop&w=1600&q=88" alt="الرحلات العائلية" loading="lazy" decoding="async"><div class="icon">♧</div><h3>الرحلات العائلية</h3><p>مراعاة عدد المسافرين واحتياجات الأسرة عند ترتيب خيارات السفر.</p><a href="/services.html">تفاصيل الخدمة ←</a></article>
+<article class="card"><img class="home-service-photo" src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?auto=format&fit=crop&w=1600&q=88" alt="متابعة واستفسارات" loading="lazy" decoding="async"><div class="icon">☏</div><h3>متابعة واستفسارات</h3><p>تواصل مباشر لتوضيح التفاصيل والإجابة عن استفساراتك قبل تأكيد الحجز.</p><a href="https://wa.me/966537017117">تواصل معنا ←</a></article>
 </div>
 </div></section>
 <section class="section band"><div class="wrap bandgrid">
