@@ -175,6 +175,48 @@ footer a{color:#f1d28f}
   }
 }
 
+
+/* Shared responsive refinement for desktop, tablet and mobile.
+   The source image already has a dark text-safe area on its right side. */
+@media (min-width:761px) {
+  .hero {
+    min-height:clamp(520px,38vw,650px)!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:64px 0 82px!important;
+    background-color:#073b36!important;
+    background-image:
+      linear-gradient(90deg,rgba(7,48,46,.06) 0%,rgba(7,48,46,.12) 42%,rgba(7,48,46,.36) 100%),
+      url('/assets/tasneem-coastal-hero.webp')!important;
+    background-size:100% 100%,100% 100%!important;
+    background-position:center,center!important;
+    background-repeat:no-repeat!important;
+  }
+  .hero .wrap {width:min(1120px,calc(100% - 48px))!important}
+  .hero h1 {max-width:760px!important;text-wrap:balance}
+  .hero p {max-width:690px!important}
+  .trust {margin-top:-22px!important}
+}
+@media (min-width:761px) and (max-width:1100px) {
+  .nav {gap:12px!important;min-height:82px!important}
+  .brand {font-size:17px!important;gap:8px!important}
+  .brand img {width:50px!important;height:50px!important}
+  .navlinks {gap:12px!important;font-size:12px!important}
+  .hero {min-height:500px!important;padding:58px 0 76px!important}
+  .hero h1 {font-size:clamp(38px,5vw,50px)!important;max-width:650px!important}
+  .hero p {font-size:16px!important;max-width:620px!important}
+  .trust {grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media (max-width:760px) {
+  .top {padding:8px 0!important}
+  .top .wrap {gap:2px!important}
+  .hero {background-color:#073b36!important}
+}
+@media (prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto!important}
+  *,*::before,*::after {animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
 </style>
 </head>
 <body>
