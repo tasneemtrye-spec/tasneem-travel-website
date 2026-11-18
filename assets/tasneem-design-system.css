@@ -149,3 +149,42 @@ header.header nav.links a:hover,header.inner-header nav.links a:hover,.nav-links
 .quick-service:hover{transform:translateY(-3px);border-color:#c99a4b;box-shadow:0 12px 25px rgba(68,49,18,.12)}
 @media(max-width:900px){.quick-services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.quick-service{min-height:100px}}
 @media(max-width:520px){.quick-services{padding:12px 0 16px!important}.quick-services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick-service{min-height:88px;padding:10px 7px;border-radius:14px}.quick-service svg{width:32px;height:32px}.quick-service strong{font-size:12px}}
+
+
+/* Booking form contrast and Arabic date field refinement */
+#contact .booking-aside{
+ background:linear-gradient(145deg,#073b36 0%,#0b5148 100%)!important;
+ color:#fff!important;
+ border:1px solid rgba(212,166,79,.72)!important;
+ box-shadow:0 18px 42px rgba(8,54,47,.16)!important;
+}
+#contact .booking-aside h3{color:#fff!important;text-shadow:0 1px 8px rgba(0,0,0,.12)}
+#contact .booking-aside p{color:#f1f6f2!important;opacity:1!important}
+#contact .booking-aside ul{color:#f4d99f!important}
+#contact .booking-aside>a{color:#f5d58e!important;text-decoration:underline;text-underline-offset:4px}
+#contact .booking-aside-icon{background:rgba(242,209,138,.17)!important;color:#f5d58e!important}
+#contact .booking-fields input[type="date"]{
+ direction:ltr!important;text-align:right!important;text-align-last:right!important;
+ color:#173b35!important;background:#fffefa!important;
+ font-family:"IBM Plex Sans Arabic","Cairo",Tahoma,sans-serif!important;
+ font-variant-numeric:lining-nums;
+}
+#contact .booking-fields input[type="date"]::-webkit-datetime-edit{
+ direction:ltr;text-align:right;padding-inline:4px;
+}
+#contact .booking-fields input[type="date"]::-webkit-calendar-picker-indicator{
+ cursor:pointer;opacity:.78;margin-inline-start:8px;
+}
+#contact .date-field-hint{
+ display:block;color:#64776e!important;font-size:11px!important;font-weight:600!important;
+ line-height:1.5;margin-top:-5px;
+}
+#contact .booking-fields label:has(input[type="date"]){align-content:start}
+@media(max-width:760px){
+ #contact .booking-layout{grid-template-columns:1fr!important}
+ #contact .booking-aside{order:2}
+ #contact .booking-form{order:1}
+ #contact .booking-fields{grid-template-columns:1fr!important;gap:13px!important}
+ #contact .booking-fields label{font-size:13px!important}
+ #contact .booking-fields input,#contact .booking-fields select,#contact .booking-fields textarea{min-height:52px;font-size:15px!important}
+}
