@@ -284,6 +284,12 @@ header.header nav.links a{font-size:clamp(10px,.9vw,13px);font-weight:800;color:
 .nav-tools a,.nav-tools button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #e7d4b0;border-radius:999px;background:#fff;color:#b8893e;min-width:40px;height:40px;font:inherit;font-weight:800;cursor:pointer}
 .nav-tools .nav-book{padding:0 15px;background:linear-gradient(120deg,#f2d28e,#c99a4b);color:#173b35;border:0;border-radius:13px;white-space:nowrap;font-size:12px}
 .nav-tools .quick-search-launcher{font-size:25px}
+.quick-search-wrap{position:relative;display:inline-flex;align-items:center}
+.quick-search-menu{position:absolute;top:calc(100% + 12px);inset-inline-end:0;z-index:1000;width:min(290px,calc(100vw - 30px));padding:9px;background:#fff;border:1px solid #e7d4b0;border-radius:16px;box-shadow:0 16px 38px rgba(15,48,40,.2);display:grid;gap:3px}
+.quick-search-menu[hidden]{display:none!important}
+.quick-search-menu a{display:flex;align-items:center;min-height:43px;padding:9px 13px;border-radius:10px;color:#173b35;font-size:14px;font-weight:800;white-space:normal}
+.quick-search-menu a:hover,.quick-search-menu a:focus-visible{background:#f5ecd9;color:#9b6a20;outline:none}
+.nav-tools .quick-search-launcher[aria-expanded="true"]{background:#173b35;color:#ffe0a0;border-color:#173b35}
 .nav-tools .menu{display:none}
 .hero.hero-flight-home{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(570px,46vw,680px);padding:52px 0 78px;background:#07363b;color:#fff}
 .hero.hero-flight-home>img.hero-photo-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;pointer-events:none}
@@ -446,10 +452,12 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 .travel-news-track{display:flex;align-items:center;gap:40px;white-space:nowrap;width:max-content;animation:tasneem-news-scroll 42s linear infinite;padding-inline:30px;font-family:"Cairo","Noto Sans Arabic",Tahoma,Arial,sans-serif;font-size:20px;font-weight:900;line-height:1.8;direction:ltr;color:#123b32;text-shadow:0 1px 0 rgba(255,255,255,.85)}
 .travel-news-track span{direction:rtl}
 .travel-news-track span[aria-hidden="true"]{color:#9b6a20;font-size:15px;font-weight:900}
-.travel-news:hover .travel-news-track,.travel-news:focus-within .travel-news-track{animation-play-state:paused}
-.travel-news-close{flex:0 0 50px;display:grid;place-items:center;border:0;border-inline-start:1px solid #d9bf8e;background:#f1e3c7;color:#123b32;font-size:27px;font-weight:900;line-height:1;cursor:pointer;transition:background .2s,color .2s}
-.travel-news-close:hover{background:#123b32;color:#ffe0a0}
-.travel-news-close:focus-visible{outline:3px solid #c99a4b;outline-offset:-4px}
+.travel-news.is-paused .travel-news-track{animation-play-state:paused}
+.travel-news-control{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;border:0;border-inline-start:1px solid #d9bf8e;background:#f1e3c7;color:#123b32;font-family:"Cairo","Noto Sans Arabic",Tahoma,Arial,sans-serif;font-size:14px;font-weight:900;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}
+.travel-news-control:hover{background:#123b32;color:#ffe0a0}
+.travel-news-control:focus-visible{outline:3px solid #c99a4b;outline-offset:-4px}
+.travel-news-control .control-icon{font-size:17px;line-height:1}
+@media(max-width:560px){.travel-news-control{padding-inline:10px;font-size:12px;gap:5px}.travel-news-control .control-icon{font-size:15px}}
 @keyframes tasneem-news-scroll{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.travel-news-track{animation:none;white-space:normal;flex-wrap:wrap;padding-block:8px}}
 @media(max-width:560px){.travel-news{min-height:58px}.travel-news-label{padding-inline:13px;font-size:15px;gap:7px}.travel-news-track{font-size:16px;gap:25px;animation-duration:36s;padding-inline:18px}.travel-news-close{flex-basis:42px;font-size:24px}}
@@ -464,7 +472,17 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 </nav>
 <div class="nav-tools">
 <a class="nav-book" href="/services.html#services">▦ طلب حجز سريع</a>
-<a class="quick-search-launcher" href="/services.html" aria-label="استعراض الخدمات" title="استعراض الخدمات">⌕</a>
+<div class="quick-search-wrap">
+<button class="quick-search-launcher" id="quick-search-toggle" type="button" aria-label="استعراض الخدمات" title="استعراض الخدمات" aria-expanded="false" aria-controls="quick-search-menu">⌕</button>
+<div class="quick-search-menu" id="quick-search-menu" hidden>
+<a href="/services.html#services">✈ حجوزات الطيران</a>
+<a href="/services.html#services">▣ حجوزات الفنادق</a>
+<a href="/services.html#services">☾ الحج والعمرة</a>
+<a href="/services.html#services">⌖ الرحلات السياحية</a>
+<a href="/services.html#services">♧ النقل والمواصلات</a>
+<a href="/services.html#services">◈ التأشيرات وخدمات السفر</a>
+<a href="/track.html">متابعة طلب الحجز</a>
+</div></div>
 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تبديل المظهر" title="تبديل المظهر">☾</button>
 <button class="menu" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-navigation">☰</button>
 </div>
@@ -489,7 +507,7 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
     <span aria-hidden="true">يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
     <span aria-hidden="true">◆</span>
   </div></div>
-  <button class="travel-news-close" id="travel-news-close" type="button" aria-label="إغلاق الشريط الإخباري" title="إغلاق الشريط الإخباري">×</button>
+  <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span><span class="control-label">إيقاف</span></button>
 </section>
 <main>
 <section class="hero hero-flight-home" aria-labelledby="hero-title">
@@ -617,8 +635,32 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 <script>
 (function(){
  const bar=document.querySelector('.travel-news');
- const close=document.getElementById('travel-news-close');
- if(bar&&close){close.addEventListener('click',function(){bar.hidden=true;});}
+ const toggle=document.getElementById('travel-news-toggle');
+ if(bar&&toggle){
+  toggle.addEventListener('click',function(){
+   const paused=bar.classList.toggle('is-paused');
+   toggle.setAttribute('aria-pressed',String(paused));
+   toggle.setAttribute('aria-label',paused?'استئناف حركة الشريط':'إيقاف حركة الشريط');
+   toggle.querySelector('.control-icon').textContent=paused?'▶':'Ⅱ';
+   toggle.querySelector('.control-label').textContent=paused?'تشغيل':'إيقاف';
+  });
+ }
+ const searchToggle=document.getElementById('quick-search-toggle');
+ const searchMenu=document.getElementById('quick-search-menu');
+ if(searchToggle&&searchMenu){
+  function closeSearch(){searchMenu.hidden=true;searchToggle.setAttribute('aria-expanded','false');}
+  searchToggle.addEventListener('click',function(event){
+   event.stopPropagation();
+   const opening=searchMenu.hidden;
+   searchMenu.hidden=!opening;
+   searchToggle.setAttribute('aria-expanded',String(opening));
+  });
+  searchMenu.addEventListener('click',function(event){event.stopPropagation();});
+  document.addEventListener('click',function(event){
+   if(!searchMenu.hidden&&!searchMenu.contains(event.target)&&!searchToggle.contains(event.target))closeSearch();
+  });
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!searchMenu.hidden){closeSearch();searchToggle.focus();}});
+ }
 })();
 </script>
 
