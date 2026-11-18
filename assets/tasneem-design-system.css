@@ -215,3 +215,59 @@ header .brand small,.inner-header .brand small{display:none!important}
  #services + .grid .service-with-photo .service-photo{height:190px;width:calc(100% + 40px);margin-inline:-20px}
  #services + .grid .service-with-photo .icon{top:146px}
 }
+
+/* Tasneem editorial photo cards, about feature and compact contact footer */
+.service-with-photo{padding:0!important;overflow:hidden;min-height:0!important}
+.service-with-photo .service-photo{display:block;width:100%;height:190px;object-fit:cover;border-radius:21px 21px 0 0}
+.service-with-photo .icon{margin:17px 22px 0;width:42px;height:42px;border-radius:13px;background:#f6eddc;color:#9a6a21;border:1px solid #ead5ad}
+.service-with-photo h3,.service-with-photo>p:not(.photo-credit),.service-with-photo>a{margin-inline:22px}
+.service-with-photo h3{margin-top:10px!important}
+.service-with-photo>p:not(.photo-credit){line-height:1.9}
+.service-with-photo>a{margin-bottom:22px}
+.services-hero{background:linear-gradient(90deg,rgba(4,43,48,.91),rgba(7,59,54,.82)),url('/assets/tasneem-coastal-hero.webp') center/cover!important}
+.services-hero h1{color:#fff!important;text-shadow:0 3px 16px #001d19aa}
+.services-hero p{color:#f5f1e8!important}
+.about-feature{padding-block:clamp(36px,5vw,68px)!important;background:linear-gradient(120deg,#efe5d1,#faf7ef)!important}
+.about-feature>.wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3vw,42px);align-items:stretch}
+.about-origin{position:relative;isolation:isolate;overflow:hidden;min-height:300px;padding:clamp(24px,3vw,42px);border-radius:24px;background:linear-gradient(90deg,rgba(5,53,48,.90),rgba(5,53,48,.64)),url('/assets/tasneem-coastal-hero.webp') center/cover;color:#fff;box-shadow:0 16px 40px rgba(8,54,47,.13)}
+.about-origin .kicker{color:#f2d18a!important}.about-origin h2{color:#fff!important}.about-origin p{color:#f4f0e6!important}
+.about-origin .btn{margin-top:10px}
+.about-feature .checklist{align-self:center;padding:clamp(22px,3vw,38px);border:1px solid #e5d7bd;border-radius:24px;background:rgba(255,253,248,.96);box-shadow:0 14px 36px rgba(8,54,47,.08)}
+.about-feature .checklist li{padding:14px 0;color:#28483e;line-height:1.9}
+.origin-photo{height:110px;width:100%;margin-bottom:18px;border-radius:15px;background:url('/assets/tasneem-coastal-hero.webp') center 48%/cover;box-shadow:inset 0 0 0 1px #f4d58a66}
+#booking-steps{padding-block:clamp(34px,4vw,58px)!important}
+#booking-steps .heading{margin-bottom:clamp(20px,2.4vw,32px)}
+#booking-steps .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#booking-steps .step{position:relative;min-height:220px;padding:24px;border:1px solid #e5d7bd;border-radius:21px;background:linear-gradient(145deg,#fffdf8,#f7f0e3);box-shadow:0 12px 30px rgba(8,54,47,.07)}
+#booking-steps .step-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:14px;border-radius:15px;background:#f4e7ca;color:#98691f;font-size:23px}
+#booking-steps .step>b{position:absolute;top:22px;inset-inline-end:22px;display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#f4e7ca;color:#98691f;font-size:16px}
+#booking-steps .step h3{color:#073b36;font-size:19px;margin:8px 0}
+#booking-steps .step p{color:#536b61;line-height:1.95;margin:0}
+.tasneem-footer{margin-top:0!important;padding:0!important;background:#073b36!important;color:#f7f2e7!important;border-top:3px solid #d4a64f}
+.tasneem-footer .footer-main{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:clamp(18px,3vw,40px);padding-block:34px 28px}
+.tasneem-footer .footer-brand p{max-width:310px;color:#d8e3dc;font-size:13px;line-height:1.9;margin:15px 0 0}
+.tasneem-footer .footer-logo{display:flex;align-items:center;gap:12px;color:#fff;font-weight:900;font-size:17px;line-height:1.5}
+.tasneem-footer .footer-logo img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:8px}
+.tasneem-footer .footer-logo small{display:block;color:#f2d18a;font-size:11px;font-weight:600}
+.tasneem-footer .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:9px;font-size:12px}
+.tasneem-footer .footer-column h3{margin:0 0 7px;color:#f2d18a;font-size:15px}
+.tasneem-footer .footer-column>a,.tasneem-footer .footer-column>span{color:#f4f0e7;text-decoration:none}
+.tasneem-footer .footer-column>a:hover{color:#f2d18a;text-decoration:underline;text-underline-offset:4px}
+.tasneem-footer .social-links{display:flex;gap:8px;margin:2px 0 8px}
+.tasneem-footer .social-links a{display:grid;place-items:center;width:36px;height:36px;border:1px solid #d4a64f88;border-radius:50%;background:#ffffff0d;color:#f5d58e;font-size:16px;font-weight:800}
+.tasneem-footer .social-links a:hover{background:#d4a64f;color:#073b36}
+.tasneem-footer .footer-bottom{border-top:1px solid #ffffff24;background:#052f2b}
+.tasneem-footer .footer-bottom .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:12px;color:#cbd8d0;font-size:11px}
+@media(max-width:900px){.tasneem-footer .footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}.about-feature>.wrap{grid-template-columns:1fr}.about-origin{min-height:260px}}
+@media(max-width:640px){
+ .service-with-photo .service-photo{height:174px}
+ .about-feature{padding-block:30px!important}.about-origin{min-height:0;padding:22px;border-radius:19px}.origin-photo{height:90px}
+ #booking-steps{padding-block:30px!important}#booking-steps .steps{grid-template-columns:1fr;gap:12px}
+ #booking-steps .step{min-height:0;padding:19px}#booking-steps .step-icon{width:42px;height:42px;margin-bottom:9px}
+ #booking-steps .step h3{font-size:17px}
+ .tasneem-footer .footer-main{grid-template-columns:1fr 1fr;gap:24px 16px;padding-block:25px 22px}
+ .tasneem-footer .footer-logo{font-size:14px;gap:8px}.tasneem-footer .footer-logo img{width:48px;height:48px}
+ .tasneem-footer .footer-brand{grid-column:1/-1}.tasneem-footer .footer-column{font-size:11px}
+ .tasneem-footer .social-links{flex-wrap:wrap}
+}
+@media(max-width:380px){.tasneem-footer .footer-main{grid-template-columns:1fr}.tasneem-footer .footer-brand{grid-column:auto}}
