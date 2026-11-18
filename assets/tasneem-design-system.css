@@ -271,3 +271,18 @@ header .brand small,.inner-header .brand small{display:none!important}
  .tasneem-footer .social-links{flex-wrap:wrap}
 }
 @media(max-width:380px){.tasneem-footer .footer-main{grid-template-columns:1fr}.tasneem-footer .footer-brand{grid-column:auto}}
+
+/* Home service feature cards */
+#hajj-umrah .service-visual-card{padding:0!important;overflow:hidden;background:#fffdf8!important;border:1px solid #e1d2b6!important;box-shadow:0 14px 34px rgba(8,54,47,.10)!important}
+#hajj-umrah .section-service-photo{display:block;width:100%;height:190px;object-fit:cover}
+#hajj-umrah .service-visual-card .icon{margin:18px 22px 0!important;background:#f5e8ca!important;color:#94651e!important}
+#hajj-umrah .service-visual-card h3,#hajj-umrah .service-visual-card p,#hajj-umrah .service-visual-card>a{margin-inline:22px!important}
+#hajj-umrah .service-visual-card h3{color:#073b36!important;margin-top:12px!important}
+#hajj-umrah .service-visual-card p{color:#526a60!important;line-height:1.9}
+#hajj-umrah .service-visual-card>a{margin-bottom:22px!important;color:#0b5148!important;font-weight:800}
+#contact.booking-section{padding-bottom:clamp(24px,3vw,38px)!important;margin-bottom:0!important}
+#contact.booking-section .booking-layout{margin-bottom:0!important}
+main{padding-bottom:0!important;margin-bottom:0!important}
+main>section:last-child{margin-bottom:0!important}
+.tasneem-footer{display:block;clear:both;position:relative;z-index:1}
+@media(max-width:640px){#hajj-umrah .section-service-photo{height:155px}#contact.booking-section{padding-bottom:24px!important}}
