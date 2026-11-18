@@ -4,7 +4,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const PROJECT_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const PUBLIC_KEY = "sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS";
-const ALLOWED_ORIGINS = new Set(["https://tasneem-travel-preview.pages.dev"]);
+const ALLOWED_ORIGINS = new Set(["https://tasneem-travel-preview.pages.dev", "https://tasneem-travel.pages.dev"]);
 const supabase = createClient(PROJECT_URL, SERVICE_ROLE_KEY, { auth: { persistSession: false } });
 const corsFor = (origin: string) => ({
   "Access-Control-Allow-Origin": ALLOWED_ORIGINS.has(origin) ? origin : "null",
