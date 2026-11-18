@@ -1,0 +1,159 @@
+/* Tasneem Unified Visual Language — approved 18 Nov 2026
+   Shared presentation layer for all public pages. Keeps existing content, routes,
+   booking logic, forms, navigation actions and official logo intact. */
+:root{
+ --tuv-forest:#073b36;--tuv-forest-2:#0d5148;--tuv-gold:#d2a34d;
+ --tuv-gold-soft:#f5e8c9;--tuv-cream:#f7f3e8;--tuv-paper:#fffdf8;
+ --tuv-ink:#173b35;--tuv-muted:#687a71;--tuv-line:#e8ddc8;
+ --tuv-shadow:0 16px 38px rgba(25,54,45,.10);
+ --tuv-radius:22px;--tuv-gutter:clamp(16px,3.4vw,48px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{
+ color:var(--tuv-ink)!important;
+ background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.68),transparent 58%),var(--tuv-cream)!important;
+ font-family:"Cairo","IBM Plex Sans Arabic",Tahoma,sans-serif!important;
+ line-height:1.9!important;overflow-x:clip!important
+}
+img{max-width:100%;height:auto}
+a,button,input,select,textarea{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--tuv-gold)!important;outline-offset:3px!important}
+.wrap{width:min(1320px,calc(100% - var(--tuv-gutter)*2))!important;max-width:1320px;margin-inline:auto}
+.top,.topline{background:var(--tuv-forest)!important;color:#f8f2e6!important;border-bottom:1px solid rgba(210,163,77,.5)!important}
+.top a,.topline a{color:#f4d995!important}
+.header,header.header,header.inner-header,header:not(.service-hero){
+ background:rgba(255,253,248,.96)!important;border-bottom:1px solid rgba(210,163,77,.42)!important;
+ box-shadow:0 7px 24px rgba(24,57,47,.055)!important;backdrop-filter:blur(14px)
+}
+header.header,header.inner-header{position:sticky!important;top:0!important;z-index:100!important}
+.nav{min-height:76px!important;height:auto!important;display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:8px}
+.brand{color:var(--tuv-forest)!important;font-weight:900!important}
+.brand img,.brand-logo{object-fit:contain!important}
+.links a,nav a{color:var(--tuv-forest)!important;font-weight:750!important}
+.links a:hover,nav a:hover{color:#a97828!important}
+.nav-tools .nav-book,.btn-primary,.primary,button[type=submit]{
+ background:linear-gradient(120deg,#f1d18e,var(--tuv-gold))!important;color:#173b35!important;
+ border:1px solid rgba(169,122,42,.22)!important;box-shadow:0 8px 22px rgba(178,132,52,.15)!important
+}
+.btn-dark,.secondary{background:var(--tuv-forest)!important;color:white!important;border:1px solid rgba(210,163,77,.6)!important}
+.btn,.btn-primary,.btn-dark,.btn-outline,.primary,.secondary,button{font-family:inherit!important}
+button,.btn{transition:transform .18s ease,box-shadow .18s ease}
+button:hover,.btn:hover{transform:translateY(-2px)}
+/* Editorial section headings: small gold eyebrow, centered headline, quiet supporting copy */
+.section-head,.heading,.head,.intro,.booking-heading{max-width:900px;margin-inline:auto;text-align:center}
+.kicker,.eyebrow,.section-head .kicker,.heading .kicker{color:#bd8b34!important;font-weight:850!important;letter-spacing:.01em}
+h1,h2,h3{color:var(--tuv-forest);font-weight:900;letter-spacing:-.025em}
+h1{line-height:1.35!important}
+.section-head h2,.heading h2,.head h2,.intro h1,.intro h2{font-size:clamp(27px,3.3vw,43px)!important;line-height:1.42!important}
+.section-head p,.heading p,.head p,.intro p{color:var(--tuv-muted)!important;line-height:2!important}
+section:not(.hero):not(.service-hero){padding-block:clamp(40px,5.5vw,78px)!important}
+/* Premium service/content cards */
+.grid,.services,.services-grid,.steps-grid{gap:clamp(14px,1.8vw,24px)!important}
+.card,.service,.destination,.story-card,.note,.faq-item,.faq details,.booking-card,.form-card,.panel,.step,.booking-form,.booking-aside,.result,.empty{
+ background:var(--tuv-paper)!important;border:1px solid var(--tuv-line)!important;
+ border-radius:var(--tuv-radius)!important;box-shadow:var(--tuv-shadow)!important;
+ min-width:0;overflow:hidden
+}
+.card,.service,.panel,.step,.booking-form,.booking-aside,.note{padding:clamp(18px,2.3vw,30px)!important}
+.card h2,.card h3,.service h2,.service h3,.panel h2,.step h3{color:var(--tuv-forest)!important;font-weight:900!important}
+.card p,.service p,.panel p,.step p,.note p{color:var(--tuv-muted)!important;line-height:1.95!important}
+.icon,.service-icon,.step-icon{background:linear-gradient(145deg,#f5e8ca,#fff8e9)!important;color:#a97828!important;border:1px solid #ead7b1!important;border-radius:15px!important}
+.card:hover,.service:hover,.destination:hover{border-color:#d4b46f!important;box-shadow:0 20px 44px rgba(25,54,45,.13)!important;transform:translateY(-3px)}
+/* Image-led card layout: consistent image edge, aspect ratio and crop */
+.service-with-photo,.service-visual-card,.destination,.story-card{padding:0!important}
+.service-photo,.ai-service-photo,.home-service-photo,.section-service-photo,.card img,.service img,.destination img,.story-card img{
+ display:block;width:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;
+ border-radius:var(--tuv-radius) var(--tuv-radius) 0 0
+}
+.service-with-photo .service-photo,.service-with-photo .ai-service-photo,
+.service-visual-card .section-service-photo,.service-visual-card .home-service-photo{height:auto!important;min-height:0!important;max-height:none!important}
+.service-with-photo .icon,.service-visual-card .icon{margin:18px 20px 0}
+.service-with-photo h2,.service-with-photo h3,.service-visual-card h2,.service-visual-card h3{padding-inline:20px}
+.service-with-photo p,.service-visual-card p{padding-inline:20px}
+.service-with-photo a,.service-visual-card a{display:inline-flex;margin:10px 20px 22px}
+.service-with-photo .service-body,.service-visual-card .service-body{padding:0 20px 20px}
+.band,.destinations{background:linear-gradient(135deg,#f0e5cf,#fbf8f0)!important;border-block:1px solid #e5d4b4!important}
+.hero:not(.hero-flight-home),.service-hero{
+ position:relative;isolation:isolate;overflow:hidden;color:white!important;
+ border-bottom:1px solid rgba(210,163,77,.55)!important
+}
+.hero:not(.hero-flight-home){padding-block:clamp(52px,7vw,88px)!important}
+.hero:not(.hero-flight-home) h1,.service-hero h1{color:#fff!important;font-size:clamp(31px,4.2vw,56px)!important;font-weight:900!important}
+.hero:not(.hero-flight-home) p,.service-hero p{color:#f4f0e7!important;line-height:2!important}
+.service-hero{min-height:clamp(310px,36vw,460px)!important;padding:clamp(54px,6vw,88px) 0!important;display:flex;align-items:center}
+.service-hero .wrap{width:min(1320px,calc(100% - var(--tuv-gutter)*2))!important}
+.content-grid{width:min(1200px,calc(100% - var(--tuv-gutter)*2))!important;margin:clamp(22px,3vw,40px) auto!important;gap:clamp(14px,2vw,24px)!important}
+input,select,textarea{font:inherit!important;min-height:48px;max-width:100%;border:1px solid #ded9ca!important;border-radius:12px!important;background:#fffefa!important;color:var(--tuv-ink)!important;padding:11px 13px!important}
+textarea{min-height:112px}
+label{color:#294b42!important;font-weight:750!important}
+input:focus,select:focus,textarea:focus{border-color:var(--tuv-gold)!important;box-shadow:0 0 0 3px rgba(210,163,77,.16)!important;outline:0!important}
+form{min-width:0}
+footer,.tasneem-footer{background:var(--tuv-forest)!important;color:#f4f0e7!important;border-top:2px solid var(--tuv-gold)!important}
+footer a,.tasneem-footer a{color:#f3d58f!important}
+footer .wrap,.tasneem-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+main.wrap{max-width:980px!important;width:min(980px,calc(100% - var(--tuv-gutter)*2))!important;margin:clamp(24px,4vw,48px) auto!important;background:var(--tuv-paper);border:1px solid var(--tuv-line);border-radius:var(--tuv-radius);box-shadow:var(--tuv-shadow)}
+.floating-actions{z-index:120!important}
+@media(min-width:1101px){.links{gap:clamp(8px,1vw,16px)!important}.links a,nav a{font-size:clamp(11px,.95vw,13px)!important}}
+@media(min-width:701px) and (max-width:1100px){
+ .wrap{width:calc(100% - 36px)!important}
+ .nav{min-height:70px!important;flex-wrap:wrap}
+ .links{gap:8px!important}
+ .links a,nav a{font-size:12px!important}
+ .grid,.services,.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 28px)!important}
+ .top .wrap,.topline .wrap{justify-content:center;text-align:center;gap:4px}
+ .nav{min-height:66px!important;gap:8px!important}
+ .brand{font-size:14px!important;gap:8px!important}
+ .brand img,.brand-logo{width:46px!important;height:46px!important;flex-basis:46px!important}
+ .links{max-width:100%;gap:8px!important;flex-wrap:wrap}
+ .hero:not(.hero-flight-home){padding-block:44px!important}
+ .hero:not(.hero-flight-home) h1,.service-hero h1{font-size:clamp(28px,8vw,38px)!important}
+ .hero:not(.hero-flight-home) p,.service-hero p{font-size:14px!important}
+ section:not(.hero):not(.service-hero){padding-block:38px!important}
+ .section-head,.heading,.head,.intro,.booking-heading{padding-inline:4px}
+ .grid,.services,.services-grid,.steps-grid{grid-template-columns:1fr!important;gap:13px!important}
+ .card,.service,.panel,.step,.booking-form,.booking-aside,.note{border-radius:17px!important}
+ .service-photo,.ai-service-photo,.home-service-photo,.section-service-photo,.card img,.service img,.destination img,.story-card img{aspect-ratio:16/9}
+ .content-grid{grid-template-columns:1fr!important}
+ .service-hero{min-height:290px!important;padding:46px 0 54px!important}
+ .service-hero .image-credit{inset-inline:14px;bottom:6px;font-size:9px}
+ footer .wrap,.tasneem-footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:390px){
+ .wrap{width:calc(100% - 22px)!important}
+ .brand{font-size:12px!important}
+ .brand img,.brand-logo{width:42px!important;height:42px!important;flex-basis:42px!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Preserve the existing user-selectable dark theme after the unified light-theme defaults */
+body[data-theme="dark"],html[data-theme="dark"] body{
+ background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.035),transparent 58%),#101f1b!important;
+ color:#e9eee8!important;color-scheme:dark!important
+}
+body[data-theme="dark"] header.header,body[data-theme="dark"] header.inner-header,body[data-theme="dark"] header:not(.service-hero){
+ background:rgba(7,43,38,.97)!important;border-color:rgba(210,163,77,.48)!important
+}
+body[data-theme="dark"] .brand,body[data-theme="dark"] .links a,body[data-theme="dark"] nav a{color:#f4f0e7!important}
+body[data-theme="dark"] .card,body[data-theme="dark"] .service,body[data-theme="dark"] .panel,
+body[data-theme="dark"] .step,body[data-theme="dark"] .booking-form,body[data-theme="dark"] .booking-aside,
+body[data-theme="dark"] .note,body[data-theme="dark"] main.wrap,body[data-theme="dark"] .faq-item,
+body[data-theme="dark"] .faq details,body[data-theme="dark"] .booking-card,body[data-theme="dark"] .form-card{
+ background:#1b3028!important;color:#e9eee8!important;border-color:#466052!important
+}
+body[data-theme="dark"] h1,body[data-theme="dark"] h2,body[data-theme="dark"] h3,
+body[data-theme="dark"] .card h2,body[data-theme="dark"] .card h3,body[data-theme="dark"] .service h2,
+body[data-theme="dark"] .service h3,body[data-theme="dark"] .panel h2,body[data-theme="dark"] .step h3{color:#f4e8ca!important}
+body[data-theme="dark"] .card p,body[data-theme="dark"] .service p,body[data-theme="dark"] .panel p,
+body[data-theme="dark"] .step p,body[data-theme="dark"] .note p,body[data-theme="dark"] .section-head p,
+body[data-theme="dark"] .heading p,body[data-theme="dark"] .head p{color:#c3d0c8!important}
+body[data-theme="dark"] input,body[data-theme="dark"] select,body[data-theme="dark"] textarea{
+ background:#132720!important;color:#f0f2ec!important;border-color:#52685c!important
+}
+body[data-theme="dark"] .band,body[data-theme="dark"] .destinations,body[data-theme="dark"] .about-feature{
+ background:linear-gradient(135deg,#142720,#1a3028)!important;border-color:#466052!important
+}
+body[data-theme="dark"] footer,body[data-theme="dark"] .tasneem-footer{background:#071f1c!important;color:#f4f0e7!important}
+@media(max-width:1100px){body[data-theme="dark"] header.header nav.links.is-open,body[data-theme="dark"] header.inner-header nav.links.is-open{background:#073b36!important}}
