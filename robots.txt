@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /track.html
-Sitemap: https://tasneem-travel-preview.pages.dev/sitemap.xml
+Sitemap: https://tasneem-travel.pages.dev/sitemap.xml
