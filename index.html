@@ -616,25 +616,7 @@ img{max-width:100%}
 </div></header>
 <section class="travel-news" aria-label="تنبيهات وأخبار السفر">
   <div class="travel-news-label" role="img" aria-label="أخبار السفر" title="أخبار السفر"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a8.5 8.5 0 0 1 0 11"/></svg></div>
-  <div class="travel-news-window"><div class="travel-news-track">
-    <span>تابع متطلبات السفر والتأشيرة للوجهة قبل موعد الرحلة</span>
-    <span aria-hidden="true">◆</span>
-    <span>تأكد من صلاحية جواز السفر والوثائق المطلوبة قبل السفر</span>
-    <span aria-hidden="true">◆</span>
-    <span>راجع تفاصيل السعر والأمتعة وشروط الحجز قبل التأكيد</span>
-    <span aria-hidden="true">◆</span>
-    <span>يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
-    <span aria-hidden="true">◆</span>
-    <span aria-hidden="true">تابع متطلبات السفر والتأشيرة للوجهة قبل موعد الرحلة</span>
-    <span aria-hidden="true">◆</span>
-    <span aria-hidden="true">تأكد من صلاحية جواز السفر والوثائق المطلوبة قبل السفر</span>
-    <span aria-hidden="true">◆</span>
-    <span aria-hidden="true">راجع تفاصيل السعر والأمتعة وشروط الحجز قبل التأكيد</span>
-    <span aria-hidden="true">◆</span>
-    <span aria-hidden="true">يمكنك إرسال طلبك إلى تسنيم ومتابعة حالته إلكترونياً</span>
-    <span aria-hidden="true">◆</span>
-  </div></div>
-  <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" title="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span></button>
+  <div class="travel-news-window"><div class="travel-news-track" aria-label="آخر الأخبار الرسمية"></div></div>  <button class="travel-news-control" id="travel-news-toggle" type="button" aria-label="إيقاف حركة الشريط" title="إيقاف حركة الشريط" aria-pressed="false"><span class="control-icon" aria-hidden="true">Ⅱ</span></button>
   <a class="news-all-link" href="/news.html" aria-label="عرض جميع الأخبار الرسمية">كل الأخبار ←</a>
 </section>
 <main>
@@ -807,38 +789,45 @@ img{max-width:100%}
 </script>
 
 <script>(function(){var p=location.pathname;document.querySelectorAll('#main-navigation a').forEach(function(a){if(a.getAttribute('href')===p){a.setAttribute('aria-current','page')}});})();</script><style id="tasneem-news-marquee-fix">
-.travel-news-window{min-width:0;flex:1 1 auto;overflow:hidden;display:flex;align-items:center;direction:ltr}
-.travel-news-track{display:flex;align-items:center;width:max-content;white-space:nowrap;animation:tasneem-news-scroll 48s linear infinite;will-change:transform;direction:ltr;gap:0;padding:0}
-.travel-news-group{display:flex;align-items:center;flex:0 0 auto;gap:36px;padding-inline:28px;direction:rtl;white-space:nowrap}
-.travel-news-group a{display:inline-block;flex:0 0 auto;max-width:none;color:inherit;text-decoration:none;direction:rtl;white-space:nowrap;line-height:1.5}
-.travel-news-group a:hover{text-decoration:underline;text-underline-offset:5px}
-.travel-news-group .news-separator{color:#9b6a20;font-size:14px;font-weight:900;flex:0 0 auto}
-@keyframes tasneem-news-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:700px){.travel-news-group{gap:20px;padding-inline:14px}.travel-news-track{animation-duration:42s}}
+.travel-news{min-height:54px!important;height:54px!important;max-height:54px!important;overflow:hidden!important}
+.travel-news-window{min-width:0!important;flex:1 1 auto!important;overflow:hidden!important;display:flex!important;align-items:center!important;direction:ltr!important;height:100%!important}
+.travel-news-track{display:flex!important;align-items:center!important;flex:0 0 auto!important;width:max-content!important;gap:0!important;padding:0!important;margin:0!important;white-space:nowrap!important;direction:ltr!important;transform:translateX(-50%);animation:tasneem-news-left-to-right 52s linear infinite!important;will-change:transform;color:#123b32!important;font-family:"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif!important;font-size:17px!important;font-weight:700!important;line-height:1.5!important;text-shadow:none!important}
+.travel-news-group{display:flex!important;align-items:center!important;flex:0 0 auto!important;gap:34px!important;padding:0 30px!important;direction:ltr!important;white-space:nowrap!important}
+.travel-news-group a{display:inline-block!important;flex:0 0 auto!important;max-width:none!important;color:#123b32!important;text-decoration:none!important;direction:rtl!important;text-align:right!important;white-space:nowrap!important;line-height:1.5!important;font-size:17px!important;font-weight:700!important}
+.travel-news-group a:hover{text-decoration:underline!important;text-underline-offset:4px!important}
+.travel-news-group .news-separator{color:#9b6a20!important;font-size:13px!important;font-weight:900!important;flex:0 0 auto!important}
+@keyframes tasneem-news-left-to-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.travel-news.is-paused .travel-news-track{animation-play-state:paused!important}
+@media(max-width:700px){.travel-news{height:46px!important;min-height:46px!important;max-height:46px!important}.travel-news-track{font-size:13px!important;animation-duration:42s!important}.travel-news-group{gap:18px!important;padding-inline:14px!important}.travel-news-group a{font-size:13px!important}}
 @media(prefers-reduced-motion:reduce){.travel-news-track{animation:none!important;transform:none!important}}
 </style>
 <script>
 (function(){
  const track=document.querySelector('.travel-news-track');if(!track)return;
- const url='https://kbllhakivjduwanefvtf.supabase.co/rest/v1/travel_news?select=title,article_url,source_name,fetched_at&is_published=eq.true&order=fetched_at.desc&limit=12';
- const key='sb_publishable_upvTd4y1nomu_QsNu9GgVg';
- function addGroup(items,hidden){
+ const url='https://kbllhakivjduwanefvtf.supabase.co/rest/v1/travel_news?select=title,article_url,source_name,fetched_at&is_published=eq.true&order=fetched_at.desc&limit=10';
+ const key='sb_publishable_upvTd4y1nomu_QsNu9GgVg_Dq4c_6pS';
+ function makeGroup(items,clone){
   const group=document.createElement('div');group.className='travel-news-group';
-  if(hidden)group.setAttribute('aria-hidden','true');
-  items.forEach((item,index)=>{
+  if(clone)group.setAttribute('aria-hidden','true');
+  items.forEach((item,i)=>{
    const a=document.createElement('a');a.href=item.article_url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=item.title;a.title=item.source_name||'مصدر رسمي';group.append(a);
-   if(index<items.length-1){const sep=document.createElement('span');sep.className='news-separator';sep.textContent='◆';sep.setAttribute('aria-hidden','true');group.append(sep);}
+   if(i!==items.length-1){const sep=document.createElement('span');sep.className='news-separator';sep.textContent='◆';sep.setAttribute('aria-hidden','true');group.append(sep);}
   });
   return group;
  }
  fetch(url,{headers:{apikey:key,Authorization:'Bearer '+key}})
- .then(r=>{if(!r.ok)throw Error('news_feed_unavailable');return r.json();})
+ .then(r=>{if(!r.ok)throw new Error('feed '+r.status);return r.json();})
  .then(items=>{
   const valid=items.filter(x=>x.title&&x.article_url);
-  if(!valid.length)return;
-  track.replaceChildren();
-  track.append(addGroup(valid,false),addGroup(valid,true));
+  if(!valid.length)throw new Error('empty feed');
+  track.replaceChildren(makeGroup(valid,false),makeGroup(valid,true));
+  track.dataset.feedState='loaded';
  })
- .catch(()=>{});
+ .catch(()=>{
+  track.replaceChildren();
+  const fallback=document.createElement('div');fallback.className='travel-news-group';
+  const a=document.createElement('span');a.textContent='يتم تحديث الأخبار الرسمية حالياً — يمكنك زيارة مركز الأخبار';a.style.cssText='direction:rtl;color:#123b32;font-size:15px;white-space:nowrap';
+  fallback.append(a);track.append(fallback);track.style.animation='none';track.style.transform='none';track.dataset.feedState='unavailable';
+ });
 })();
 </script></body></html>
