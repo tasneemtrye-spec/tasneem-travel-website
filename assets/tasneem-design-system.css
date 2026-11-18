@@ -137,3 +137,15 @@ header.header nav.links a:hover,header.inner-header nav.links a:hover,.nav-links
  header.header nav.links.is-open a,header.inner-header nav.links.is-open a{color:#fff!important;border-color:rgba(255,255,255,.12)!important}
  .nav-tools .menu{background:#fff8e9!important;color:#123b35!important}
 }
+
+/* Homepage service shortcut rail inspired by the approved reference */
+.quick-services{padding:18px 0 24px!important;background:linear-gradient(180deg,#f4eee2,#fffdf8)!important;border-bottom:1px solid #e8dfcf}
+.quick-services-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}
+.quick-service{min-width:0;min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 9px;border:1px solid #ddcfb7;border-radius:17px;background:linear-gradient(145deg,#fffefa,#f6f0e5);box-shadow:0 6px 18px rgba(68,49,18,.07);color:#173b35;text-align:center;transition:transform .2s,border-color .2s,box-shadow .2s}
+.quick-service:nth-child(-n+2){background:linear-gradient(145deg,#0a463e,#062f2d);border:2px solid #c99a4b;color:#fff8e8}
+.quick-service svg{width:39px;height:39px;fill:none;stroke:#a67a2d;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.quick-service:nth-child(-n+2) svg{stroke:#f1cc78}
+.quick-service strong{font-size:14px;font-weight:900;line-height:1.5}
+.quick-service:hover{transform:translateY(-3px);border-color:#c99a4b;box-shadow:0 12px 25px rgba(68,49,18,.12)}
+@media(max-width:900px){.quick-services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.quick-service{min-height:100px}}
+@media(max-width:520px){.quick-services{padding:12px 0 16px!important}.quick-services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick-service{min-height:88px;padding:10px 7px;border-radius:14px}.quick-service svg{width:32px;height:32px}.quick-service strong{font-size:12px}}
