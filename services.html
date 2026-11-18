@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#173b35"><meta name="description" content="دليل خدمات تسنيم للسفريات والسياحة: حجوزات الطيران والفنادق والبرامج السياحية وخدمات التأشيرات واستفسارات الحج والعمرة.">
-<link rel="canonical" href="https://tasneem-travel-preview.pages.dev/services.html">
+<link rel="canonical" href="https://tasneem-travel.pages.dev/services.html">
 <meta property="og:type" content="website"><meta property="og:locale" content="ar_SA"><meta property="og:title" content="خدمات تسنيم للسفريات والسياحة"><meta property="og:description" content="تعرّف على خدمات السفر والتخطيط والحجز لدى تسنيم.">
 <title>خدمات تسنيم للسفريات والسياحة | دليل الخدمات</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,11 +42,17 @@ body[data-theme="dark"] header{background:#17251f}body[data-theme="dark"] .brand
 @media(max-width:700px){.hero{padding-inline:18px!important}.card,.service,.panel{border-radius:17px!important}}
 
 </style>
-<link rel="stylesheet" href="/assets/brand-refresh.css?v=7669eda7">
+<link rel="stylesheet" href="/assets/brand-refresh.css?v=inner-nav-20261118">
 </head>
 <body>
-<div class="top"><div class="wrap"><span>تسنيم للسفريات والسياحة</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span></div></div>
-<header><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a><nav class="nav-links" aria-label="التنقل"><a href="index.html">الرئيسية</a><a href="#services">الخدمات</a><a href="index.html#destinations">الوجهات</a><a href="index.html#contact">طلب حجز</a></nav><button class="theme" id="theme-toggle" type="button" aria-label="تبديل المظهر">☾</button></div></header>
+<div class="topline"><div class="wrap"><span>من اليمن إلى العالم · رحلتك تبدأ هنا</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span></div></div>
+<header class="header inner-header"><div class="wrap nav">
+<a class="brand" href="/" aria-label="تسنيم - الرئيسية"><img class="brand-logo" src="/assets/tasneem-official.webp" alt="شعار تسنيم"><span>تسنيم للسفريات والسياحة<small>من روح اليمن إلى العالم</small></span></a>
+<nav class="links" id="main-navigation" aria-label="القائمة الرئيسية">
+<a href="/">الرئيسية</a><a href="/about.html">عن تسنيم</a><a href="/services.html">خدماتنا</a><a href="/services.html#services">دليل الخدمات</a><a href="/track.html">متابعة الطلب</a><a href="/privacy.html">الخصوصية</a><a href="/#contact">تواصل معنا</a>
+</nav>
+<div class="nav-tools"><a class="nav-book" href="/#contact">▦ طلب حجز سريع</a><a class="quick-search-launcher" href="/services.html" aria-label="استعراض الخدمات">⌕</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="تبديل المظهر">☾</button><button class="menu" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-navigation">☰</button></div>
+</div></header>
 <main>
 <section class="hero"><div class="wrap"><span class="kicker">دليل خدمات تسنيم</span><h1>رحلتك تبدأ باختيار الخدمة المناسبة</h1><p>استكشف خدمات السفر والتخطيط، ثم أرسل تفاصيل احتياجك لفريق تسنيم. نراجع الخيارات والتوافر والشروط معك قبل تأكيد أي حجز.</p><a class="btn primary" href="index.html#contact">ابدأ طلبك الآن <span>←</span></a> <a class="btn secondary" href="https://wa.me/966537017117" target="_blank" rel="noopener">تواصل عبر واتساب</a></div></section>
 <section class="wrap intro" id="services"><span class="kicker">خياراتك في مكان واحد</span><h2>خدماتنا</h2><p>اختر نوع الخدمة لتصل إلى نموذج الطلب مع تحديد نوع الخدمة مسبقاً. تفاصيل الأسعار والمواعيد تخضع للتأكيد من الفريق ومزود الخدمة.</p></section>
@@ -63,6 +69,14 @@ body[data-theme="dark"] header{background:#17251f}body[data-theme="dark"] .brand
 </main>
 <footer><div class="wrap"><span>© تسنيم للسفريات والسياحة</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="index.html">العودة إلى الرئيسية</a></span><span dir="ltr">+966 53 701 7117</span></div></footer>
 <script>
-const toggle=document.getElementById("theme-toggle");let theme="light";try{theme=localStorage.getItem("tasneem-theme")||"light"}catch(e){};const setTheme=t=>{document.body.dataset.theme=t;document.documentElement.style.colorScheme=t==="dark"?"dark":"light";toggle.textContent=t==="dark"?"☀":"☾";toggle.setAttribute("aria-label",t==="dark"?"تفعيل الوضع النهاري":"تفعيل الوضع الليلي")};setTheme(theme==="dark"?"dark":"light");toggle.addEventListener("click",()=>{const next=document.body.dataset.theme==="dark"?"light":"dark";setTheme(next);try{localStorage.setItem("tasneem-theme",next)}catch(e){}});
+(function(){
+ const menu=document.getElementById('menu-toggle'),nav=document.getElementById('main-navigation');
+ if(menu&&nav&&!menu.dataset.bound){menu.dataset.bound='1';menu.addEventListener('click',function(){const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';});}
+ const theme=document.getElementById('theme-toggle');
+ if(theme&&!theme.dataset.bound){theme.dataset.bound='1';let saved='light';try{saved=localStorage.getItem('tasneem-theme')||'light'}catch(e){}
+ const setTheme=v=>{document.body.dataset.theme=v;document.documentElement.style.colorScheme=v==='dark'?'dark':'light';theme.textContent=v==='dark'?'☀':'☾';theme.setAttribute('aria-label',v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');};
+ setTheme(saved==='dark'?'dark':'light');theme.addEventListener('click',function(){const next=document.body.dataset.theme==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('tasneem-theme',next)}catch(e){}});
+ }
+})();
 </script>
 </body></html>
