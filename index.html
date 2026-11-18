@@ -353,6 +353,54 @@ body[data-theme="dark"] .nav-tools button,body[data-theme="dark"] .nav-tools .qu
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 </style>
+
+<style>
+/* Service cards and inner sections: premium Tasneem visual system */
+#services{padding-block:clamp(54px,6vw,82px)}
+#services .heading{margin-bottom:34px}
+#services .heading .kicker{display:inline-block;color:#a77b35;font-weight:900;letter-spacing:.02em}
+#services .heading h2{color:#123f37;font-size:clamp(28px,3.4vw,40px);font-weight:900;line-height:1.45}
+#services .heading p{max-width:650px;margin-inline:auto;color:#68786f;line-height:2}
+#services .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#services .card{position:relative;overflow:hidden;min-height:235px;padding:26px 24px 23px;border:1px solid #e7e0d3;border-radius:22px;background:linear-gradient(155deg,#fff 0%,#fffdf8 100%);box-shadow:0 12px 30px rgba(23,59,53,.055);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+#services .card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#c99a4b,#f0d18f);opacity:.85}
+#services .card:hover{transform:translateY(-5px);border-color:#d5b36e;box-shadow:0 20px 42px rgba(23,59,53,.11)}
+#services .card .icon{width:52px;height:52px;border:1px solid #eadfc9;border-radius:17px;background:linear-gradient(145deg,#f8f1e4,#eee3ce);color:#17483e;display:grid;place-items:center;font-size:24px}
+#services .card h3{margin:16px 0 7px;color:#123f37;font-size:19px;font-weight:900}
+#services .card p{margin:0 0 15px;color:#68786f;font-size:13px;line-height:1.95}
+#services .card a{display:inline-flex;align-items:center;gap:7px;color:#9a702d;font-weight:900;font-size:13px}
+.band{background:linear-gradient(135deg,#f3eddf,#fbf8f1);border-block:1px solid #e9dfcf}
+.bandgrid>div{padding:clamp(20px,3vw,34px);border:1px solid rgba(201,154,75,.18);border-radius:22px;background:rgba(255,255,255,.58)}
+.band h2{color:#123f37;font-weight:900;line-height:1.5}
+.band p{line-height:2}
+#booking-steps .heading h2{font-weight:900}
+#booking-steps .steps{gap:16px}
+#booking-steps .step{border:1px solid #e8e0d2;border-radius:20px;background:linear-gradient(160deg,#fff,#fffdf8);box-shadow:0 10px 28px rgba(23,59,53,.045);padding:24px}
+#booking-steps .step b{display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:14px;background:#f5ead5;color:#a77b35;font-size:18px}
+#booking-steps .step h3{font-weight:900}
+#booking-steps .step p{line-height:1.9}
+#contact{margin-top:8px;margin-bottom:10px;box-shadow:0 20px 48px rgba(12,54,46,.15)}
+@media(min-width:761px) and (max-width:1050px){
+ #services .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #services .card{min-height:220px}
+ #booking-steps .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+ #services{padding-block:44px}
+ #services .heading{margin-bottom:22px}
+ #services .grid{grid-template-columns:1fr;gap:13px}
+ #services .card{min-height:0;padding:22px 20px;border-radius:18px}
+ #services .card .icon{width:46px;height:46px}
+ #services .card h3{font-size:17px}
+ .bandgrid{grid-template-columns:1fr;gap:14px}
+ .bandgrid>div{padding:21px 18px;border-radius:18px}
+ #booking-steps .steps{grid-template-columns:1fr;gap:12px}
+ #booking-steps .step{padding:19px;border-radius:17px}
+ #contact{width:calc(100% - 28px);padding:32px 18px;border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){#services .card{transition:none}}
+</style>
+
 </head>
 <body>
 <div class="top"><div class="wrap"><span>تسنيم للسفريات والسياحة</span><span dir="ltr">+966 53 701 7117 · tasneemtrye@gmail.com</span></div></div>
